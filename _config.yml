@@ -16,12 +16,12 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "TooTouch"
+title                    : "Giang Nguyen"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "TooTouch"
+name                     : "Giang Nguyen"
 description              : "An amazing website."
-url                      : "https://tootouch.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://luulinh90s.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -107,11 +107,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "Jaehyuk Heo (TooTouch)"
+  name             : "Giang Nguyen (Dexter)"
   avatar           : "assets/images/front/profile.jpg"
-  bio              : "Data Scientist who want to be influencer"
-  location         : "Seoul"
-  email            : "wogur379@gmail.com"
+  bio              : "Undefined!"
+  location         : "Daejeon"
+  email            : "nguyengiangbkhn@gmail.com"
   links:
     - label: "CV"
       icon: "fas fa-fw fa-sticky-note"

@@ -118,19 +118,16 @@ author:
       url: "https://drive.google.com/open?id=1u-t1VWojvDctNLZmhEOQY0oQo2mRRvQ9"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/tootouch"
+      url: "https://github.com/luulinh90s"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/jaehyuk-heo-7b4055140/"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
-      url: "https://www.facebook.com/jaehyuck.heo"
+      url: "https://www.facebook.com/emnoigido.nhungtuiquenroi"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/heo_bllfpc/?hl=ko"
-    - label: "DNA Blog"
-      icon: "fas fa-fw fa-link"
-      url: "https://datanetworkanalysis.github.io/"
+      url: "https://www.instagram.com/dexterng7/"
 
 
 # Site Footer
@@ -138,13 +135,13 @@ footer:
   links:
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
-      url: "https://www.facebook.com/jaehyuck.heo"
+      url: "https://www.facebook.com/emnoigido.nhungtuiquenroi"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/tootouch"
+      url: "https://github.com/luulinh90s"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/heo_bllfpc/?hl=ko"
+      url: "https://www.instagram.com/dexterng7/"
 
 
 # Reading Files

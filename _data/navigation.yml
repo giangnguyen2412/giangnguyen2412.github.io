@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "About me"
-    url: /_posts/
+    url: /_posts/2021-05-30-about-me.md
   - title: "Publications"
     url: /publications/
   - title: "Hobby Projects"

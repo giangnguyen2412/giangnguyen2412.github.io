@@ -1,12 +1,14 @@
 # main links
 main:
   - title: "About me"
-    url: /year-archive/
+    url: https://www.dropbox.com/s/yz098imk244k7cz/GiangNV_CV_Jan2021
   - title: "Publications"
-    url: /categories/
+    url: /publications/
+  - title: "Hobby Projects"
+    url: /hobby_prjs/
   - title: "Books"
-    url: /tags/
+    url: /books/
   - title: "Stories"
-    url: /page-archive/
+    url: /stories/
   - title: "Collections"
-    url: /collection-archive/
+    url: /collections/

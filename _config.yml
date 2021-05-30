@@ -123,18 +123,18 @@ author:
       icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/harukipedia7/"
 
-# Site Footer
-footer:
-  links:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      url: "https://www.facebook.com/giangnguyen2412/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/giangnguyen2412"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/harukipedia7/"
+# # Site Footer
+# footer:
+#   links:
+#     - label: "Facebook"
+#       icon: "fab fa-fw fa-facebook-square"
+#       url: "https://www.facebook.com/giangnguyen2412/"
+#     - label: "GitHub"
+#       icon: "fab fa-fw fa-github"
+#       url: "https://github.com/giangnguyen2412"
+#     - label: "Instagram"
+#       icon: "fab fa-fw fa-instagram"
+#       url: "https://www.instagram.com/harukipedia7/"
 
 
 # Reading Files

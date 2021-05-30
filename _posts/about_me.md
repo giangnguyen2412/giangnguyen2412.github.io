@@ -6,4 +6,6 @@ After nearly two years working at Dasan Zhone Solutions Vietnam and G-innovation
 
 I am now a Ph.D student at CSSE department - Auburn university, US -- working under Anh Nguyen's supervision. 
 
-My research interests are Explainable AI and Machine Learning.
+My research interests are Explainable AI and Machine Learning. 
+
+You can find my [https://www.dropbox.com/s/yz098imk244k7cz/GiangNV_CV_Jan2021](**CV**) here!

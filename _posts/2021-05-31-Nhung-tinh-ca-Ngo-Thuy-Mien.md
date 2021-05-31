@@ -2,25 +2,25 @@
 
 Anh từng hát, Cho em mùa thu
 
-Trong những đêm ánh trăng vương áo mỏng
+Trong những đêm tháng tư, trăng còn tỏ
 
-Tóc em mềm bay theo chiều gió lộng
+Tóc em huyền bay theo chiều lộng gió
 
-Đường anh về, nghe lối cũ lao xao
+Đường anh về, cả hạ đó xôn xao
 
 
 
-Em có còn nhớ những ráng chiều
+Em còn nhớ, ôi những ráng chiều
 
 Anh ôm em hát bài Niệm khúc cuối
 
 Dẫu cơn mưa còn về giăng khắp lối
 
-Anh xin đưa em, đến cuối cuộc đời
+Xin được đưa, em đến cuối cuộc đời
 
 
 
-Hai phương trời, xa cách hai phương trời
+Hai phương trời, ôi xa cách phương trời
 
 Hoa có còn hồng không em? Độ ấy
 

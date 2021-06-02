@@ -1,0 +1,1 @@
+1. Nguyen G., Chen S., Jun T.J., Kim D. (2021) Explaining How Deep Neural Networks Forget by Deep Visualization. In: Del Bimbo A. et al. (eds) Pattern Recognition. ICPR International Workshops and Challenges. ICPR 2021. Lecture Notes in Computer Science, vol 12663. Springer, Cham. https://doi.org/10.1007/978-3-030-68796-0_12  

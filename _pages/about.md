@@ -4,7 +4,7 @@ layout: single
 permalink: /about/
 ---
 
-# Greetings!
+## Greetings!
 
 I am Giang Nguyen (or Dexter). I got B.Eng in Computer Engineering at School of [Electronics and Telecommunications](https://set.hust.edu.vn/), HUST, Hanoi in 2016.
 

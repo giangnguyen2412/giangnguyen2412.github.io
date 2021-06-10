@@ -4,7 +4,7 @@ layout: single
 permalink: /books/
 ---
 
-I'd like to write some book (or novel) reviews here, which (may) be arranged by author name.
+I'd like to write some book (or novel) reviews here, which are arranged by author name.
 
 ### Haruki Murakami
 

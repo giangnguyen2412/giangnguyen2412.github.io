@@ -4,9 +4,9 @@ layout: single
 permalink: /hobby_projects/
 ---
 
-# Book translation
+### Book translation
 
-## Interpretable Machine Learning: A Guide for Making Black Box Models Explainable by Christoph Molnar
+##### Interpretable Machine Learning: A Guide for Making Black Box Models Explainable by Christoph Molnar
 
 This is my hobby project while doing Master in KAIST, South Korea.
 

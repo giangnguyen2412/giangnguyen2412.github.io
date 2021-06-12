@@ -12,17 +12,17 @@ Hah! Interesting! So we have a long way to go, neuroscientists say.
 
 Reading further, there are 5 big questions in brain science now, but the concerns that seems to be most related to AI (or Neural Networks) are:
 
-1. What is the brain made of?
+* What is the brain made of?
 
 We are building Artificial NNs (ANNs) using **naive** neurons while there are types of neurons and other brain cells that have not been well studied and understood. So CNN or even SNN, they are not similar to brains at some degrees.
 
-2. How do neurons talk to each other?
+* How do neurons talk to each other?
 
 > The majority of neurons use one of two common signaling molecules known as neurotransmitters, GABA or glutamate, that are known to pass through specialized synapses. But there are many other types of signaling molecules present in the brain, and it’s not clear how those molecules get their message across.
 
 The way neurons interract with others in ANNs is now fairly simple even the AI communtity has been groaning about the complexity of models, so what will happen if the connection changes?
 
-3. How does the brain compute?
+* How does the brain compute?
 
 We are using calculus and algebra to simulate the computation but Koch said:
 

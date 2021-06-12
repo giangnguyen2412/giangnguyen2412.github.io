@@ -1,4 +1,4 @@
-# Những lời ca Ngô Thụy Miên
+# Dưới đây là 2 bài hát theo tôi cả một thời gian dài bên Hàn Quốc, nên xin tự đặt tựa là -- Những tình ca Ngô Thuỵ Miên. 
 
 Anh từng hát, Cho em mùa thu
 
@@ -28,4 +28,4 @@ Tình bơ vơ còn lời gì trăn trối
 
 Gửi về nhau, cho gối mộng bình yên
 
---- Hanoi 31 May ---
+--- Hanoi May of 21 ---

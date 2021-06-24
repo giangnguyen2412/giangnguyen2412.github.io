@@ -14,4 +14,4 @@ I am now a Ph.D student at [CSSE department](https://www.eng.auburn.edu/comp/) -
 
 My research interests are **Explainable AI** and **Machine Learning**. 
 
-You can find my [**CV**](https://www.dropbox.com/s/yz098imk244k7cz/GiangNV_CV_Jan2021) or [**Google Scholar**](https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en) here!
+You can find my [**CV**](https://www.dropbox.com/s/54maxqhbj7hc76b/VanGiangNguyen_resume.pdf?dl=0) or [**Google Scholar**](https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en) here!

@@ -6,4 +6,7 @@ Good things ahead!
 
 The US sky looks nice today...
 
-![](https://github.com/giangnguyen2412/giangnguyen2412.github.io/tree/master/assets/images/post/20210814_133620.jpeg)
+<p align="center">
+    <img src='https://github.com/giangnguyen2412/giangnguyen2412.github.io/tree/master/assets/images/post/20210814_133620.jpeg'/><br>
+    <i></i>
+</p>

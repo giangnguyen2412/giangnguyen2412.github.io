@@ -7,6 +7,6 @@ Good things ahead!
 The US sky looks nice today...
 
 <p align="center">
-    <img src='https://github.com/giangnguyen2412/giangnguyen2412.github.io/tree/master/assets/images/post/20210814_133620.jpeg'/><br>
-    <i></i>
+    <img src='https://github.com/giangnguyen2412/giangnguyen2412.github.io/blob/ced67fc2ff1ea534d502dd9be68f93008c81e0c7/assets/images/post/20210814_133620.jpeg/><br>
+    <i>A sunny day in Alabama</i>
 </p>

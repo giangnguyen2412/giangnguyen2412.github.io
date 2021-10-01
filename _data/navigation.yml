@@ -4,16 +4,16 @@ main:
   #   url: /about/
   - title: "Publications"
     url: /publications/
-    class: wide
+    classes: wide
   - title: "Hobby Projects"
     url: /hobby_projects/
-    class: wide
+    classes: wide
   - title: "Books"
     url: /books/
-    class: wide
+    classes: wide
   - title: "Stories"
     url: /stories/
-    class: wide
+    classes: wide
   - title: "Collections"
     url: /collections/
-    class: wide
+    classes: wide

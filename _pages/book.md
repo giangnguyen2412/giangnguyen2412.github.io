@@ -26,3 +26,12 @@ I'd like to write some book (or novel) reviews here, which are arranged by autho
 
 - The Ice Man: The deepest manner of a man, who is absolutely isolated.
 
+### Misc
+
+- The Metamorphosis by Franz Kafka
+
+- The Fountainhead by Ayn Rand
+
+- Thinking, Fast and Slow by Daniel Kahneman
+
+- No longer human by Osamu Dazai

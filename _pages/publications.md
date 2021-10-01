@@ -7,7 +7,7 @@ permalink: /publications/
 
 #### 2021
 
-1. Nguyen, G., Kim, D. and Nguyen, A., 2021. **The effectiveness of feature attribution methods and its correlation with automatic evaluation scores**. arXiv preprint arXiv:2105.14944.
+1. Nguyen, G., Kim, D. and Nguyen, A., 2021. **The effectiveness of feature attribution methods and its correlation with automatic evaluation scores**. Thirty-fifth Conference on Neural Information Processing Systems (NeurIPS 2021), Dec. 6-14, 2021.
 
 #### 2020
 

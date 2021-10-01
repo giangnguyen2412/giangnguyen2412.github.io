@@ -2,6 +2,7 @@
 title: Hobby Projects
 layout: single
 permalink: /hobby_projects/
+claseses: wide
 ---
 
 ### Book translation

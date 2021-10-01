@@ -2,7 +2,7 @@
 title: Books
 layout: single
 permalink: /books/
-claseses: wide
+<!-- claseses: wide -->
 ---
 
 I'd like to write some book (or novel) reviews here, which are arranged by author name, and I grouped novels by content.

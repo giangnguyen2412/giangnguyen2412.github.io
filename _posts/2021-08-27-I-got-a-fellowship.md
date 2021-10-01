@@ -2,7 +2,7 @@
 title: "I got a fellowship"
 categories: 
     - Life
-toc: true
+toc: false
 ---
 
 

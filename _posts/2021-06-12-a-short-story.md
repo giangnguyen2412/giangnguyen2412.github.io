@@ -2,7 +2,7 @@
 title: "A short story? Yeah, and I am curious about what you said!"
 categories: 
     - Life
-toc: true
+toc: false
 ---
 
 

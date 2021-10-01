@@ -2,7 +2,7 @@
 title: "Welcome to USA"
 categories: 
     - Life
-toc: true
+toc: false
 ---
 
 

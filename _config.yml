@@ -211,7 +211,7 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: splash
+      layout: single
       author_profile: false
       read_time: true
       comments: true
@@ -222,14 +222,14 @@ defaults:
       path: "_pages"
       type: pages
     values:
-      layout: splash
+      layout: single
       author_profile: false
   # _IML
   - scope:
       path: ""
       type: IML
     values: 
-      layout: splash
+      layout: single
       read_time: true
       author_profile: true
       share: true
@@ -241,7 +241,7 @@ defaults:
       path: ""
       type: portfolio
     values: 
-      layout: splash
+      layout: single
       read_time: true
       author_profile: true
       share: true

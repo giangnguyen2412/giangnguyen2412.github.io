@@ -2,7 +2,8 @@
 title: "A paper got accepted at NeurIPS2021"
 categories: 
     - Research
-toc: true
+toc: false
+classes: wide
 ---
 
 Our paper: The effectiveness of feature attribution methods and its correlation with automatic evaluation scores got accepted at NeurIPS 2021.

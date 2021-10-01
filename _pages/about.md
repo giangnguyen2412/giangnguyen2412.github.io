@@ -2,6 +2,7 @@
 title: About me
 layout: single
 permalink: /about/
+class: wide
 ---
 
 ## Greetings!

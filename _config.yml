@@ -12,7 +12,7 @@
 
 theme                  	: minimal-mistakes-jekyll
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "aqua" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "mint" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -109,7 +109,7 @@ analytics:
 author:
   name             : "Giang Nguyen (Dexter)"
   avatar           : "assets/images/avatar.jpeg"
-  bio              : "Learning to comprehend"
+  bio              : "Learning to explain"
   location         : "Alabama, US"
   email            : "nguyengiangbkhn@gmail.com"
   links:
@@ -119,9 +119,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/giangnguyen2412"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/harukipedia7/"
+    # - label: "Instagram"
+    #   icon: "fab fa-fw fa-instagram"
+    #   url: "https://www.instagram.com/harukipedia7/"
 
 # # Site Footer
 # footer:

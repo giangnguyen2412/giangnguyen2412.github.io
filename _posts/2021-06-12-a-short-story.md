@@ -1,3 +1,11 @@
+---
+title: "A short story? Yeah, and I am curious about what you said!"
+categories: 
+    - Life
+toc: true
+---
+
+
 # Brain science vs. AI. Why you say Spike NN is like your brain in terms of working mechanism?
 
 Today, I visited a friend. He talked about his ambitious project but what really impressed me is that he insist the similarity in working between brains vs. Spike Neural Networks (idle states of neurons, working in parallel, low energy, etc.)

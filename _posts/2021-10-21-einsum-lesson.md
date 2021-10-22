@@ -22,6 +22,6 @@ print(arr2.sum())
 
 And I used ```arr1 = torch.einsum("ab,cd->ad", b, a)``` for matrix multiplication. 
 
-Now three weeks of running experiments may be wasted. This again remind me the System1 in this book and I was completed manipulated my System over the past three weeks :D
+Now three weeks of running experiments may be wasted. This again reminds me the System1 in [this book](https://www.amazon.com/Thinking-Fast-Slow-Daniel-Kahneman/dp/0374533555) and I was completed manipulated my System1 over the past three weeks :D
 
 But I got very promising results even I did not use the proper matrix multiplication. This suggests that sometimes mistakes can lead us to unexpectectedly surprising results.

@@ -117,7 +117,7 @@ author:
       imagescon: "fas fa-graduation-cap"
       url: "https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en"
     - label: "Curriculum Vitae"
-      icon: "fas fa-fw fa-sticky-note"
+      icon: "fas fa-file"
       url: "https://www.dropbox.com/s/sowlrip6rbg5sgz/CV.pdf?dl=0"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"

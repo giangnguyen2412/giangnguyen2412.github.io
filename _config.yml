@@ -119,7 +119,7 @@ author:
     - label: "Resume"
       icon: "fas fa-file"
       url: "https://www.dropbox.com/s/sowlrip6rbg5sgz/CV.pdf?dl=0"
-      - label: "GitHub"
+    - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/giangnguyen2412"
       # - label: "Facebook"

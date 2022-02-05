@@ -15,4 +15,4 @@ I am now a Ph.D student (President Graduate Research Fellow) at [CSSE department
 
 My research interests are **Explainable AI**, **Machine Learning**, and **Computer Vision**.
 
-You can find my [**GitHub**](https://github.com/giangnguyen2412), [**CV**](https://www.dropbox.com/s/sowlrip6rbg5sgz/CV.pdf?dl=0), or [**Google Scholar**](https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en) as linked!
+You can find my [**GitHub**](https://github.com/giangnguyen2412), resumes both for [**academia**](https://www.dropbox.com/s/sowlrip6rbg5sgz/resume_academia.pdf?dl=0) and [**industry**](https://www.dropbox.com/s/kn26qaei59ha7ts/resume_industry.pdf?dl=0), or [**Google Scholar**](https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en) as linked!

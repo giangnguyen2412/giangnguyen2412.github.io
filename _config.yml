@@ -113,7 +113,7 @@ author:
   location         : "Alabama, US"
   email            : "nguyengiangbkhn@gmail.com"
   links:
-    - label: "Curriculum Vitae"
+    - label: "Resume"
       icon: "fas fa-fw fa-sticky-note"
       url: "https://www.dropbox.com/s/sowlrip6rbg5sgz/CV.pdf?dl=0"
     - label: "Google Scholar"

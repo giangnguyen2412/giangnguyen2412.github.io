@@ -38,3 +38,7 @@ I'd like to write some book (or novel) reviews here, which are arranged by autho
 - No longer human by Osamu Dazai
 
 - Journey to the East by Blair T. Spalding and Nguyen Phong translator.
+
+- David and Goliath by Malcolm Gladwell
+
+- Evidence of the Afterlife: The Science of Near-Death Experiences by Jeffrey Long and Paul Perry

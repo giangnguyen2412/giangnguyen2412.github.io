@@ -1,5 +1,5 @@
 ---
-title: "Welcome to USA"
+title: "First day in US. It's hot!!!"
 categories: 
     - Life
 toc: false

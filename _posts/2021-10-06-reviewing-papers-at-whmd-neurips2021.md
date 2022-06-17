@@ -1,5 +1,5 @@
 ---
-title: "I serve as a reviewer at WHMD-Workshop@NeurIPS2021"
+title: "Reviewer at WHMD@NeurIPS2021"
 categories: 
     - Research
 toc: false

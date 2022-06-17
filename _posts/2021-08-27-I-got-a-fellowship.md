@@ -1,5 +1,5 @@
 ---
-title: "I got a fellowship"
+title: "I got a prestigious fellowship"
 categories: 
     - Life
 toc: false

@@ -1,5 +1,5 @@
 ---
-title: "Invited talk @ Explainable AI group, on Evaluating interpretability in computer vision"
+title: "Invited talk @ Explainable AI group"
 categories: 
     - Life
 toc: false

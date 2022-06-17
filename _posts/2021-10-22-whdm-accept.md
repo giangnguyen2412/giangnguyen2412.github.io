@@ -1,5 +1,5 @@
 ---
-title: "Our work got accepted at the Workshop on Human and Machine Decisions @ NeurIPS 2021"
+title: "One paper got accepted at the WHDM@NeurIPS2021"
 categories: 
     - Research
 toc: false

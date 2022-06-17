@@ -1,5 +1,5 @@
 ---
-title: "One paper got accepted at the WHDM@NeurIPS2021"
+title: "One paper got accepted at WHDM@NeurIPS2021"
 categories: 
     - Research
 toc: false

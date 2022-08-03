@@ -107,18 +107,18 @@ analytics:
 
 # Site Author
 author:
-  name             : "Giang Nguyen (Dexter)"
-  avatar           : "assets/images/avatar.jpeg"
-  bio              : "Learning to explain"
-  location         : "Alabama, US"
+  name             : "Giang Nguyen"
+  avatar           : "assets/images/avatar.png"
+#  bio              : "Prev@KAIST-Korea, now PhD in Auburn Univ"
+#  location         : "AL, US"
   email            : "nguyengiangbkhn@gmail.com"
   links:
     - label: "Resume"
       icon: "fas fa-fw fa-sticky-note"
       url: "https://www.dropbox.com/s/sowlrip6rbg5sgz/CV.pdf?dl=0"
-    - label: "Google Scholar"
-      icon: "fas fa-graduation-cap"
-      url: "https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en"
+#    - label: "Google Scholar"
+#      icon: "fas fa-graduation-cap"
+#      url: "https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/giangnguyen2412"

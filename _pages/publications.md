@@ -7,7 +7,7 @@ permalink: /publications/
 
 #### 2022
 
-1. `Nguyen, G.`, `Taesiri, M.`, Nguyen, A., 2022. **Visual correspondence-based explanations improve human-AI team accuracy**. (XAI4CV@CVPR2022).
+1. Nguyen, G., Taesiri, M., Nguyen, A., 2022. **Visual correspondence-based explanations improve human-AI team accuracy**. (XAI4CV@CVPR2022).
 Two first authors contributed equally.
 #### 2021
 

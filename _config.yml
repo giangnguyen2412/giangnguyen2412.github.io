@@ -125,9 +125,9 @@ author:
     # - label: "Instagram"
     #   icon: "fab fa-fw fa-instagram"
     #   url: "https://www.instagram.com/harukipedia7/"
-    - - label: "Resume"
-        icon: "fas fa-fw fa-sticky-note"
-        url: "https://www.dropbox.com/s/sowlrip6rbg5sgz/CV.pdf?dl=0"
+    - label: "Resume"
+      icon: "fas fa-fw fa-sticky-note"
+      url: "https://www.dropbox.com/s/sowlrip6rbg5sgz/CV.pdf?dl=0"
 
 # # Site Footer
 # footer:

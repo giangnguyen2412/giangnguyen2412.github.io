@@ -2,18 +2,18 @@
 main:
   # - title: "About me"
   #   url: /about/
-  - title: "Publications"
+  - title: "Research"
     url: /publications/
     # classes: wide
-  - title: "Hobby Projects"
+  - title: "Projects"
     url: /hobby_projects/
     # classes: wide
-  - title: "Books"
-    url: /books/
-    # classes: wide
-  - title: "Stories"
-    url: /stories/
-    # classes: wide
-  - title: "Collections"
-    url: /collections/
-    # classes: wide
+#  - title: "Books"
+#    url: /books/
+#    # classes: wide
+#  - title: "Stories"
+#    url: /stories/
+#    # classes: wide
+#  - title: "Collections"
+#    url: /collections/
+#    # classes: wide

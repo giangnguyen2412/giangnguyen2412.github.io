@@ -9,7 +9,7 @@ permalink: /publications/
 
 1. Nguyen, G., Taesiri, M., Nguyen, A., 2022. **Visual correspondence-based explanations improve human-AI team accuracy**. (XAI4CV@CVPR2022).
 Two first authors contributed equally.
-
+    
 #### 2021
 
 1. Nguyen, G., Kim, D. and Nguyen, A., 2021. **The effectiveness of feature attribution methods and its correlation with automatic evaluation scores**. (NeurIPS2021, WHMD@NeurIPS2021).

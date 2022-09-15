@@ -14,5 +14,3 @@ I spent 2 years working in Hanoi, Vietnam at [DASAN Zhone Solutions Vietnam](htt
 I am now a Ph.D student (President Graduate Research Fellow) at [CSSE department](https://www.eng.auburn.edu/comp/) - Auburn university, US -- working with [Prof. Anh Nguyen](https://anhnguyen.me/lab/). 
 
 My research interests are **Explainable AI**, **Machine Learning**, and **Computer Vision**.
-
-You can find my [**GitHub**](https://github.com/giangnguyen2412), resumes both for [**academia**](https://www.dropbox.com/s/oh3hppr4djeup3l/resume_academia.pdf?dl=0) and [**industry**](https://www.dropbox.com/s/kn26qaei59ha7ts/resume_industry.pdf?dl=0), or [**Google Scholar**](https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en) as linked!

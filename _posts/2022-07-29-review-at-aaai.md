@@ -1,5 +1,5 @@
 ---
-title: "PC member (reviewer) at AAAI-23 and AISTATS-23"
+title: "PC member (reviewer) at ICLR, AAAI, and AISTATS-23"
 categories: 
     - Research
 toc: false

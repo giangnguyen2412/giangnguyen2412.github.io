@@ -15,7 +15,9 @@ I am now a Ph.D student (Presidential Graduate Research Fellow) at [CSSE departm
 
 My research interests are **Explainable AI**, **Machine Learning**, and **Computer Vision**. -->
 
-Giang Nguyen is a second-year computer science PhD student at Auburn University, US, working with [Dr. Anh Nguyen](https://anhnguyen.me/lab/). He is also a Presidential Fellow as he was awarded the prestigious Presidential Graduate Research Fellowship at Auburn University in 2021. Prior to joining Auburn, he earned his M.Sc in [Computer Science](https://cs.kaist.ac.kr/) at KAIST, South Korea in August, 2020.
+Giang Nguyen is a second-year computer science PhD student at Auburn University, US, working with [Dr. Anh Nguyen](https://anhnguyen.me/lab/). He is also a Presidential Fellow as he was awarded the prestigious Presidential Graduate Research Fellowship at Auburn University in 2021. 
+
+Prior to joining Auburn, he earned his M.Sc in [Computer Science](https://cs.kaist.ac.kr/) at KAIST, South Korea in August, 2020.
 
 His research interests are **Explainable AI**, **Human-AI Interaction**, and **Computer Vision**. He has published at top-tier AI conferences (e.g. NeurIPS) and been an active reviewer for premier AI research venues, such as ICCV, ICLR, and AAAI.
 

@@ -219,10 +219,10 @@ defaults:
     values:
       layout: single
       author_profile: false
-      read_time: true
+      read_time: false # Changed to false for compactness
       comments: true
-      share: true 
-      related: true
+      share: true
+      related: false # Changed to false for compactness
   # _pages
   - scope:
       path: "_pages"
@@ -263,7 +263,8 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
+# paginate: 5 # amount of posts to show
+paginate: 10 # Increased from 5 to 10
 paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 

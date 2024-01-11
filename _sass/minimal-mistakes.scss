@@ -38,3 +38,28 @@
 @import "minimal-mistakes/archive";
 @import "minimal-mistakes/sidebar";
 @import "minimal-mistakes/print";
+
+/* Custom CSS for Compact Layout */
+
+/* Reduce Title Size */
+.title, .post-title {
+    font-size: 20px; /* Adjust as needed */
+}
+
+/* Reduce Margin and Padding in Posts */
+.post {
+    margin-bottom: 10px; /* Reduced margin */
+    padding: 10px; /* Reduced padding */
+}
+
+/* Compact Header and Navigation */
+.site-header, .site-nav {
+    padding: 5px; /* Reduced padding */
+}
+
+/* Adjust Teaser Images */
+.teaser {
+    max-height: 100px; /* Adjust as needed */
+    overflow: hidden;
+}
+

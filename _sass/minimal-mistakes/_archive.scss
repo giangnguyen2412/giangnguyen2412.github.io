@@ -43,7 +43,7 @@ Reducing vertical spacing for post titles
 .archive__subtitle {
   margin: 1.414em 0 0;
   padding-bottom: 0.10em;
-  font-size: $type-size-6;
+  font-size: $type-size-8;
   color: $muted-text-color;
   border-bottom: 1px solid $border-color;
 
@@ -87,7 +87,7 @@ Reducing vertical spacing for post titles
 
 .archive__item-excerpt {
   margin-top: 0;
-  font-size: $type-size-6;
+  font-size: $type-size-8;
 
   & + p {
     text-indent: 0;
@@ -216,7 +216,7 @@ Reducing vertical spacing for post titles
 
   .archive__item-title {
     margin-top: 0.5em;
-    font-size: $type-size-5;
+    font-size: $type-size-8;
   }
 
   .archive__item-excerpt {
@@ -224,7 +224,7 @@ Reducing vertical spacing for post titles
 
     @include breakpoint($medium) {
       display: block;
-      font-size: $type-size-6;
+      font-size: $type-size-8;
     }
   }
 

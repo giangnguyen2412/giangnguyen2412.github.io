@@ -18,27 +18,27 @@
   }
 }
 
-// Reducing vertical spacing for post titles
-// .archive__item {
-//   margin-bottom: 0.3em; // Reduce this as needed to decrease space between posts
-// }
+Reducing vertical spacing for post titles
+.archive__item {
+  margin-bottom: 0.3em; // Reduce this as needed to decrease space between posts
+}
 
 // .archive__item-title {
 //   margin: 0.3em 0; // Reduce top and bottom margin
 // }
 
-.archive__item {
-  position: relative;
+// .archive__item {
+//   position: relative;
 
-  a {
-    position: relative;
-    z-index: 10;
-  }
+//   a {
+//     position: relative;
+//     z-index: 10;
+//   }
 
-  a[rel="permalink"] {
-    position: static;
-  }
-}
+//   a[rel="permalink"] {
+//     position: static;
+//   }
+// }
 
 .archive__subtitle {
   margin: 1.414em 0 0;
@@ -53,7 +53,7 @@
 }
 
 .archive__item-title {
-  margin-bottom: 0.25em;
+  margin-bottom: 0.20em;
   font-family: $sans-serif-narrow;
   line-height: initial;
   overflow: hidden;

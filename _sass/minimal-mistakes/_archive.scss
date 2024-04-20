@@ -18,63 +18,59 @@
   }
 }
 
-Reducing vertical spacing for post titles
-.archive__item {
-  margin-bottom: 0.20em; // Reduce this as needed to decrease space between posts
-}
-
-.archive__item-title {
-  margin: 0.20em 0; // Reduce top and bottom margin
-}
-
+// Reducing vertical spacing for post titles
 // .archive__item {
-//   position: relative;
-
-//   a {
-//     position: relative;
-//     z-index: 10;
-//   }
-
-//   a[rel="permalink"] {
-//     position: static;
-//   }
+//   margin-bottom: 0.5em; // Reduce this as needed to decrease space between posts
 // }
+
+// .archive__item-title {
+//   margin: 0.5em 0; // Reduce top and bottom margin
+// }
+
+.archive__item {
+  position: relative;
+
+  a {
+    position: relative;
+    z-index: 10;
+  }
+
+  a[rel="permalink"] {
+    position: static;
+  }
+}
 
 .archive__subtitle {
   margin: 1.414em 0 0;
-  padding-bottom: 0.10em;
-  font-size: $type-size-8;
+  padding-bottom: 0.5em;
+  font-size: $type-size-5;
   color: $muted-text-color;
   border-bottom: 1px solid $border-color;
 
   + .list__item .archive__item-title {
-    margin-top: 0.20em;
+    margin-top: 0.5em;
   }
 }
 
-// .archive__item-title {
-//   margin-bottom: 0.20em;
-//   font-family: $sans-serif-narrow;
-//   line-height: initial;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
+.archive__item-title {
+  margin-bottom: 0.25em;
+  font-family: $sans-serif-narrow;
+  line-height: initial;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
-//   a[rel="permalink"]::before {
-//     content: '';
-//     position: absolute;
-//     left: 0;
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//   }
+  a[rel="permalink"]::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
 
-//   a + a {
-//     opacity: 0.5;
-//   }
-// }
-
-.archive__item-title a {
-  text-decoration: none; // This will remove the underline
+  a + a {
+    opacity: 0.5;
+  }
 }
 
 /* remove border*/
@@ -87,7 +83,7 @@ Reducing vertical spacing for post titles
 
 .archive__item-excerpt {
   margin-top: 0;
-  font-size: $type-size-8;
+  font-size: $type-size-6;
 
   & + p {
     text-indent: 0;
@@ -140,7 +136,7 @@ Reducing vertical spacing for post titles
 .list__item {
   .page__meta {
     margin: 0 0 4px;
-    font-size: 0.4em;
+    font-size: 0.6em;
   }
 }
 
@@ -211,12 +207,12 @@ Reducing vertical spacing for post titles
 
   .page__meta {
     margin: 0 0 4px;
-    font-size: 0.4em;
+    font-size: 0.6em;
   }
 
   .archive__item-title {
     margin-top: 0.5em;
-    font-size: $type-size-8;
+    font-size: $type-size-5;
   }
 
   .archive__item-excerpt {
@@ -224,7 +220,7 @@ Reducing vertical spacing for post titles
 
     @include breakpoint($medium) {
       display: block;
-      font-size: $type-size-8;
+      font-size: $type-size-6;
     }
   }
 
@@ -256,7 +252,7 @@ Reducing vertical spacing for post titles
 .feature__item {
   position: relative;
   margin-bottom: 2em;
-  font-size: 0.8em;
+  font-size: 1.125em;
 
   @include breakpoint($small) {
     float: left;
@@ -305,7 +301,7 @@ Reducing vertical spacing for post titles
     margin-right: 0;
     width: 100%;
     clear: both;
-    font-size: 0.8em;
+    font-size: 1.125em;
 
     .archive__item {
       float: left;
@@ -346,7 +342,7 @@ Reducing vertical spacing for post titles
     margin-right: 0;
     width: 100%;
     clear: both;
-    font-size: 0.8em;
+    font-size: 1.125em;
 
     .archive__item {
       float: left;
@@ -389,7 +385,7 @@ Reducing vertical spacing for post titles
     margin-right: 0;
     width: 100%;
     clear: both;
-    font-size: 0.8em;
+    font-size: 1.125em;
 
     .archive__item {
       float: left;
@@ -431,7 +427,7 @@ Reducing vertical spacing for post titles
   .feature__wrapper {
     .archive__item-title {
       margin-top: 0.25em;
-      font-size: 0.4em;
+      font-size: 1em;
     }
   }
 
@@ -439,7 +435,7 @@ Reducing vertical spacing for post titles
   .feature__item--left,
   .feature__item--center,
   .feature__item--right {
-    font-size: 0.4em;
+    font-size: 1em;
   }
 }
 

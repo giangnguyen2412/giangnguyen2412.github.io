@@ -1,5 +1,5 @@
 ---
-title: "I gave a talk @ L3S Research Center, Delft University of Technology (TU Delft)"
+title: "I gave a talk at TU Delft"
 categories: 
     - Research
 toc: false

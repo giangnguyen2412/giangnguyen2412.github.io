@@ -256,7 +256,7 @@ Reducing vertical spacing for post titles
 .feature__item {
   position: relative;
   margin-bottom: 2em;
-  font-size: 1.125em;
+  font-size: 0.8em;
 
   @include breakpoint($small) {
     float: left;
@@ -305,7 +305,7 @@ Reducing vertical spacing for post titles
     margin-right: 0;
     width: 100%;
     clear: both;
-    font-size: 1.125em;
+    font-size: 0.8em;
 
     .archive__item {
       float: left;
@@ -346,7 +346,7 @@ Reducing vertical spacing for post titles
     margin-right: 0;
     width: 100%;
     clear: both;
-    font-size: 1.125em;
+    font-size: 0.8em;
 
     .archive__item {
       float: left;
@@ -389,7 +389,7 @@ Reducing vertical spacing for post titles
     margin-right: 0;
     width: 100%;
     clear: both;
-    font-size: 1.125em;
+    font-size: 0.8em;
 
     .archive__item {
       float: left;

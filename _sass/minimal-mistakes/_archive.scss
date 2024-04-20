@@ -20,11 +20,11 @@
 
 Reducing vertical spacing for post titles
 .archive__item {
-  margin-bottom: 0.25em; // Reduce this as needed to decrease space between posts
+  margin-bottom: 0.15em; // Reduce this as needed to decrease space between posts
 }
 
 .archive__item-title {
-  margin: 0.25em 0; // Reduce top and bottom margin
+  margin: 0.15em 0; // Reduce top and bottom margin
 }
 
 // .archive__item {
@@ -42,13 +42,13 @@ Reducing vertical spacing for post titles
 
 .archive__subtitle {
   margin: 1.414em 0 0;
-  padding-bottom: 0.3em;
-  font-size: $type-size-5;
+  padding-bottom: 0.15em;
+  font-size: $type-size-6;
   color: $muted-text-color;
   border-bottom: 1px solid $border-color;
 
   + .list__item .archive__item-title {
-    margin-top: 0.3em;
+    margin-top: 0.15em;
   }
 }
 

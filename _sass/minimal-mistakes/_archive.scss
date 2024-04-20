@@ -19,26 +19,26 @@
 }
 
 // Reducing vertical spacing for post titles
-.archive__item {
-  margin-bottom: 0.3em; // Reduce this as needed to decrease space between posts
-}
-
-.archive__item-title {
-  margin: 0.3em 0; // Reduce top and bottom margin
-}
-
 // .archive__item {
-//   position: relative;
-
-//   a {
-//     position: relative;
-//     z-index: 10;
-//   }
-
-//   a[rel="permalink"] {
-//     position: static;
-//   }
+//   margin-bottom: 0.3em; // Reduce this as needed to decrease space between posts
 // }
+
+// .archive__item-title {
+//   margin: 0.3em 0; // Reduce top and bottom margin
+// }
+
+.archive__item {
+  position: relative;
+
+  a {
+    position: relative;
+    z-index: 10;
+  }
+
+  a[rel="permalink"] {
+    position: static;
+  }
+}
 
 .archive__subtitle {
   margin: 1.414em 0 0;
@@ -52,26 +52,30 @@
   }
 }
 
-// .archive__item-title {
-//   margin-bottom: 0.25em;
-//   font-family: $sans-serif-narrow;
-//   line-height: initial;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
+.archive__item-title {
+  margin-bottom: 0.25em;
+  font-family: $sans-serif-narrow;
+  line-height: initial;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
-//   a[rel="permalink"]::before {
-//     content: '';
-//     position: absolute;
-//     left: 0;
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//   }
+  a[rel="permalink"]::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
 
-//   a + a {
-//     opacity: 0.5;
-//   }
-// }
+  a + a {
+    opacity: 0.5;
+  }
+}
+
+.archive__item-title a {
+  text-decoration: none; // This will remove the underline
+}
 
 /* remove border*/
 .page__content {

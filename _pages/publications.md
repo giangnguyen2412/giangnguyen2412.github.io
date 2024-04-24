@@ -5,6 +5,16 @@ permalink: /publications/
 <!-- claseses: wide -->
 ---
 
+#### 2024
+
+1. Nguyen, G., Taesiri, M.R., Kim, S.S. and Nguyen, A., 2024. **Allowing humans to interactively guide machines where to look does not always improve a human-AI team's classification accuracy**. (CVPRW2024)
+
+2. Nguyen, G., Chen, V., Taesiri, M.R. and Nguyen, A., 2024. **PCNN: Probable-Class Nearest-Neighbor Explanations Improve Fine-Grained Image Classification Accuracy for AIs and Humans**. (arXiv2024)
+
+#### 2023
+
+1. Taesiri, M.R., Nguyen, G., Habchi, S., Bezemer, C.P. and Nguyen, A., 2023. **Imagenet-hard: The hardest images remaining from a study of the power of zoom and spatial biases in image classification**. (NeurIPS2023).
+
 #### 2022
 
 1. Nguyen, G., Taesiri, M., Nguyen, A., 2022. **Visual correspondence-based explanations improve human-AI team accuracy**. (NeurIPS2022, XAI4CV@CVPR2022).

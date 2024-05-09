@@ -73,6 +73,12 @@
   }
 }
 
+.archive__item-date {
+  font-size: $type-size-6;
+  color: $muted-text-color;
+  margin-top: 0.5em;
+}
+
 /* remove border*/
 .page__content {
   .archive__item-title {

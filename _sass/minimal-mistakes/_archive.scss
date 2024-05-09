@@ -79,6 +79,27 @@
   margin-top: 0.5em;
 }
 
+.archive__item-title-date-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.archive__item-title {
+  margin-bottom: 0;
+  font-family: $sans-serif-narrow;
+  line-height: initial;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.archive__item-date {
+  font-size: $type-size-6;
+  color: $muted-text-color;
+  white-space: nowrap;
+  margin-left: 1em;
+}
+
 /* remove border*/
 .page__content {
   .archive__item-title {

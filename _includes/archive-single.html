@@ -40,13 +40,13 @@
       </div>
     {% endif %}
     <div class="archive__item-title-date-wrapper">
-      <h8 class="archive__item-title">
+      <h9 class="archive__item-title">
         {% if post.link %}
           <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
         {% else %}
           <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
         {% endif %}
-      </h8>
+      </h9>
       <p class="archive__item-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i> {{ post.date | date: "%b %-d, %Y" }}
       </p>

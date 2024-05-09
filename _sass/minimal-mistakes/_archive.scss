@@ -101,10 +101,20 @@
 }
 
 /* remove border*/
+//.page__content {
+//  .archive__item-title {
+//    margin-top: 1em;
+//    border-bottom: none;
+//  }
+//}
+
 .page__content {
   .archive__item-title {
-    margin-top: 1em;
-    border-bottom: none;
+    font-size: $type-size-5; // Adjust the font size as needed
+  }
+
+  .archive__item-teaser {
+    font-size: $type-size-6; // Adjust the font size as needed
   }
 }
 

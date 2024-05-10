@@ -17,7 +17,7 @@ His research interests are **Explainable AI**, **Human-AI Interaction**, and **C
 
 You can see his latest resume [here](https://giangnguyen2412.github.io/assets/resume/Giang_resume.pdf). 📄
 
-## What he's done 💪
+## He loves nearest-neighbor-based explanations! 🤖 
 
 - Giang has been actively showing the utility of nearest-neighbor explanations for human users in computer vision.
 Check out his [NeurIPS2021](https://proceedings.neurips.cc/paper/2021/file/de043a5e421240eb846da8effe472ff1-Paper.pdf), [NeurIPS2022](https://openreview.net/pdf?id=UavQ9HYye6n), [CVPRW2024](https://arxiv.org/pdf/2404.05238), and new [under-review](https://arxiv.org/pdf/2308.13651) papers. 📃

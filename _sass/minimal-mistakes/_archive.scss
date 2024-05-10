@@ -97,12 +97,12 @@
       line-height: initial;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-size: $type-size-5;
+      font-size: $type-size-4;
       text-align: left; // Add this line to left-align the post title
     }
 
     .archive__item-date {
-      font-size: $type-size-6;
+      font-size: $type-size-4;
       color: $muted-text-color;
       white-space: nowrap;
     }

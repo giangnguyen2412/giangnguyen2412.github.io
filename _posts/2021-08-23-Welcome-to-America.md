@@ -12,4 +12,4 @@ Good things ahead!
 
 The US sky looks nice today... but Geezz! It's burning hot!
 
-![A sunny day in Alabama](../assets/images/post/20210814_133620.jpeg)
+![A sunny day in Alabama](../assets/images/20210814_133620.jpeg)

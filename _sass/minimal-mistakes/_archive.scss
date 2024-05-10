@@ -49,6 +49,46 @@
 
     .archive__item-categories {
       margin-right: 1em;
+
+      a {
+        display: inline-block;
+        margin-right: 0.5em;
+        font-size: $type-size-6;
+
+        &[href*="/categories/#Research"] {
+          &::before {
+            content: "🔬 ";
+          }
+        }
+
+        &[href*="/categories/#Award"] {
+          &::before {
+            content: "🏆 ";
+          }
+        }
+
+        &[href*="/categories/#Travel"] {
+          &::before {
+            content: "✈️ ";
+          }
+        }
+
+        &[href*="/categories/#Life"] {
+          &::before {
+            content: "🌍 ";
+          }
+        }
+
+        &[href*="/categories/#Technology"] {
+          &::before {
+            content: "💻 ";
+          }
+        }
+
+        &::before {
+          margin-right: 0.25em;
+        }
+      }
     }
 
     .archive__item-title {
@@ -57,7 +97,7 @@
       line-height: initial;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-size: $type-size-5; // Reduce the font size for the post title
+      font-size: $type-size-5;
     }
 
     .archive__item-date {

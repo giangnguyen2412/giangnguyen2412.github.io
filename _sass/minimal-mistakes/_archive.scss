@@ -16,153 +16,103 @@
     width: calc(100% - #{$right-sidebar-width});
     padding-right: $right-sidebar-width;
   }
-}
 
-// Reducing vertical spacing for post titles
-// .archive__item {
-//   margin-bottom: 0.5em; // Reduce this as needed to decrease space between posts
-// }
-
-// .archive__item-title {
-//   margin: 0.5em 0; // Reduce top and bottom margin
-// }
-
-.archive__item {
-  position: relative;
-
-  a {
+  .archive__item {
     position: relative;
-    z-index: 10;
+
+    a {
+      position: relative;
+      z-index: 10;
+    }
+
+    a[rel="permalink"] {
+      position: static;
+    }
   }
 
-  a[rel="permalink"] {
-    position: static;
-  }
-}
+  .archive__subtitle {
+    margin: 1.414em 0 0;
+    padding-bottom: 0.5em;
+    font-size: $type-size-5;
+    color: $muted-text-color;
+    border-bottom: 1px solid $border-color;
 
-.archive__subtitle {
-  margin: 1.414em 0 0;
-  padding-bottom: 0.5em;
-  font-size: $type-size-5;
-  color: $muted-text-color;
-  border-bottom: 1px solid $border-color;
-
-  + .list__item .archive__item-title {
-    margin-top: 0.5em;
-  }
-}
-
-.archive__item-title {
-  margin-bottom: 0.25em;
-  font-family: $sans-serif-narrow;
-  line-height: initial;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  a[rel="permalink"]::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    + .list__item .archive__item-title {
+      margin-top: 0.5em;
+    }
   }
 
-  a + a {
-    opacity: 0.5;
+  .archive__item-title-date-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .archive__item-categories {
+      margin-right: 1em;
+    }
+
+    .archive__item-title {
+      margin-bottom: 0;
+      font-family: $sans-serif-narrow;
+      line-height: initial;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: $type-size-5; // Reduce the font size for the post title
+    }
+
+    .archive__item-date {
+      font-size: $type-size-6;
+      color: $muted-text-color;
+      white-space: nowrap;
+    }
   }
-}
 
-.archive__item-date {
-  font-size: $type-size-6;
-  color: $muted-text-color;
-  margin-top: 0.5em;
-}
+  .archive__item-excerpt {
+    margin-top: 0;
+    font-size: $type-size-6;
 
-.archive__item-title-date-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    & + p {
+      text-indent: 0;
+    }
 
-.archive__item-title {
-  margin-bottom: 0;
-  font-family: $sans-serif-narrow;
-  line-height: initial;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.archive__item-date {
-  font-size: $type-size-6;
-  color: $muted-text-color;
-  white-space: nowrap;
-  margin-left: 1em;
-}
-
-/* remove border*/
-//.page__content {
-//  .archive__item-title {
-//    margin-top: 1em;
-//    border-bottom: none;
-//  }
-//}
-
-.page__content {
-  .archive__item-title {
-    font-size: $type-size-4; // Adjust the font size as needed
+    a {
+      position: relative;
+    }
   }
 
   .archive__item-teaser {
-    font-size: $type-size-5; // Adjust the font size as needed
-  }
-}
-
-.archive__item-excerpt {
-  margin-top: 0;
-  font-size: $type-size-6;
-
-  & + p {
-    text-indent: 0;
-  }
-
-  a {
     position: relative;
-  }
-}
+    border-radius: $border-radius;
+    overflow: hidden;
 
-.archive__item-teaser {
-  position: relative;
-  border-radius: $border-radius;
-  overflow: hidden;
-
-  img {
-    width: 100%;
-  }
-}
-
-.archive__item-caption {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 0 auto;
-  padding: 2px 5px;
-  color: #fff;
-  font-family: $caption-font-family;
-  font-size: $type-size-8;
-  background: #000;
-  text-align: right;
-  z-index: 5;
-  opacity: 0.5;
-  border-radius: $border-radius 0 0 0;
-
-  @include breakpoint($large) {
-    padding: 5px 10px;
+    img {
+      width: 100%;
+    }
   }
 
-  a {
+  .archive__item-caption {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 2px 5px;
     color: #fff;
-    text-decoration: none;
+    font-family: $caption-font-family;
+    font-size: $type-size-8;
+    background: #000;
+    text-align: right;
+    z-index: 5;
+    opacity: 0.5;
+    border-radius: $border-radius 0 0 0;
+
+    @include breakpoint($large) {
+      padding: 5px 10px;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
   }
 }
 

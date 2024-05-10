@@ -12,7 +12,4 @@ Good things ahead!
 
 The US sky looks nice today...
 
-<p align="center">
-    <img src="../assets/images/post/20210814_133620.jpeg"/><br>
-    <i>A sunny day in Alabama</i>
-</p>
+![A sunny day in Alabama](../assets/images/post/20210814_133620.jpeg)

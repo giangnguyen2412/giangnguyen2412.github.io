@@ -98,6 +98,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       font-size: $type-size-5;
+      text-align: left; // Add this line to left-align the post title
     }
 
     .archive__item-date {
@@ -155,6 +156,8 @@
     }
   }
 }
+
+/* Rest of the CSS code remains the same */
 
 /*
    List view

@@ -18,22 +18,6 @@
       </div>
     {% endif %}
     <div class="archive__item-title-date-wrapper">
-      {% if post.categories %}
-        <div class="archive__item-categories">
-          {% for category in post.categories %}
-            {% case category %}
-              {% when 'Life' %}
-                <a href="{{ category | slugify | prepend: "/categories/#" }}"><i class="fas fa-heart" aria-hidden="true"></i> {{ category }}</a>
-              {% when 'Technology' %}
-                <a href="{{ category | slugify | prepend: "/categories/#" }}"><i class="fas fa-code" aria-hidden="true"></i> {{ category }}</a>
-              {% when 'Travel' %}
-                <a href="{{ category | slugify | prepend: "/categories/#" }}"><i class="fas fa-plane" aria-hidden="true"></i> {{ category }}</a>
-              {% else %}
-                <a href="{{ category | slugify | prepend: "/categories/#" }}"><i class="fas fa-tag" aria-hidden="true"></i> {{ category }}</a>
-            {% endcase %}
-          {% endfor %}
-        </div>
-      {% endif %}
       <div class="archive__item-date-title">
         <p class="archive__item-date">
           <i class="far fa-calendar-alt" aria-hidden="true"></i> {{ post.date | date: "%b %Y" }}

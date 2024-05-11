@@ -134,10 +134,10 @@
   .archive__item-date-title {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   .archive__item-date {
-    font-size: $type-size-8;
+    font-size: $type-size-4;
     color: $muted-text-color;
     white-space: nowrap;
     margin-right: 1em;
@@ -149,11 +149,15 @@
     line-height: initial;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: $type-size-6;
+    font-size: $type-size-4;
     text-align: left;
     flex-grow: 1;
   }
-}
+  }
+
+  .archive__item-categories {
+  display: none;
+  }
 
   .archive__item-caption {
     position: absolute;

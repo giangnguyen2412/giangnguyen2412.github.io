@@ -32,9 +32,16 @@ changed the research topic.
 
 ### Failure #4: Genentech/Prescient Design Internship
 
-### Success #1: Research Internship at Megagon Labs
+### Success #1: Research Internship at Megagon Labs (Declined)
+**Story:** I do love the vibe at Megagon Labs. I had a great time interviewing with them, and I was
+deeply impressed by the work they are doing and the vibe of the team. The two who interviewed me
+were super nice and I have no doubt that I would have had a great time working with them.
+However, I had to decline the offer because I had already accepted an offer from JP Morgan Chase.
 
-### Success #2: Research Internship at JP Morgan Chase
+### Success #2: Research Internship at JP Morgan Chase (Accepted)
+**Story:** Who does not want to work on some cool AI stuffs for the biggest financial firm in the world?
+I just felt like the attraction from JP Morgan Chase was too strong to resist.
+Plus, I think the compensation here is incomparable to any other internship I have seen so far.
 
 ## Paper Submissions
 

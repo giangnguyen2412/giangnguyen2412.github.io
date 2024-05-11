@@ -7,7 +7,9 @@ main:
     # classes: wide
   - title: "Projects"
     url: /hobby_projects/
-    # classes: wide
+  - title: "Lessons"
+    url: /lessons/
+  # classes: wide
 #  - title: "Books"
 #    url: /books/
 #    # classes: wide

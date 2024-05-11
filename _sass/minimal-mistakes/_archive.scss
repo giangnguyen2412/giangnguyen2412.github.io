@@ -131,6 +131,30 @@
     }
   }
 
+  .archive__item-date-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .archive__item-date {
+    font-size: $type-size-4;
+    color: $muted-text-color;
+    white-space: nowrap;
+    margin-right: 1em;
+  }
+
+  .archive__item-title {
+    margin-bottom: 0;
+    font-family: $sans-serif-narrow;
+    line-height: initial;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: $type-size-4;
+    text-align: left;
+    flex-grow: 1;
+  }
+}
+
   .archive__item-caption {
     position: absolute;
     bottom: 0;
@@ -156,6 +180,7 @@
     }
   }
 }
+
 
 /* Rest of the CSS code remains the same */
 

@@ -137,7 +137,7 @@
   justify-content: space-between;
 
   .archive__item-date {
-    font-size: $type-size-4;
+    font-size: $type-size-8;
     color: $muted-text-color;
     white-space: nowrap;
     margin-right: 1em;
@@ -149,7 +149,7 @@
     line-height: initial;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: $type-size-4;
+    font-size: $type-size-6;
     text-align: left;
     flex-grow: 1;
   }

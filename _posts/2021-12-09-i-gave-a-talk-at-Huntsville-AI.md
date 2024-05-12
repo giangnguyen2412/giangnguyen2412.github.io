@@ -1,5 +1,5 @@
 ---
-title: "Talk at Huntsville.AI"
+title: "🔈 Talk at Huntsville.AI"
 categories: 
     - Research
 toc: false

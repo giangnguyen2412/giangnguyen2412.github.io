@@ -1,5 +1,5 @@
 ---
-title: "1st day in US"
+title: "🇺🇸 1st day in US"
 categories: 
     - Life
 toc: false

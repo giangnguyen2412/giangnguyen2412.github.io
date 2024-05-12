@@ -1,5 +1,5 @@
 ---
-title: "Talk at Explainable AI group"
+title: "🔈 Talk at Explainable AI group"
 categories: 
     - Life
 toc: false

@@ -1,5 +1,5 @@
 ---
-title: "🎉 NeurIPS2021 - The effectiveness of feature attribution maps
+title: "🎉 NeurIPS2021 - The effectiveness of feature attribution maps"
 categories: 
     - Research
 toc: false

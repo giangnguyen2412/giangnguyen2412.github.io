@@ -1,5 +1,5 @@
 ---
-title: "<i class="fa-solid fa-memory"></i> 1st day in US"
+title: "1st day in US"
 categories: 
     - Life
 toc: false

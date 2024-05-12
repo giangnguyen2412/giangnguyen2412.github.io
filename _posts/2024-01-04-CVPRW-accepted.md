@@ -1,5 +1,5 @@
 ---
-title: "<i class="fa-brands fa-google-scholar"></i> CVPRW2024 - Interactive visual explanations"
+title: "CVPRW2024 - Interactive visual explanations"
 categories: 
     - Research
 toc: false

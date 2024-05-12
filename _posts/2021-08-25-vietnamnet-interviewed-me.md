@@ -1,5 +1,5 @@
 ---
-title: "<i class="fa-solid fa-photo-film"></i> Chat with Vietnamnet"
+title: "Chat with Vietnamnet"
 categories: 
     - Media
 toc: false

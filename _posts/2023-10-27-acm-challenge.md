@@ -1,5 +1,5 @@
 ---
-title: "We won the ACM MMSports 2023 Instance Segmentation"
+title: "<i class="fa-solid fa-trophy"></i> 1st at ACM MMSports 2023 Instance Segmentation"
 categories: 
     - Research
 toc: false

@@ -1,5 +1,5 @@
 ---
-title: "A paper got accepted at NeurIPS2021"
+title: "<i class="fa-brands fa-google-scholar"></i> NeurIPS2021 - The effectiveness of feature attribution maps
 categories: 
     - Research
 toc: false

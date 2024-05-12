@@ -1,5 +1,5 @@
 ---
-title: "I gave a talk @ Huntsville.AI"
+title: "<i class="fa-solid fa-volume-high"></i> Talk at Huntsville.AI"
 categories: 
     - Research
 toc: false

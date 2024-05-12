@@ -1,5 +1,5 @@
 ---
-title: "One paper got accepted at XAI4CV@CVPR2024"
+title: "<i class="fa-brands fa-google-scholar"></i> CVPRW2024 - Interactive visual explanations"
 categories: 
     - Research
 toc: false

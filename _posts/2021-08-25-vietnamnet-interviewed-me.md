@@ -1,5 +1,5 @@
 ---
-title: "Vietnamnet interviewed me"
+title: "<i class="fa-solid fa-photo-film"></i> Chat with Vietnamnet"
 categories: 
     - Media
 toc: false

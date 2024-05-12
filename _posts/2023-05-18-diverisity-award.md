@@ -1,5 +1,5 @@
 ---
-title: "I got the Diversity Graduate Student Support Award!"
+title: "<i class="fa-solid fa-trophy"></i> Diversity Award!"
 categories: 
     - Awards
 toc: false

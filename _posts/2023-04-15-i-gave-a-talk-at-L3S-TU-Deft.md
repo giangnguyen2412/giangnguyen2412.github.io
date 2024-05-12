@@ -1,5 +1,5 @@
 ---
-title: "I gave a talk at TU Delft"
+title: "<i class="fa-solid fa-volume-high"></i> Talk at TU Delft"
 categories: 
     - Research
 toc: false

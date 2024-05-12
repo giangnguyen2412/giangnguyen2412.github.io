@@ -1,5 +1,5 @@
 ---
-title: "<i class="fa-solid fa-trophy"></i> Presidential Fellowship"
+title: "Presidential Fellowship"
 categories: 
     - Life
 toc: false

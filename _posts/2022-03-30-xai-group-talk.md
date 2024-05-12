@@ -1,5 +1,5 @@
 ---
-title: "<i class="fa-solid fa-volume-high"></i> Talk at Explainable AI group"
+title: "Talk at Explainable AI group"
 categories: 
     - Life
 toc: false

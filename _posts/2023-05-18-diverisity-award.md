@@ -1,5 +1,5 @@
 ---
-title: "<i class="fa-solid fa-trophy"></i> Diversity Award!"
+title: "Diversity Award!"
 categories: 
     - Awards
 toc: false

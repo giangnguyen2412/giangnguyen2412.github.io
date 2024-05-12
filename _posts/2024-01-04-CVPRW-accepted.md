@@ -1,5 +1,5 @@
 ---
-title: "CVPRW2024 - Interactive visual explanations"
+title: "<i class='fas fa-file-alt'></i> CVPRW2024 - Interactive visual explanations"
 categories: 
     - Research
 toc: false

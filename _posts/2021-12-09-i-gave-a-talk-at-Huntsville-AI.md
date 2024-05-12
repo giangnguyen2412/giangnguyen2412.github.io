@@ -1,5 +1,5 @@
 ---
-title: "<i class="fa-solid fa-volume-high"></i> Talk at Huntsville.AI"
+title: "Talk at Huntsville.AI"
 categories: 
     - Research
 toc: false

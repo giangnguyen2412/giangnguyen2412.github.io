@@ -1,5 +1,5 @@
 ---
-title: "Diversity Award!"
+title: "🏆 Diversity Award!"
 categories: 
     - Awards
 toc: false

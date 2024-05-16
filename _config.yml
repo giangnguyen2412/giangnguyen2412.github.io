@@ -218,7 +218,7 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: false
+      author_profile: true
       read_time: false # Changed to false for compactness
       comments: true
       share: true
@@ -229,7 +229,7 @@ defaults:
       type: pages
     values:
       layout: single
-      author_profile: false
+      author_profile: true
       classes: wide
   # _IML
   - scope:

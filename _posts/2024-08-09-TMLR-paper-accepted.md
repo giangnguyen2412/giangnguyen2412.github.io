@@ -1,5 +1,5 @@
 ---
-title: "🎉 Transactions on Machine Learning Research - Probable-class nearest neighbor explanations or PCNN"
+title: "🎉 TMLR2024 - Probable-class nearest neighbor explanations"
 categories: 
     - Research
 toc: false

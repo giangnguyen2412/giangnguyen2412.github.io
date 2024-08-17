@@ -28,6 +28,7 @@ Check out his [NeurIPS2021](https://proceedings.neurips.cc/paper/2021/file/de043
 ### Working with Giang? 👨‍💻
 
 > I have the capacity to mentor undergraduate or Master's students conducting AI research. Our latest collaboration effort has resulted in this [paper](https://arxiv.org/abs/2304.00557). 
-> Currently, I am mentoring a few undergraduate students in-and-outside US. 🧑‍🎓
 
-> I am also open to collaborating with researchers from different disciplines and institutions to produce excellent and high-impact research. My interests are not limited to those mentioned. Feel free to reach me at nguyengiangbkhn@gmail.com! 💌
+[//]: # (> Currently, I am mentoring a few undergraduate students in-and-outside US. 🧑‍🎓)
+
+[//]: # (> I am also open to collaborating with researchers from different disciplines and institutions to produce excellent and high-impact research. My interests are not limited to those mentioned. Feel free to reach me at nguyengiangbkhn@gmail.com! 💌)

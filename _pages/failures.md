@@ -34,11 +34,13 @@ Bummer! Finally, the guy who was my contact at Sony AI reached out to me after 5
 changed the research topic.
 </div>
 
-### Failure #2: Research Internship at Apple
+[//]: # (### Failure #2: Research Internship at Apple)
 
-### Failure #3: Research Internship at Microsoft
+[//]: # ()
+[//]: # (### Failure #3: Research Internship at Microsoft)
 
-### Failure #4: Genentech/Prescient Design Internship
+[//]: # ()
+[//]: # (### Failure #4: Genentech/Prescient Design Internship)
 
 ### Success #1: Research Internship at Megagon Labs (Declined)
 <button onclick="toggleVisibility('success1')">Read Story</button>
@@ -57,8 +59,48 @@ I just felt like the attraction from JP Morgan Chase was too strong to resist.
 Plus, I think the compensation here is incomparable to any other internship I have seen so far.
 </div>
 
-## Paper Submissions
+[//]: # (## Paper Submissions)
 
-### Failure #1: Paper rejected at AAAI 2024
+[//]: # ()
+[//]: # (### Failure #1: Paper rejected at AAAI 2024)
 
-### Failure #2: Paper withdrawn from ICML 2024
+[//]: # ()
+[//]: # (### Failure #2: Paper withdrawn from ICML 2024)
+
+## Doing research and growing
+
+### [TMLR2024](https://openreview.net/pdf?id=OcFjqiJ98b): A roller-coaster journey
+
+Everything starts from CVPR 2022.
+
+We wrote a [paper](https://openreview.net/pdf?id=UavQ9HYye6n) where we conduct a human study to investigate the effectiveness of nearest-neighbor explanations for image classification.
+I wonder, given the human data, can I train a model that can capture the human notion of evaluation and automate the process of evaluating XAI methods?
+Back then and even thus far, evaluating XAI methods has been the holy grail of Artificial Intelligence (AI).
+I was even further inspired by the [work](https://openreview.net/pdf?id=48Js-sP8wnv) from [Valerie](https://valeriechen.github.io/) (CMU) where she tried to automate the process of evaluating XAI methods using SimEvals agents.
+Then, I reached out to Valerie, and we started working on this project together, for 2 years, from 2022 to 2024.
+
+Yet, building a SimEvals agent in vision tasks is non-trivial. In the beginning, we tried to let a deep learning model learn to perform the [decision-making task](https://proceedings.neurips.cc/paper/2021/file/de043a5e421240eb846da8effe472ff1-Paper.pdf) 
+using attribution maps or nearest-neighbors, none of them worked.
+
+Actually, the key is the data and how we perform data augmentation.
+We recognized that the data we collected from the human study was not enough to train a model that can capture the human notion of evaluation.
+The key that makes our model work is the data augmentation technique we used (e.g. positive & negative sample curation).
+
+At the end of the day, we have a model that can perform the decision-making task with very high accuracy, at more than 90%.
+Remember that the best in literature so far is ~70% reported in [visual-corr paper](https://openreview.net/pdf?id=UavQ9HYye6n).
+
+But we did not stop. Actually, in the beginning, I invented the term "AdvisingNet" to refer to our model because our model is giving advice on the "correctness" of another AI model.
+Yet, finally, as we specifically use nearest neighbor and image comparison to do the task, we decided to go for "image comparator" - a much less fancy name :D 
+
+But the fun part is in the middle of the project.
+We were stuck to make the model work. We tried many things, but none of them worked. A few times, my PhD advisor asked me to skill the project 💀💀💀.
+
+I was pretty down at that time. But deep inside, I know it is now or never.
+If I quit, I can never be a senior PhD student and giving up is not my thing, ever.
+
+I think at the same time, my PhD advisor challenged me and also motivated me.
+There is nothing clearly wrong or right, but the thing is we keep going and overcome the hurdles.
+
+After the paper being accepted, I feel like I have grown a lot, in mindset. I am confident to work independently and drive the project to success.
+
+In conclusion, I think the key to success is to keep going, no matter what.

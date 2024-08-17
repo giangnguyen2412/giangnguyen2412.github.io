@@ -71,6 +71,8 @@ Plus, I think the compensation here is incomparable to any other internship I ha
 
 ### [TMLR2024](https://openreview.net/pdf?id=OcFjqiJ98b): A roller-coaster journey
 
+<button onclick="toggleVisibility('research2')">Read Story</button>
+<div id="research2" style="display:none;">
 Everything starts from CVPR 2022.
 
 We wrote a [paper](https://openreview.net/pdf?id=UavQ9HYye6n) where we conduct a human study to investigate the effectiveness of nearest-neighbor explanations for image classification.
@@ -104,3 +106,5 @@ There is nothing clearly wrong or right, but the thing is we keep going and over
 After the paper being accepted, I feel like I have grown a lot, in mindset. I am confident to work independently and drive the project to success.
 
 In conclusion, I think the key to success is to keep going, no matter what.
+
+</div>

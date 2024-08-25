@@ -93,7 +93,7 @@ But we did not stop. Actually, in the beginning, I invented the term "AdvisingNe
 Yet, finally, as we specifically use nearest neighbor and image comparison to do the task, we decided to go for "image comparator" - a much less fancy name :D 
 
 But the fun part is in the middle of the project.
-We were stuck to make the model work. We tried many things, but none of them worked. A few times, my PhD advisor asked me to skill the project 💀💀💀.
+We were stuck to make the model work. We tried many things, but none of them worked. A few times, my PhD advisor asked me to kill the project 💀💀💀.
 
 I was pretty down at that time. But deep inside, I know it is now or never.
 If I quit, I can never be a senior PhD student and giving up is not my thing, ever.

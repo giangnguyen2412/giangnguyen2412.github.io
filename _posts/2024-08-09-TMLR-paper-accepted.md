@@ -15,4 +15,5 @@ Cars-196, and Dogs-120.
 Also, a human study finds that showing layusers our PCNN explanations
 improves their decision accuracy over showing only the top-1 class examples (as in prior work).
 
-This is a 2-year project and there is a very interesting story behind it. Stay tuned and I will tell you all about it :)
+This is a 2-year project and there is a very interesting story behind it.
+Look at the Lessons page to read my story 📚.

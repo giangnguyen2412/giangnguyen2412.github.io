@@ -82,18 +82,18 @@ Then, I reached out to Valerie, and we started working on this project together,
 Yet, building a SimEvals agent in vision tasks is non-trivial. In the beginning, we tried to let a deep learning model learn to perform the [decision-making task](https://proceedings.neurips.cc/paper/2021/file/de043a5e421240eb846da8effe472ff1-Paper.pdf) 
 using attribution maps or nearest-neighbors, none of them worked.
 
-Actually, the key is the data and how we perform data augmentation.
+[//]: # (Actually, the key is the data and how we perform data augmentation.)
 We recognized that the data we collected from the human study was not enough to train a model that can capture the human notion of evaluation.
 The key that makes our model work is the data augmentation technique we used (e.g. positive & negative sample curation).
 
 At the end of the day, we have a model that can perform the decision-making task with very high accuracy, at more than 90%.
 Remember that the best in literature so far is ~70% reported in [visual-corr paper](https://openreview.net/pdf?id=UavQ9HYye6n).
 
-But we did not stop. Actually, in the beginning, I invented the term "AdvisingNet" to refer to our model because our model is giving advice on the "correctness" of another AI model.
+Here is a fun fact. In the beginning of the project, I invented the term "AdvisingNet" to refer to our model because our model is giving advice on the "correctness" of another AI model.
 Yet, finally, as we specifically use nearest neighbor and image comparison to do the task, we decided to go for "image comparator" - a much less fancy name :D 
 
-But the fun part is in the middle of the project.
-We were stuck to make the model work. We tried many things, but none of them worked. A few times, my PhD advisor asked me to kill the project 💀💀💀.
+But the best part is in the middle of the project.
+We were stuck to make the model work. We tried many things, but none of them worked. A few times, my PhD advisor asked me to kill the project 💀💀💀 to not let the sunk cost increase.
 
 I was pretty down at that time. But deep inside, I know it is now or never.
 If I quit, I can never be a senior PhD student and giving up is not my thing, ever.
@@ -103,4 +103,4 @@ There is nothing clearly wrong or right, but the thing is we keep going and over
 
 After the paper being accepted, I feel like I have grown a lot, in mindset. I am confident to work independently and drive the project to success.
 
-In conclusion, I think the key to success is to keep going, no matter what.
+[//]: # (In conclusion, I think the key to success is to keep going, no matter what.)

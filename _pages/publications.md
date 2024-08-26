@@ -9,7 +9,7 @@ permalink: /publications/
 
 1. Nguyen, G., Taesiri, M.R., Kim, S.S. and Nguyen, A., 2024. **[Allowing humans to interactively guide machines where to look does not always improve a human-AI team's classification accuracy](https://arxiv.org/pdf/2404.05238)**. (CVPRW2024)
 
-2. Nguyen, G., Chen, V., Taesiri, M.R. and Nguyen, A., 2024. **[PCNN: Probable-Class Nearest-Neighbor Explanations Improve Fine-Grained Image Classification Accuracy for AIs and Humans](https://arxiv.org/pdf/2308.13651)**. (arXiv2024)
+2. Nguyen, G., Chen, V., Taesiri, M.R. and Nguyen, A., 2024. **[PCNN: Probable-Class Nearest-Neighbor Explanations Improve Fine-Grained Image Classification Accuracy for AIs and Humans](https://arxiv.org/pdf/2308.13651)**. (TMLR2024)
 
 #### 2023
 

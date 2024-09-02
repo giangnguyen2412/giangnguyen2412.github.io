@@ -7,11 +7,13 @@ classes: wide
 
 ## Greetings! 🤗
 
-Giang Nguyen is a 3rd-year computer science PhD student at Auburn University, US, working with [Anh Nguyen](https://anhnguyen.me/lab/). 
+Giang Nguyen (or Dexter) is a 4th-year computer science PhD student at Auburn University, US, working with [Anh Nguyen](https://anhnguyen.me/lab/). 
 He is also a Presidential Fellow as he was awarded the prestigious Presidential Graduate Research Fellowship at Auburn University in 2021. 🎉
 
 
 Prior to joining Auburn, he earned his M.Sc. in [Computer Science](https://cs.kaist.ac.kr/) at KAIST, South Korea in August 2020. 🇰🇷
+
+During his PhD, he has working as a Summer Research Associate at [JP Morgan AI Research](https://www.jpmorgan.com/technology/artificial-intelligence), Manhattan, NYC, NY, in the summer of 2024. 🏙️
 
 His research interests are **Explainable AI**, **Human-AI Interaction**, and **Computer Vision**. 🧠 He has published at top-tier AI conferences (e.g. NeurIPS, CVPR) and been an active reviewer for premier AI research venues, such as CVPR, NeurIPS, ICCV, ICLR, and ICML. 📚
 

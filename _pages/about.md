@@ -15,14 +15,15 @@ Prior to joining Auburn, he earned his M.Sc. in [Computer Science](https://cs.ka
 
 During his PhD, he has been working as a Summer Research Associate at [JP Morgan AI Research](https://www.jpmorgan.com/technology/artificial-intelligence), Manhattan, NYC, NY, in the summer of 2024. 🏙️
 
-His research interests are **Explainable AI**, **Human-AI Interaction**, and **Computer Vision**. 🧠 He has published at top-tier AI conferences (e.g. NeurIPS, CVPR) and been an active reviewer for premier AI research venues, such as CVPR, NeurIPS, ICCV, ICLR, and ICML. 📚
+His research interests are **Explainable AI** and **Human-AI Interaction**.
+He has published at top-tier AI conferences (e.g. NeurIPS, CVPR) and been an active reviewer for premier AI research venues, such as CVPR, NeurIPS, ICCV, ICLR, and ICML. 📚
 
 You can see his latest resume [here](https://giangnguyen2412.github.io/assets/resume/Giang_resume.pdf). 📄
 
-## He loves nearest-neighbor-based explanations! 🤖 
+## Interesting fact: He loves nearest-neighbor-based explanations! 🤖 
 
-- Giang has been actively showing the utility of nearest-neighbor explanations for human users in computer vision.
-Check out his [NeurIPS2021](https://proceedings.neurips.cc/paper/2021/file/de043a5e421240eb846da8effe472ff1-Paper.pdf), [NeurIPS2022](https://openreview.net/pdf?id=UavQ9HYye6n), [CVPRW2024](https://arxiv.org/pdf/2404.05238), and new [under-review](https://arxiv.org/pdf/2308.13651) papers. 📃
+- Giang has been actively showing the utility of nearest-neighbor explanations for human users in downstream decision-making applications.
+Check out his [NeurIPS2021](https://proceedings.neurips.cc/paper/2021/file/de043a5e421240eb846da8effe472ff1-Paper.pdf), [NeurIPS2022](https://openreview.net/pdf?id=UavQ9HYye6n), [CVPRW2024](https://arxiv.org/pdf/2404.05238), and [TMLR2024](https://openreview.net/pdf?id=OcFjqiJ98b) papers. 📃
 
 [//]: # (- Giang is deeply interested in explanation methods for large language models &#40;LLMs&#41; and how human users can interact with them effectively via explanations.)
 

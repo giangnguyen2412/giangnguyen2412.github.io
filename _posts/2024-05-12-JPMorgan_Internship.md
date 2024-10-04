@@ -1,11 +1,14 @@
 ---
-title: "JPMorgan AI Research Internship"
+title: "Summer 2024 Internship & Research Updates"
 categories: 
     - Research
 toc: false
 classes: wide
 ---
 
-I will be joining JPMorgan Chase as an AI Research Intern in the summer of 2024 at Manhattan, NYC, NY.
+This summer, I joined JPMorgan Chase as an AI Research Intern in Manhattan, NYC.
 
-Happy to catch up with friends in NYC! ☕ ☕ ☕
+After the internship, I have a research paper (on interpretability) currently under submission and a patent application in progress.
+
+Now coming back to Auburn and prepare for the last year of my Ph.D. study.
+

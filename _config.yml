@@ -259,9 +259,24 @@ defaults:
 
 
 # Sass/SCSS
+#sass:
+#  sass_dir: _sass
+#  style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
 sass:
   sass_dir: _sass
-  style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+  style: compressed
+  load_paths:
+    - _sass
+    - assets/css
+
+#defaults:
+#  - scope:
+#      path: ""
+#      type: pages
+#    values:
+#      layout: single
+#      classes: wide
 
 
 # Outputting

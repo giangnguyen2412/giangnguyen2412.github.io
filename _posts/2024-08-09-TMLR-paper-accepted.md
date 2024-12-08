@@ -1,5 +1,5 @@
 ---
-title: "🎉 TMLR2024 - Probable-class nearest neighbor explanations"
+title: "🎉 TMLR2024 & ICLR2025 - Probable-class nearest neighbor explanations"
 categories: 
     - Research
 toc: false
@@ -7,6 +7,7 @@ classes: wide
 ---
 
 Our work [**PCNN: Probable-Class Nearest-Neighbor Explanations Improve Fine-Grained Image Classification Accuracy for AIs and Humans**](https://openreview.net/pdf?id=OcFjqiJ98b) got accepted at [Transactions on Machine Learning Research](https://jmlr.org/tmlr/).
+It was also invited to present at ICLR 2025 as representative of [high-quality papers from TMLR](https://blog.iclr.cc/2024/08/22/iclr2025-tmlr-partnership/).
 
 We present a new class of nearest-neighbor explanations (called PCNN) and show a novel utility of the XAI method: To improve predictions of a frozen,
 pretrained classifier **C**.

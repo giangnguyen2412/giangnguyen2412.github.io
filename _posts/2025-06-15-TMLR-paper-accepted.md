@@ -1,5 +1,5 @@
 ---
-title: "🎉 TMLR2024 & ICLR2025 - Probable-class nearest neighbor explanations"
+title: "🎉 TMLR2025 - Interpretable LLM-based Table Question Answering"
 categories: 
     - Research
 toc: false

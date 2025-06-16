@@ -1,7 +1,7 @@
 ---
 title: "🎉 Research Scientist at Guide Labs"
 categories: 
-    - Research
+    - Life
 toc: false
 classes: wide
 ---

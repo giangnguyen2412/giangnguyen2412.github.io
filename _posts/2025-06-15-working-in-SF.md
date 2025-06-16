@@ -1,5 +1,5 @@
 ---
-title: "🎉 Research Scientist at Guide Labs"
+title: "Research Scientist at Guide Labs"
 categories: 
     - Life
 toc: false

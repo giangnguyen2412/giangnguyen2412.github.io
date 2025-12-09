@@ -12,7 +12,7 @@
 
 # theme                  	: minimal-mistakes-jekyll
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "professional" # Custom professional theme with light/dark toggle
 
 # Site Settings
 locale                   : "en-US"
@@ -107,30 +107,24 @@ analytics:
 
 # Site Author
 author:
-  name             : " "
+  name             : "Giang Nguyen"
   avatar           : "assets/images/auburn1.jpeg"
-#  bio              : "Prev@KAIST-Korea, now PhD in Auburn Univ"
-#  location         : "AL, US"
+  bio              : "Research Scientist @ Guide Labs. Building interpretable & trustworthy AI."
+  location         : "San Francisco, CA"
   email            : "nguyengiangbkhn@gmail.com"
   links:
-#    - label: "Google Scholar"
-#      icon: "fas fa-graduation-cap"
-#      url: "https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en"
+    - label: "Google Scholar"
+      icon: "fas fa-fw fa-graduation-cap"
+      url: "https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/giangnguyen2412"
-    # - label: "Facebook"
-    #   icon: "fab fa-fw fa-facebook-square"
-    #   url: "https://www.facebook.com/giangnguyen2412/"
-    # - label: "Instagram"
-    #   icon: "fab fa-fw fa-instagram"
-    #   url: "https://www.instagram.com/harukipedia7/"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/giangnguyen2412/"
     - label: "Resume"
-      icon: "fas fa-fw fa-sticky-note"
+      icon: "fas fa-fw fa-file-alt"
       url: "assets/resume/Giang_resume.pdf"
-    - label: "Research Highlights"
-      icon: "fas fa-fw fa-lightbulb"
-      url: "assets/resume/rs_highlights.pdf"
 
 # # Site Footer
 # footer:

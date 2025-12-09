@@ -1,19 +1,598 @@
 ---
-layout: single
+layout: default
 ---
 
-{{ content }}
+<!-- Professional Hero Section -->
+<div class="hero-section">
+  <div class="hero-content">
+    <div class="hero-text">
+      <p class="hero-greeting animate-fade-in-up">Hi, I'm</p>
+      <h1 class="hero-name animate-fade-in-up stagger-1">Giang Nguyen</h1>
+      <p class="hero-title animate-fade-in-up stagger-2">Research Scientist @ <a href="https://www.guidelabs.ai/" target="_blank" rel="noopener">Guide Labs</a></p>
+      <p class="hero-tagline animate-fade-in-up stagger-3">Building AI that is interpretable, trustworthy, and safe for humans.</p>
+      <div class="hero-cta animate-fade-in-up stagger-4">
+        <a href="/about/" class="btn btn--primary">About Me</a>
+        <a href="/publications/" class="btn btn--outline">Research</a>
+        <a href="https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn--outline">
+          <i class="fas fa-graduation-cap"></i> Google Scholar
+        </a>
+      </div>
+    </div>
+    <div class="hero-image animate-fade-in">
+      <img src="{{ site.author.avatar | relative_url }}" alt="Giang Nguyen" class="hero-avatar">
+    </div>
+  </div>
+</div>
 
-<h1 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h1>
+<!-- Quick About Section -->
+<section class="about-preview">
+  <div class="about-preview-content">
+    <h2 class="section-title">About</h2>
+    <div class="about-text">
+      <p>
+        I'm a Research Scientist at <strong><a href="https://www.guidelabs.ai/" target="_blank" rel="noopener">Guide Labs</a></strong>, 
+        a product-focused AI research company in San Francisco dedicated to building interpretable and reliable AI technology.
+      </p>
+      <p>
+        I earned my PhD in Machine Learning from <strong>Auburn University</strong> in 2025, working with 
+        <a href="https://anhnguyen.me/lab/" target="_blank" rel="noopener">Anh Nguyen</a>. 
+        I was a <strong>Presidential Research Fellow</strong> — the most prestigious graduate fellowship at Auburn.
+        Previously, I completed my M.Sc. in Computer Science at <strong>KAIST</strong>, South Korea.
+      </p>
+      <p>
+        My research focuses on making AI models <strong>interpretable to humans</strong> — enabling people to debug, 
+        understand, and ultimately trust AI systems. I've published at top venues including <strong>NeurIPS</strong>, 
+        <strong>CVPR</strong>, and <strong>TMLR</strong>.
+      </p>
+    </div>
+    <div class="about-links">
+      <a href="{{ '/assets/resume/Giang_resume.pdf' | relative_url }}" class="about-link" target="_blank">
+        <i class="fas fa-file-alt"></i>
+        <span>Resume/CV</span>
+      </a>
+      <a href="{{ '/assets/resume/rs_highlights.pdf' | relative_url }}" class="about-link" target="_blank">
+        <i class="fas fa-lightbulb"></i>
+        <span>Research Highlights</span>
+      </a>
+      <a href="https://github.com/giangnguyen2412" class="about-link" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </a>
+      <a href="mailto:nguyengiangbkhn@gmail.com" class="about-link">
+        <i class="fas fa-envelope"></i>
+        <span>Email</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-{% if paginator %}
-  {% assign posts = paginator.posts %}
-{% else %}
-  {% assign posts = site.posts %}
-{% endif %}
+<!-- Featured Publications -->
+<section class="featured-section">
+  <h2 class="section-title">Selected Publications</h2>
+  <div class="publications-grid">
+    <article class="publication-card">
+      <div class="pub-venue">TMLR 2025</div>
+      <h3 class="pub-title">
+        <a href="https://openreview.net/forum?id=2eTsZBoU2W" target="_blank" rel="noopener">
+          Interpretable LLM-based Table Question Answering
+        </a>
+      </h3>
+      <p class="pub-authors">Nguyen, G., Brugere, I., Sharma, S., Kariyappa, S., Nguyen, A.T. and Lecue, F.</p>
+      <p class="pub-description">A framework for making large language model reasoning on tabular data transparent and interpretable.</p>
+    </article>
+    
+    <article class="publication-card">
+      <div class="pub-venue">TMLR & ICLR 2025</div>
+      <h3 class="pub-title">
+        <a href="https://arxiv.org/pdf/2308.13651" target="_blank" rel="noopener">
+          PCNN: Probable-Class Nearest-Neighbor Explanations
+        </a>
+      </h3>
+      <p class="pub-authors">Nguyen, G., Chen, V., Taesiri, M.R. and Nguyen, A.</p>
+      <p class="pub-description">Improving fine-grained image classification accuracy for both AIs and humans through visual explanations.</p>
+    </article>
+    
+    <article class="publication-card">
+      <div class="pub-venue">NeurIPS 2022</div>
+      <h3 class="pub-title">
+        <a href="https://openreview.net/pdf?id=UavQ9HYye6n" target="_blank" rel="noopener">
+          Visual Correspondence-based Explanations Improve Human-AI Team Accuracy
+        </a>
+      </h3>
+      <p class="pub-authors">Nguyen, G.*, Taesiri, M.*, Nguyen, A. (*Equal contribution)</p>
+      <p class="pub-description">Demonstrating how visual correspondence explanations can enhance collaboration between humans and AI.</p>
+    </article>
+    
+    <article class="publication-card">
+      <div class="pub-venue">NeurIPS 2021</div>
+      <h3 class="pub-title">
+        <a href="https://proceedings.neurips.cc/paper/2021/file/de043a5e421240eb846da8effe472ff1-Paper.pdf" target="_blank" rel="noopener">
+          The Effectiveness of Feature Attribution Methods and Its Correlation with Automatic Evaluation Scores
+        </a>
+      </h3>
+      <p class="pub-authors">Nguyen, G., Kim, D. and Nguyen, A.</p>
+      <p class="pub-description">A comprehensive study on evaluating explainability methods in deep learning.</p>
+    </article>
+  </div>
+  <div class="section-cta">
+    <a href="/publications/" class="btn btn--outline">View All Publications →</a>
+  </div>
+</section>
 
-{% for post in posts %}
-  {% include archive-single.html %}
-{% endfor %}
+<!-- Recent News/Posts -->
+<section class="posts-section">
+  <h2 class="section-title">Recent Updates</h2>
+  
+  {% if paginator %}
+    {% assign posts = paginator.posts | slice: 0, 6 %}
+  {% else %}
+    {% assign posts = site.posts | slice: 0, 6 %}
+  {% endif %}
+  
+  <div class="posts-grid">
+    {% for post in posts %}
+      <article class="post-card">
+        <div class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+          {% if post.categories.first %}
+            <span class="post-category">{{ post.categories.first }}</span>
+          {% endif %}
+        </div>
+        <h3 class="post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        {% if post.excerpt %}
+          <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>
 
-{% include paginator.html %}
+<style>
+/* Hero Section */
+.hero-section {
+  background: var(--gradient-hero);
+  padding: 4rem 2rem;
+  margin: -1em -1em 0 -1em;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: var(--accent-primary);
+  opacity: 0.05;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: var(--accent-primary);
+  opacity: 0.08;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.hero-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-greeting {
+  color: var(--accent-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-name {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.hero-title {
+  font-size: 1.35rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.hero-title a {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.hero-tagline {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 500px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-cta .btn {
+  padding: 0.875rem 1.5rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-cta .btn--primary {
+  background: var(--gradient-accent);
+  color: #fff;
+  border: none;
+}
+
+.hero-cta .btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-cta .btn--outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+}
+
+.hero-cta .btn--outline:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background: var(--accent-light);
+}
+
+.hero-image {
+  flex-shrink: 0;
+}
+
+.hero-avatar {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 4px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s ease;
+}
+
+.hero-avatar:hover {
+  transform: scale(1.02);
+  border-color: var(--accent-primary);
+}
+
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .hero-name {
+    font-size: 2.5rem;
+  }
+  
+  .hero-tagline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-cta {
+    justify-content: center;
+  }
+  
+  .hero-avatar {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+/* About Preview Section */
+.about-preview {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.about-preview-content {
+  max-width: 800px;
+}
+
+.about-text p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.about-text a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.about-text a:hover {
+  border-bottom-color: var(--accent-primary);
+}
+
+.about-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.about-link:hover {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  background: var(--accent-light);
+}
+
+.about-link i {
+  font-size: 1rem;
+}
+
+/* Featured Publications */
+.featured-section {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.publications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .publications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.publication-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.publication-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.pub-venue {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  background: var(--accent-light);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pub-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.pub-title a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.pub-title a:hover {
+  color: var(--accent-primary);
+}
+
+.pub-authors {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.pub-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.section-cta {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.section-cta .btn--outline {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.section-cta .btn--outline:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background: var(--accent-light);
+}
+
+/* Posts Section */
+.posts-section {
+  padding: 4rem 0;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.post-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.post-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.post-meta time {
+  color: var(--text-muted);
+}
+
+.post-category {
+  color: var(--accent-primary);
+  background: var(--accent-light);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.post-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.post-title a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  color: var(--accent-primary);
+}
+
+.post-excerpt {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+</style>

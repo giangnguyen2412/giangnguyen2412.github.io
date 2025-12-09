@@ -1,21 +1,8 @@
 # main links
 main:
-  # - title: "About me"
-  #   url: /about/
+  - title: "About"
+    url: /about/
   - title: "Research"
     url: /publications/
-    # classes: wide
   - title: "Projects"
     url: /hobby_projects/
-  - title: "Lessons"
-    url: /lessons/
-  # classes: wide
-#  - title: "Books"
-#    url: /books/
-#    # classes: wide
-#  - title: "Stories"
-#    url: /stories/
-#    # classes: wide
-#  - title: "Collections"
-#    url: /collections/
-#    # classes: wide

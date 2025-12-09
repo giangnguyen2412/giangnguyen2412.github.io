@@ -1,21 +1,169 @@
 ---
-title: About me
+title: About Me
 layout: single
 permalink: /about/
 classes: wide
+author_profile: true
 ---
 
-Currently a Research Scientist at [Guide Labs](https://www.guidelabs.ai/), a product-focused AI research company dedicated to building interpretable and reliable AI technology.
+<style>
+.about-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
 
-Giang Nguyen earned his PhD in Machine Learning research in 2025 at Auburn University, US, working with [Anh Nguyen](https://anhnguyen.me/lab/). 
-He was also a Presidential Research Fellow during PhD, having been awarded the most prestigious Presidential Graduate Research Fellowship at Auburn University in 2021.
+.about-header-text h2 {
+  margin-top: 0;
+  color: var(--accent-primary);
+}
 
-Prior to joining Auburn, he earned his M.Sc. in [Computer Science](https://cs.kaist.ac.kr/) at KAIST, South Korea in August 2020. 🇰🇷
+.highlight-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
 
-During his PhD, he has been working as a Summer Research Associate at [JP Morgan AI Research](https://www.jpmorgan.com/technology/artificial-intelligence), Manhattan, NYC, NY, in the summer of 2024.
+.highlight-box h3 {
+  margin-top: 0;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
 
-He has published at top-tier AI conferences (e.g. NeurIPS, CVPR) and been an active reviewer for premier AI research venues, such as CVPR, NeurIPS, ICCV, ICLR, and ICML.
+.highlight-box ul {
+  margin-bottom: 0;
+}
 
-His research interests are to engineer AI models and agents to be **interpretable to human users, making them easy to debug, understand, and ultimately trust by humans**.
+.timeline {
+  margin: 2rem 0;
+}
 
-You can see his latest resume [here](https://giangnguyen2412.github.io/assets/resume/Giang_resume.pdf). 📄
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+  padding-bottom: 1.5rem;
+  border-left: 2px solid var(--border-color);
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+}
+
+.timeline-date {
+  font-size: 0.85rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.timeline-org {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+</style>
+
+## 👋 Hello!
+
+I'm a **Research Scientist** at [Guide Labs](https://www.guidelabs.ai/), a product-focused AI research company in San Francisco dedicated to building interpretable and reliable AI technology.
+
+My research mission is to engineer AI models and agents that are **interpretable to human users**, making them easy to debug, understand, and ultimately trust.
+
+---
+
+## 🎓 Education
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-date">2020 - 2025</div>
+    <div class="timeline-title">Ph.D. in Machine Learning</div>
+    <div class="timeline-org">Auburn University, Alabama, USA 🇺🇸</div>
+    <div class="timeline-org" style="font-size: 0.85rem; margin-top: 0.5rem;">
+      Advisor: <a href="https://anhnguyen.me/lab/">Anh Nguyen</a><br>
+      Presidential Graduate Research Fellow (Most prestigious fellowship at Auburn)
+    </div>
+  </div>
+  
+  <div class="timeline-item">
+    <div class="timeline-date">2018 - 2020</div>
+    <div class="timeline-title">M.Sc. in Computer Science</div>
+    <div class="timeline-org">KAIST, South Korea 🇰🇷</div>
+  </div>
+  
+  <div class="timeline-item">
+    <div class="timeline-date">2012 - 2017</div>
+    <div class="timeline-title">B.Eng. in Electronics & Telecommunications</div>
+    <div class="timeline-org">Hanoi University of Science and Technology, Vietnam 🇻🇳</div>
+  </div>
+</div>
+
+---
+
+## 💼 Experience
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-date">2025 - Present</div>
+    <div class="timeline-title">Research Scientist</div>
+    <div class="timeline-org"><a href="https://www.guidelabs.ai/">Guide Labs</a>, San Francisco, CA</div>
+  </div>
+  
+  <div class="timeline-item">
+    <div class="timeline-date">Summer 2024</div>
+    <div class="timeline-title">Summer Research Associate</div>
+    <div class="timeline-org"><a href="https://www.jpmorgan.com/technology/artificial-intelligence">JP Morgan AI Research</a>, New York, NY</div>
+  </div>
+</div>
+
+---
+
+## 🔬 Research Interests
+
+<div class="highlight-box">
+  <h3>Core Focus Areas</h3>
+  <ul>
+    <li><strong>Explainable AI (XAI)</strong> — Making AI decisions transparent and understandable</li>
+    <li><strong>Human-AI Collaboration</strong> — Designing AI systems that enhance human decision-making</li>
+    <li><strong>AI Safety & Reliability</strong> — Building trustworthy AI systems</li>
+    <li><strong>Visual Explanations</strong> — Leveraging visual correspondence for interpretability</li>
+  </ul>
+</div>
+
+---
+
+## 📝 Academic Service
+
+Active reviewer for premier AI research venues:
+- **CVPR** (Computer Vision and Pattern Recognition)
+- **NeurIPS** (Neural Information Processing Systems)
+- **ICCV** (International Conference on Computer Vision)
+- **ICLR** (International Conference on Learning Representations)
+- **ICML** (International Conference on Machine Learning)
+
+---
+
+## 📫 Contact
+
+- **Email**: [nguyengiangbkhn@gmail.com](mailto:nguyengiangbkhn@gmail.com)
+- **GitHub**: [github.com/giangnguyen2412](https://github.com/giangnguyen2412)
+- **Google Scholar**: [Profile](https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en)
+- **Resume**: [Download PDF](/assets/resume/Giang_resume.pdf)

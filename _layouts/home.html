@@ -20,6 +20,7 @@ layout: default
     </div>
     <div class="hero-image animate-fade-in">
       <img src="{{ site.author.avatar | relative_url }}" alt="Giang Nguyen" class="hero-avatar">
+      <p class="hero-caption">A sunny day in December in San Diego, CA.</p>
     </div>
   </div>
 </div>
@@ -184,15 +185,18 @@ layout: default
   max-width: 1100px;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 4rem;
+  justify-content: center;
+  gap: 2rem;
   position: relative;
   z-index: 1;
+  text-align: center;
 }
 
 .hero-text {
   flex: 1;
+  text-align: center;
 }
 
 .hero-greeting {
@@ -226,15 +230,18 @@ layout: default
 .hero-tagline {
   font-size: 1.15rem;
   color: var(--text-muted);
-  max-width: 500px;
+  max-width: 600px;
   line-height: 1.6;
   margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-cta {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .hero-cta .btn {
@@ -273,6 +280,14 @@ layout: default
 
 .hero-image {
   flex-shrink: 0;
+  text-align: center;
+}
+
+.hero-caption {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
 }
 
 .hero-avatar {
@@ -291,23 +306,8 @@ layout: default
 }
 
 @media (max-width: 900px) {
-  .hero-content {
-    flex-direction: column-reverse;
-    text-align: center;
-    gap: 2rem;
-  }
-  
   .hero-name {
     font-size: 2.5rem;
-  }
-  
-  .hero-tagline {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .hero-cta {
-    justify-content: center;
   }
   
   .hero-avatar {
@@ -324,16 +324,19 @@ layout: default
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
   border-bottom: 2px solid var(--border-color);
+  text-align: center;
 }
 
 /* About Preview Section */
 .about-preview {
   padding: 4rem 0;
   border-bottom: 1px solid var(--border-color);
+  text-align: center;
 }
 
 .about-preview-content {
   max-width: 800px;
+  margin: 0 auto;
 }
 
 .about-text p {
@@ -341,6 +344,7 @@ layout: default
   font-size: 1.05rem;
   line-height: 1.8;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .about-text a {
@@ -359,6 +363,7 @@ layout: default
   gap: 1.5rem;
   margin-top: 2rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .about-link {
@@ -389,6 +394,7 @@ layout: default
 .featured-section {
   padding: 4rem 0;
   border-bottom: 1px solid var(--border-color);
+  text-align: center;
 }
 
 .publications-grid {
@@ -409,6 +415,7 @@ layout: default
   border-radius: 12px;
   padding: 1.5rem;
   transition: all 0.2s ease;
+  text-align: center;
 }
 
 .publication-card:hover {
@@ -484,6 +491,7 @@ layout: default
 /* Posts Section */
 .posts-section {
   padding: 4rem 0;
+  text-align: center;
 }
 
 .posts-grid {
@@ -504,6 +512,7 @@ layout: default
   border-radius: 12px;
   padding: 1.5rem;
   transition: all 0.2s ease;
+  text-align: center;
 }
 
 .post-card:hover {
@@ -515,6 +524,7 @@ layout: default
 .post-meta {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 0.75rem;
   font-size: 0.85rem;

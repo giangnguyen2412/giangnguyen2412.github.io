@@ -6,3 +6,5 @@ main:
     url: /publications/
   - title: "Projects"
     url: /hobby_projects/
+  - title: "Updates"
+    url: /updates/

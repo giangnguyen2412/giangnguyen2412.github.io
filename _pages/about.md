@@ -132,12 +132,6 @@ My research mission is to engineer AI models and agents that are **interpretable
     <div class="timeline-title">AI Research Intern</div>
     <div class="timeline-org"><a href="https://www.jpmorgan.com/technology/artificial-intelligence">JP Morgan AI Research</a>, New York, NY</div>
   </div>
-
-    <div class="timeline-item">
-    <div class="timeline-date">2024</div>
-    <div class="timeline-title">AI Research Intern</div>
-    <div class="timeline-org"><a href="https://www.jpmorgan.com/technology/artificial-intelligence">JP Morgan AI Research</a>, New York, NY</div>
-  </div>
 </div>
 
 ---

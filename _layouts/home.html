@@ -20,7 +20,7 @@ layout: default
     </div>
     <div class="hero-image animate-fade-in">
       <img src="{{ site.author.avatar | relative_url }}" alt="Giang Nguyen" class="hero-avatar">
-      <p class="hero-caption">A sunny day in December in San Diego, CA.</p>
+      <p class="hero-caption">A sunny day of December in San Diego, CA</p>
     </div>
   </div>
 </div>
@@ -69,50 +69,65 @@ layout: default
 
 <!-- Featured Publications -->
 <section class="featured-section">
-  <h2 class="section-title">Selected Publications</h2>
-  <div class="publications-grid">
-    <article class="publication-card">
-      <div class="pub-venue">TMLR 2025</div>
-      <h3 class="pub-title">
-        <a href="https://openreview.net/forum?id=2eTsZBoU2W" target="_blank" rel="noopener">
-          Interpretable LLM-based Table Question Answering
-        </a>
-      </h3>
-      <p class="pub-authors">Nguyen, G., Brugere, I., Sharma, S., Kariyappa, S., Nguyen, A.T. and Lecue, F.</p>
-      <p class="pub-description">A framework for making large language model reasoning on tabular data transparent and interpretable.</p>
+  <div class="section-header">
+    <h2 class="section-title">Selected Publications</h2>
+    <p class="section-subtitle">Research accepted at top AI venues</p>
+  </div>
+  <div class="publications-list">
+    <article class="pub-item">
+      <div class="pub-left">
+        <span class="pub-venue-badge">TMLR 2025</span>
+      </div>
+      <div class="pub-right">
+        <h3 class="pub-title">
+          <a href="https://openreview.net/forum?id=2eTsZBoU2W" target="_blank" rel="noopener">
+            Interpretable LLM-based Table Question Answering
+          </a>
+        </h3>
+        <p class="pub-authors"><strong>G. Nguyen</strong>, I. Brugere, S. Sharma, S. Kariyappa, A.T. Nguyen, F. Lecue</p>
+      </div>
     </article>
     
-    <article class="publication-card">
-      <div class="pub-venue">TMLR & ICLR 2025</div>
-      <h3 class="pub-title">
-        <a href="https://arxiv.org/pdf/2308.13651" target="_blank" rel="noopener">
-          PCNN: Probable-Class Nearest-Neighbor Explanations
-        </a>
-      </h3>
-      <p class="pub-authors">Nguyen, G., Chen, V., Taesiri, M.R. and Nguyen, A.</p>
-      <p class="pub-description">Improving fine-grained image classification accuracy for both AIs and humans through visual explanations.</p>
+    <article class="pub-item">
+      <div class="pub-left">
+        <span class="pub-venue-badge">TMLR · ICLR 2025</span>
+      </div>
+      <div class="pub-right">
+        <h3 class="pub-title">
+          <a href="https://arxiv.org/pdf/2308.13651" target="_blank" rel="noopener">
+            PCNN: Probable-Class Nearest-Neighbor Explanations Improve Fine-Grained Image Classification
+          </a>
+        </h3>
+        <p class="pub-authors"><strong>G. Nguyen</strong>, V. Chen, M.R. Taesiri, A. Nguyen</p>
+      </div>
     </article>
     
-    <article class="publication-card">
-      <div class="pub-venue">NeurIPS 2022</div>
-      <h3 class="pub-title">
-        <a href="https://openreview.net/pdf?id=UavQ9HYye6n" target="_blank" rel="noopener">
-          Visual Correspondence-based Explanations Improve Human-AI Team Accuracy
-        </a>
-      </h3>
-      <p class="pub-authors">Nguyen, G.*, Taesiri, M.*, Nguyen, A. (*Equal contribution)</p>
-      <p class="pub-description">Demonstrating how visual correspondence explanations can enhance collaboration between humans and AI.</p>
+    <article class="pub-item">
+      <div class="pub-left">
+        <span class="pub-venue-badge">NeurIPS 2022</span>
+      </div>
+      <div class="pub-right">
+        <h3 class="pub-title">
+          <a href="https://openreview.net/pdf?id=UavQ9HYye6n" target="_blank" rel="noopener">
+            Visual Correspondence-based Explanations Improve Human-AI Team Accuracy
+          </a>
+        </h3>
+        <p class="pub-authors"><strong>G. Nguyen*</strong>, M. Taesiri*, A. Nguyen · <em>*Equal contribution</em></p>
+      </div>
     </article>
     
-    <article class="publication-card">
-      <div class="pub-venue">NeurIPS 2021</div>
-      <h3 class="pub-title">
-        <a href="https://proceedings.neurips.cc/paper/2021/file/de043a5e421240eb846da8effe472ff1-Paper.pdf" target="_blank" rel="noopener">
-          The Effectiveness of Feature Attribution Methods and Its Correlation with Automatic Evaluation Scores
-        </a>
-      </h3>
-      <p class="pub-authors">Nguyen, G., Kim, D. and Nguyen, A.</p>
-      <p class="pub-description">A comprehensive study on evaluating explainability methods in deep learning.</p>
+    <article class="pub-item">
+      <div class="pub-left">
+        <span class="pub-venue-badge">NeurIPS 2021</span>
+      </div>
+      <div class="pub-right">
+        <h3 class="pub-title">
+          <a href="https://proceedings.neurips.cc/paper/2021/file/de043a5e421240eb846da8effe472ff1-Paper.pdf" target="_blank" rel="noopener">
+            The Effectiveness of Feature Attribution Methods and Its Correlation with Automatic Evaluation Scores
+          </a>
+        </h3>
+        <p class="pub-authors"><strong>G. Nguyen</strong>, D. Kim, A. Nguyen</p>
+      </div>
     </article>
   </div>
   <div class="section-cta">
@@ -122,24 +137,27 @@ layout: default
 
 <!-- Recent News/Posts -->
 <section class="posts-section">
-  <h2 class="section-title">Recent Updates</h2>
+  <div class="section-header">
+    <h2 class="section-title">Recent Updates</h2>
+    <p class="section-subtitle">News, talks, and announcements</p>
+  </div>
   
-  <div class="posts-grid">
+  <div class="updates-list">
     {% assign recent_posts = site.posts | slice: 0, 6 %}
     {% for post in recent_posts %}
-      <article class="post-card">
-        <div class="post-meta">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
-          {% if post.categories.first %}
-            <span class="post-category">{{ post.categories.first }}</span>
+      <article class="update-item">
+        <div class="update-date">
+          <span class="update-month">{{ post.date | date: "%b" }}</span>
+          <span class="update-year">{{ post.date | date: "%Y" }}</span>
+        </div>
+        <div class="update-content">
+          <h3 class="update-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h3>
+          {% if post.excerpt %}
+            <p class="update-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
           {% endif %}
         </div>
-        <h3 class="post-title">
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </h3>
-        {% if post.excerpt %}
-          <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        {% endif %}
       </article>
     {% endfor %}
   </div>
@@ -321,9 +339,7 @@ layout: default
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 0.5rem;
   text-align: center;
 }
 
@@ -390,63 +406,90 @@ layout: default
   font-size: 1rem;
 }
 
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-top: -0.5rem;
+}
+
 /* Featured Publications */
 .featured-section {
   padding: 4rem 0;
   border-bottom: 1px solid var(--border-color);
-  text-align: center;
 }
 
-.publications-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.publications-list {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pub-item {
+  display: flex;
+  align-items: flex-start;
   gap: 1.5rem;
-}
-
-@media (max-width: 768px) {
-  .publications-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.publication-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border-light);
   transition: all 0.2s ease;
-  text-align: center;
 }
 
-.publication-card:hover {
-  border-color: var(--accent-primary);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+.pub-item:first-child {
+  padding-top: 0;
 }
 
-.pub-venue {
+.pub-item:last-child {
+  border-bottom: none;
+}
+
+.pub-item:hover {
+  background: var(--bg-secondary);
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 8px;
+}
+
+.pub-left {
+  flex-shrink: 0;
+  width: 120px;
+  text-align: right;
+}
+
+.pub-venue-badge {
   display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.7rem;
+  font-weight: 700;
   color: var(--accent-primary);
   background: var(--accent-light);
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  margin-bottom: 0.75rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.pub-right {
+  flex: 1;
+  text-align: left;
 }
 
 .pub-title {
   font-size: 1rem;
   font-weight: 600;
-  margin: 0 0 0.5rem 0;
-  line-height: 1.4;
+  margin: 0 0 0.4rem 0;
+  line-height: 1.45;
 }
 
 .pub-title a {
   color: var(--text-primary);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .pub-title a:hover {
@@ -456,29 +499,46 @@ layout: default
 .pub-authors {
   font-size: 0.85rem;
   color: var(--text-muted);
-  margin-bottom: 0.5rem;
+  margin: 0;
+  line-height: 1.5;
 }
 
-.pub-description {
-  font-size: 0.9rem;
+.pub-authors strong {
   color: var(--text-secondary);
-  line-height: 1.5;
-  margin: 0;
+  font-weight: 600;
+}
+
+.pub-authors em {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 640px) {
+  .pub-item {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .pub-left {
+    width: auto;
+    text-align: left;
+  }
 }
 
 .section-cta {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   text-align: center;
 }
 
 .section-cta .btn--outline {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.75rem;
   color: var(--text-primary);
   border: 2px solid var(--border-color);
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
+  font-size: 0.9rem;
   transition: all 0.2s ease;
 }
 
@@ -486,84 +546,116 @@ layout: default
   border-color: var(--accent-primary);
   color: var(--accent-primary);
   background: var(--accent-light);
+  transform: translateY(-1px);
 }
 
-/* Posts Section */
+/* Recent Updates Section */
 .posts-section {
   padding: 4rem 0;
-  text-align: center;
 }
 
-.posts-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+.updates-list {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .posts-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.post-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.2s ease;
-  text-align: center;
-}
-
-.post-card:hover {
-  border-color: var(--accent-primary);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.post-meta {
+.update-item {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 0.75rem;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+}
+
+.update-item:first-child {
+  padding-top: 0;
+}
+
+.update-item:last-child {
+  border-bottom: none;
+}
+
+.update-item:hover {
+  background: var(--bg-secondary);
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 8px;
+}
+
+.update-date {
+  flex-shrink: 0;
+  width: 70px;
+  text-align: center;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.update-month {
+  display: block;
   font-size: 0.85rem;
-}
-
-.post-meta time {
-  color: var(--text-muted);
-}
-
-.post-category {
+  font-weight: 700;
   color: var(--accent-primary);
-  background: var(--accent-light);
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.update-year {
+  display: block;
   font-size: 0.75rem;
-  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 0.1rem;
 }
 
-.post-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0 0 0.5rem 0;
-  line-height: 1.4;
+.update-content {
+  flex: 1;
+  text-align: left;
 }
 
-.post-title a {
+.update-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem 0;
+  line-height: 1.45;
+}
+
+.update-title a {
   color: var(--text-primary);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.post-title a:hover {
+.update-title a:hover {
   color: var(--accent-primary);
 }
 
-.post-excerpt {
-  font-size: 0.9rem;
+.update-excerpt {
+  font-size: 0.875rem;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.55;
   margin: 0;
+}
+
+@media (max-width: 640px) {
+  .update-item {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .update-date {
+    width: auto;
+    display: inline-flex;
+    gap: 0.5rem;
+    padding: 0.4rem 0.75rem;
+  }
+  
+  .update-month, .update-year {
+    display: inline;
+  }
 }
 
 /* Animation keyframes */

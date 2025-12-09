@@ -108,7 +108,7 @@ analytics:
 # Site Author
 author:
   name             : "Giang Nguyen"
-  avatar           : "/Users/giangnguyen/Documents/GitHub/giangnguyen2412.github.io/assets/images/sunny_sandiego.jpg"
+  avatar           : "assets/images/sunny_sandiego.jpg"
   bio              : "Research Scientist @ Guide Labs. Building interpretable & trustworthy AI."
   location         : "San Francisco, CA"
   email            : "nguyengiangbkhn@gmail.com"

@@ -123,14 +123,9 @@ layout: default
 <section class="posts-section">
   <h2 class="section-title">Recent Updates</h2>
   
-  {% if paginator %}
-    {% assign posts = paginator.posts | slice: 0, 6 %}
-  {% else %}
-    {% assign posts = site.posts | slice: 0, 6 %}
-  {% endif %}
-  
   <div class="posts-grid">
-    {% for post in posts %}
+    {% assign recent_posts = site.posts | slice: 0, 6 %}
+    {% for post in recent_posts %}
       <article class="post-card">
         <div class="post-meta">
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>

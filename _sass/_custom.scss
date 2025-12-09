@@ -4,12 +4,68 @@
    ========================================================================== */
 
 /* ==========================================================================
-   Typography - Google Fonts Integration
+   CSS Custom Properties for Theme Switching
    ========================================================================== */
 
-$font-heading: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-$font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-$font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+:root {
+  /* Light Mode (Default) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-card: #ffffff;
+  
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  
+  --accent-primary: #0891b2;
+  --accent-hover: #0e7490;
+  --accent-light: #e0f2fe;
+  
+  --border-color: #e2e8f0;
+  --border-light: #f1f5f9;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  
+  --code-bg: #f1f5f9;
+  --footer-bg: #0f172a;
+  --footer-text: #e2e8f0;
+  
+  --gradient-hero: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+  --gradient-accent: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+}
+
+[data-theme="dark"] {
+  /* Dark Mode */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-card: #1e293b;
+  
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  
+  --accent-primary: #22d3ee;
+  --accent-hover: #67e8f9;
+  --accent-light: rgba(34, 211, 238, 0.1);
+  
+  --border-color: #334155;
+  --border-light: #1e293b;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  
+  --code-bg: #1e293b;
+  --footer-bg: #020617;
+  --footer-text: #cbd5e1;
+  
+  --gradient-hero: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --gradient-accent: linear-gradient(135deg, #22d3ee 0%, #0891b2 100%);
+}
 
 /* ==========================================================================
    Base Overrides
@@ -22,7 +78,7 @@ html {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: $font-body;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
   line-height: 1.7;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -31,7 +87,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font-heading;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.02em;
@@ -46,14 +102,14 @@ a {
   color: var(--accent-primary);
   text-decoration: none;
   transition: color 0.2s ease;
-  
-  &:hover {
-    color: var(--accent-hover);
-  }
-  
-  &:visited {
-    color: var(--accent-primary);
-  }
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+a:visited {
+  color: var(--accent-primary);
 }
 
 /* ==========================================================================
@@ -71,41 +127,39 @@ a {
   justify-content: center;
   transition: all 0.2s ease;
   margin-left: 0.75rem;
-  
-  &:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--accent-primary);
-  }
-  
-  svg {
-    width: 18px;
-    height: 18px;
-    stroke: var(--text-secondary);
-    fill: none;
-    transition: stroke 0.2s ease;
-  }
-  
-  &:hover svg {
-    stroke: var(--accent-primary);
-  }
-  
-  .sun-icon {
-    display: none;
-  }
-  
-  .moon-icon {
-    display: block;
-  }
 }
 
-[data-theme="dark"] .theme-toggle {
-  .sun-icon {
-    display: block;
-  }
-  
-  .moon-icon {
-    display: none;
-  }
+.theme-toggle:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--accent-primary);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--text-secondary);
+  fill: none;
+  transition: stroke 0.2s ease;
+}
+
+.theme-toggle:hover svg {
+  stroke: var(--accent-primary);
+}
+
+.theme-toggle .sun-icon {
+  display: none;
+}
+
+.theme-toggle .moon-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+  display: none;
 }
 
 /* ==========================================================================
@@ -119,124 +173,75 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
-  
-  &__inner-wrap {
-    padding: 1rem 1.5rem;
-    max-width: 1200px;
-    
-    @media (min-width: 1280px) {
-      max-width: 1200px;
-    }
-  }
+}
+
+.masthead__inner-wrap {
+  padding: 1rem 1.5rem;
+  max-width: 1200px;
 }
 
 .site-title {
-  font-family: $font-heading;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.02em;
-  
-  &:hover {
-    color: var(--accent-primary);
-  }
+}
+
+.site-title:hover {
+  color: var(--accent-primary);
 }
 
 .greedy-nav {
   background: transparent;
   display: flex;
   align-items: center;
-  
-  a {
-    color: var(--text-secondary);
-    font-family: $font-body;
-    font-size: 0.9rem;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-    
-    &:hover {
-      color: var(--accent-primary);
-      background: var(--accent-light);
-    }
-  }
-  
-  .visible-links {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    
-    a {
-      position: relative;
-      
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 0;
-        height: 2px;
-        background: var(--accent-primary);
-        transition: all 0.2s ease;
-        transform: translateX(-50%);
-      }
-      
-      &:hover::after {
-        width: 60%;
-      }
-    }
-  }
-  
-  .masthead__menu-item {
-    a {
-      display: inline-block;
-    }
-  }
-  
-  .hidden-links {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    box-shadow: var(--shadow-lg);
-    
-    a {
-      color: var(--text-primary);
-      
-      &:hover {
-        color: var(--accent-primary);
-        background: var(--accent-light);
-      }
-    }
-    
-    &::before {
-      border-color: transparent transparent var(--border-color);
-    }
-    
-    &::after {
-      border-color: transparent transparent var(--bg-card);
-    }
-  }
-  
-  .greedy-nav__toggle {
-    .navicon {
-      background: var(--text-secondary);
-      
-      &::before,
-      &::after {
-        background: var(--text-secondary);
-      }
-    }
-    
-    &:hover .navicon {
-      background: var(--accent-primary);
-      
-      &::before,
-      &::after {
-        background: var(--accent-primary);
-      }
-    }
-  }
+}
+
+.greedy-nav a {
+  color: var(--text-secondary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.greedy-nav a:hover {
+  color: var(--accent-primary);
+  background: var(--accent-light);
+}
+
+.greedy-nav .visible-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.greedy-nav .hidden-links {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+}
+
+.greedy-nav .hidden-links a {
+  color: var(--text-primary);
+}
+
+.greedy-nav .hidden-links a:hover {
+  color: var(--accent-primary);
+  background: var(--accent-light);
+}
+
+.greedy-nav .greedy-nav__toggle .navicon {
+  background: var(--text-secondary);
+}
+
+.greedy-nav .greedy-nav__toggle .navicon::before,
+.greedy-nav .greedy-nav__toggle .navicon::after {
+  background: var(--text-secondary);
 }
 
 .search__toggle {
@@ -245,141 +250,46 @@ a {
   border-radius: 8px;
   padding: 8px 10px;
   margin-left: 0.5rem;
-  
-  &:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--accent-primary);
-  }
-  
-  .icon {
-    fill: var(--text-secondary);
-  }
+}
+
+.search__toggle:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--accent-primary);
+}
+
+.search__toggle .icon {
+  fill: var(--text-secondary);
 }
 
 /* ==========================================================================
-   Hero Section (Homepage)
-   ========================================================================== */
-
-.page__hero--overlay {
-  background: var(--gradient-hero);
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  padding: 4rem 0;
-  margin-bottom: 0;
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 600px;
-    height: 600px;
-    background: var(--accent-primary);
-    opacity: 0.05;
-    border-radius: 50%;
-    filter: blur(80px);
-  }
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -30%;
-    left: -10%;
-    width: 400px;
-    height: 400px;
-    background: var(--accent-primary);
-    opacity: 0.08;
-    border-radius: 50%;
-    filter: blur(60px);
-  }
-  
-  .wrapper {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-  }
-  
-  .page__title {
-    color: var(--text-primary);
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    text-shadow: none;
-    letter-spacing: -0.03em;
-    
-    @media (max-width: 768px) {
-      font-size: 2rem;
-    }
-  }
-  
-  .page__lead {
-    color: var(--text-secondary);
-    font-size: 1.25rem;
-    line-height: 1.6;
-    max-width: 600px;
-    text-shadow: none;
-  }
-  
-  .btn {
-    background: var(--gradient-accent);
-    color: #fff;
-    font-family: $font-body;
-    font-weight: 600;
-    padding: 0.875rem 1.75rem;
-    border-radius: 8px;
-    border: none;
-    text-shadow: none;
-    box-shadow: var(--shadow-md);
-    transition: all 0.2s ease;
-    
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-    }
-  }
-}
-
-/* ==========================================================================
-   Author Profile Sidebar
+   Sidebar / Author Profile
    ========================================================================== */
 
 .sidebar {
-  @media (min-width: 1024px) {
-    opacity: 1;
-    
-    &:hover {
-      opacity: 1;
-    }
-  }
+  opacity: 1;
 }
 
-.author__avatar {
-  img {
-    border-radius: 16px;
-    border: 3px solid var(--border-color);
-    box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
-    max-width: 140px;
-    
-    &:hover {
-      transform: scale(1.02);
-      border-color: var(--accent-primary);
-    }
-    
-    @media (min-width: 1024px) {
-      padding: 0;
-      border-width: 3px;
-    }
-  }
+.sidebar:hover {
+  opacity: 1;
+}
+
+.author__avatar img {
+  border-radius: 16px;
+  border: 3px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  max-width: 140px;
+  padding: 0;
+}
+
+.author__avatar img:hover {
+  transform: scale(1.02);
+  border-color: var(--accent-primary);
 }
 
 .author__name {
-  font-family: $font-heading;
-  font-size: 1.1rem !important;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -390,22 +300,20 @@ a {
   line-height: 1.6;
 }
 
-.author__urls-wrapper {
-  button {
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    color: var(--text-secondary);
-    font-family: $font-body;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    
-    &:hover {
-      background: var(--accent-light);
-      border-color: var(--accent-primary);
-      color: var(--accent-primary);
-    }
-  }
+.author__urls-wrapper button {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+}
+
+.author__urls-wrapper button:hover {
+  background: var(--accent-light);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
 }
 
 .author__urls {
@@ -413,38 +321,21 @@ a {
   border: 1px solid var(--border-color);
   border-radius: 12px;
   box-shadow: var(--shadow-lg);
-  
-  @media (min-width: 1024px) {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-  }
-  
-  li {
-    margin-bottom: 0.25rem;
-  }
-  
-  a {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    padding: 0.5rem 0;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-    
-    &:hover {
-      color: var(--accent-primary);
-      background: var(--accent-light);
-      text-decoration: none;
-      padding-left: 0.5rem;
-    }
-    
-    i {
-      color: var(--text-muted);
-      margin-right: 0.5rem;
-      width: 20px;
-      text-align: center;
-    }
-  }
+}
+
+.author__urls a {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.author__urls a:hover {
+  color: var(--accent-primary);
+  background: var(--accent-light);
+  text-decoration: none;
+  padding-left: 0.5rem;
 }
 
 /* ==========================================================================
@@ -456,63 +347,63 @@ a {
 }
 
 .page__content {
-  font-family: $font-body;
-  
-  h2 {
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 0.75rem;
-    margin-top: 2.5rem;
-  }
-  
-  p {
-    color: var(--text-secondary);
-    line-height: 1.8;
-  }
-  
-  a:not(.btn) {
-    color: var(--accent-primary);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s ease;
-    
-    &:hover {
-      border-bottom-color: var(--accent-primary);
-    }
-  }
-  
-  code {
-    background: var(--code-bg);
-    color: var(--accent-primary);
-    font-family: $font-mono;
-    font-size: 0.875em;
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-  }
-  
-  pre {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1rem;
-    
-    code {
-      background: transparent;
-      padding: 0;
-    }
-  }
-  
-  blockquote {
-    border-left: 4px solid var(--accent-primary);
-    background: var(--bg-secondary);
-    padding: 1rem 1.5rem;
-    border-radius: 0 8px 8px 0;
-    margin: 1.5rem 0;
-    
-    p {
-      color: var(--text-secondary);
-      margin: 0;
-    }
-  }
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.page__content h2 {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+.page__content p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.page__content a:not(.btn) {
+  color: var(--accent-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.page__content a:not(.btn):hover {
+  border-bottom-color: var(--accent-primary);
+}
+
+.page__content code {
+  background: var(--code-bg);
+  color: var(--accent-primary);
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.875em;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+.page__content pre {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.page__content pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.page__content blockquote {
+  border-left: 4px solid var(--accent-primary);
+  background: var(--bg-secondary);
+  padding: 1rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.5rem 0;
+}
+
+.page__content blockquote p {
+  color: var(--text-secondary);
+  margin: 0;
 }
 
 /* ==========================================================================
@@ -520,7 +411,7 @@ a {
    ========================================================================== */
 
 .archive__subtitle {
-  font-family: $font-heading;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -536,28 +427,28 @@ a {
   padding: 1.25rem 1.5rem;
   margin-bottom: 1rem;
   transition: all 0.2s ease;
-  
-  &:hover {
-    border-color: var(--accent-primary);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
-  }
+}
+
+.archive__item:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .archive__item-title {
-  font-family: $font-heading;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
   margin-top: 0;
   margin-bottom: 0.5rem;
-  
-  a {
-    color: var(--text-primary);
-    
-    &:hover {
-      color: var(--accent-primary);
-    }
-  }
+}
+
+.archive__item-title a {
+  color: var(--text-primary);
+}
+
+.archive__item-title a:hover {
+  color: var(--accent-primary);
 }
 
 .archive__item-excerpt {
@@ -570,10 +461,6 @@ a {
 .page__meta {
   color: var(--text-muted);
   font-size: 0.85rem;
-  
-  i {
-    margin-right: 0.25rem;
-  }
 }
 
 /* ==========================================================================
@@ -581,34 +468,34 @@ a {
    ========================================================================== */
 
 .btn {
-  font-family: $font-body;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 600;
   border-radius: 8px;
   padding: 0.75rem 1.5rem;
   transition: all 0.2s ease;
-  
-  &--primary {
-    background: var(--gradient-accent);
-    color: #fff;
-    border: none;
-    
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-  }
-  
-  &--inverse {
-    background: var(--bg-tertiary);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-    
-    &:hover {
-      background: var(--accent-light);
-      border-color: var(--accent-primary);
-      color: var(--accent-primary);
-    }
-  }
+}
+
+.btn--primary {
+  background: var(--gradient-accent);
+  color: #fff;
+  border: none;
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--inverse {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn--inverse:hover {
+  background: var(--accent-light);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
 }
 
 /* ==========================================================================
@@ -619,34 +506,30 @@ a {
   background: var(--footer-bg);
   padding: 3rem 0;
   margin-top: 4rem;
-  
-  a {
-    color: var(--footer-text);
-    
-    &:hover {
-      color: var(--accent-primary);
-    }
-  }
 }
 
-.page__footer-follow {
-  .social-icons {
-    li {
-      display: inline-block;
-      margin-right: 1rem;
-      
-      a {
-        color: var(--footer-text);
-        opacity: 0.8;
-        transition: opacity 0.2s ease;
-        
-        &:hover {
-          opacity: 1;
-          color: var(--accent-primary);
-        }
-      }
-    }
-  }
+.page__footer a {
+  color: var(--footer-text);
+}
+
+.page__footer a:hover {
+  color: var(--accent-primary);
+}
+
+.page__footer-follow .social-icons li {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.page__footer-follow .social-icons a {
+  color: var(--footer-text);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.page__footer-follow .social-icons a:hover {
+  opacity: 1;
+  color: var(--accent-primary);
 }
 
 .page__footer-copyright {
@@ -656,142 +539,61 @@ a {
 }
 
 /* ==========================================================================
-   Cards for Featured Content
+   Notice boxes
    ========================================================================== */
 
-.feature-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    border-color: var(--accent-primary);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-4px);
-  }
-  
-  &__icon {
-    width: 48px;
-    height: 48px;
-    background: var(--accent-light);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    
-    i {
-      font-size: 1.5rem;
-      color: var(--accent-primary);
-    }
-  }
-  
-  &__title {
-    font-family: $font-heading;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-  }
-  
-  &__description {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
+.page__content .notice,
+.page__content .notice--primary,
+.page__content .notice--info,
+.page__content .notice--warning,
+.page__content .notice--success,
+.page__content .notice--danger {
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
 }
 
 /* ==========================================================================
-   Animations
-   ========================================================================== */
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.6s ease forwards;
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-/* Staggered animations */
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
-
-/* ==========================================================================
-   Search Overlay
+   Search
    ========================================================================== */
 
 .search-content {
   background: var(--bg-primary);
-  
-  .search-input {
-    background: var(--bg-secondary);
-    border: 2px solid var(--border-color);
-    border-radius: 12px;
-    color: var(--text-primary);
-    font-family: $font-body;
-    padding: 1rem 1.5rem;
-    
-    &:focus {
-      border-color: var(--accent-primary);
-      outline: none;
-    }
-  }
+}
+
+.search-input {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 1rem 1.5rem;
+}
+
+.search-input:focus {
+  border-color: var(--accent-primary);
+  outline: none;
 }
 
 /* ==========================================================================
-   Responsive Adjustments
+   Responsive
    ========================================================================== */
 
 @media (max-width: 768px) {
   .masthead__inner-wrap {
     padding: 0.75rem 1rem;
   }
-  
-  .page__hero--overlay {
-    min-height: 50vh;
-    padding: 3rem 0;
-    
-    .page__title {
-      font-size: 1.75rem;
-    }
-    
-    .page__lead {
-      font-size: 1rem;
-    }
-  }
-  
-  .archive__item {
-    padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .author__urls {
+    background: transparent;
+    border: none;
+    box-shadow: none;
   }
 }
 
 /* ==========================================================================
-   Print Styles
+   Print
    ========================================================================== */
 
 @media print {
@@ -800,4 +602,3 @@ a {
     display: none !important;
   }
 }
-

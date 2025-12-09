@@ -94,7 +94,7 @@ My research mission is to engineer AI models and agents that are **interpretable
 
 <div class="timeline">
   <div class="timeline-item">
-    <div class="timeline-date">2020 - 2025</div>
+    <div class="timeline-date">2021 - 2025</div>
     <div class="timeline-title">Ph.D. in Machine Learning</div>
     <div class="timeline-org">Auburn University, Alabama, USA 🇺🇸</div>
     <div class="timeline-org" style="font-size: 0.85rem; margin-top: 0.5rem;">
@@ -110,9 +110,9 @@ My research mission is to engineer AI models and agents that are **interpretable
   </div>
   
   <div class="timeline-item">
-    <div class="timeline-date">2012 - 2017</div>
+    <div class="timeline-date">2011 - 2016</div>
     <div class="timeline-title">B.Eng. in Electronics & Telecommunications</div>
-    <div class="timeline-org">Hanoi University of Science and Technology, Vietnam 🇻🇳</div>
+    <div class="timeline-org">Hanoi University of Science and Technology, Vietnam</div>
   </div>
 </div>
 
@@ -128,15 +128,15 @@ My research mission is to engineer AI models and agents that are **interpretable
   </div>
   
   <div class="timeline-item">
-    <div class="timeline-date">Summer 2024</div>
-    <div class="timeline-title">Summer Research Associate</div>
+    <div class="timeline-date">2024</div>
+    <div class="timeline-title">AI Research Intern</div>
     <div class="timeline-org"><a href="https://www.jpmorgan.com/technology/artificial-intelligence">JP Morgan AI Research</a>, New York, NY</div>
   </div>
 </div>
 
 ---
 
-## 🔬 Research Interests
+<!-- ## 🔬 Research Interests
 
 <div class="highlight-box">
   <h3>Core Focus Areas</h3>
@@ -148,7 +148,7 @@ My research mission is to engineer AI models and agents that are **interpretable
   </ul>
 </div>
 
----
+--- -->
 
 ## 📝 Academic Service
 
@@ -158,12 +158,12 @@ Active reviewer for premier AI research venues:
 - **ICCV** (International Conference on Computer Vision)
 - **ICLR** (International Conference on Learning Representations)
 - **ICML** (International Conference on Machine Learning)
-
+- **TMLR** (Transactions on Machine Learning Research)
 ---
 
-## 📫 Contact
+<!-- ## 📫 Contact
 
 - **Email**: [nguyengiangbkhn@gmail.com](mailto:nguyengiangbkhn@gmail.com)
 - **GitHub**: [github.com/giangnguyen2412](https://github.com/giangnguyen2412)
 - **Google Scholar**: [Profile](https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en)
-- **Resume**: [Download PDF](/assets/resume/Giang_resume.pdf)
+- **Resume**: [Download PDF](/assets/resume/Giang_resume.pdf) -->

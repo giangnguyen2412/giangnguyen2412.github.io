@@ -30,16 +30,22 @@ layout: default
 <section class="about-preview">
   <div class="section-header">
     <h2 class="section-title">About</h2>
+    <p class="diffuse-note">Revealed in diffusionstyle (click, scroll, or tap to show instantly).</p>
   </div>
   <div class="about-card terminal-panel">
     <div class="panel-header">
       <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-      <span class="panel-title"></span>
+      <span class="panel-title">about.txt</span>
     </div>
-    <div class="about-text">
-      <p>I'm a Research Scientist working with <a href="https://juliusadebayo.com/" target="_blank" rel="noopener"><strong>Julius Adebayo</strong></a> at <strong><a href="https://www.guidelabs.ai/" target="_blank" rel="noopener">Guide Labs</a></strong>, a product-focused AI research company in San Francisco dedicated to building interpretable and reliable AI technology.</p>
-      <p>I earned my PhD in Machine Learning from <strong>Auburn University</strong> in 2025, working with <a href="https://anhnguyen.me/lab/" target="_blank" rel="noopener">Anh Nguyen</a>. I was a <strong>Presidential Research Fellow</strong>. Previously, I completed my M.Sc. in Computer Science at <strong>KAIST</strong>, South Korea.</p>
-      <p>My research focuses on making AI models <strong>interpretable to humans</strong> — enabling people to debug, understand, and ultimately trust AI systems. I've published at top venues including <strong>NeurIPS</strong>, <strong>CVPR</strong>, and <strong>TMLR</strong>.</p>
+    <div class="about-text diffuse-block">
+      <p class="diffuse-text" data-text="I'm a Research Scientist working with Julius Adebayo at Guide Labs, a product-focused AI research company in San Francisco dedicated to building interpretable and reliable AI technology."></p>
+      <p class="diffuse-text" data-text="I earned my PhD in Machine Learning from Auburn University in 2025, working with Anh Nguyen. I was a Presidential Research Fellow. Previously, I completed my M.Sc. in Computer Science at KAIST, South Korea."></p>
+      <p class="diffuse-text" data-text="My research focuses on making AI models interpretable to humans — enabling people to debug, understand, and ultimately trust AI systems. I've published at top venues including NeurIPS, CVPR, and TMLR."></p>
+      <noscript>
+        <p>I'm a Research Scientist working with Julius Adebayo at Guide Labs, a product-focused AI research company in San Francisco dedicated to building interpretable and reliable AI technology.</p>
+        <p>I earned my PhD in Machine Learning from Auburn University in 2025, working with Anh Nguyen. I was a Presidential Research Fellow. Previously, I completed my M.Sc. in Computer Science at KAIST, South Korea.</p>
+        <p>My research focuses on making AI models interpretable to humans — enabling people to debug, understand, and ultimately trust AI systems. I've published at top venues including NeurIPS, CVPR, and TMLR.</p>
+      </noscript>
     </div>
     <div class="about-links">
       <a href="{{ '/assets/resume/Giang_resume.pdf' | relative_url }}" class="about-link" target="_blank">
@@ -361,6 +367,12 @@ layout: default
   border-bottom: 1px solid var(--border-color);
 }
 
+.diffuse-note {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
 .about-card {
   max-width: 800px;
   margin: 0 auto;
@@ -442,6 +454,23 @@ layout: default
 
 .about-link:hover i {
   color: var(--accent-primary);
+}
+
+.diffuse-block {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.diffuse-text {
+  font-family: inherit;
+  color: var(--text-secondary);
+  min-height: 1.2em;
+  line-height: 1.85;
+  word-wrap: break-word;
+}
+
+.diffuse-text strong {
+  color: var(--text-primary);
 }
 
 /* Section Header */
@@ -731,3 +760,62 @@ layout: default
 .stagger-3 { animation-delay: 0.3s; }
 .stagger-4 { animation-delay: 0.4s; }
 </style>
+
+<script>
+// Diffusion-style unmasking for About text
+(function() {
+  const BATCH_WORDS = 3;
+  const STEP_MS = 140;
+  const MASK_CHAR = '▮';
+
+  const maskWord = (word) => MASK_CHAR.repeat(Math.max(1, Math.min(6, word.length)));
+  const tokenize = (text) => text.split(/(\s+)/); // keep spaces
+
+  function revealSequential(node, tokens) {
+    let idx = 0;
+    const total = tokens.length;
+
+    const render = (count) => {
+      const revealed = tokens.slice(0, count).join('');
+      const masked = tokens.slice(count).map(t => {
+        if (/^\s+$/.test(t) || t === '') return t;
+        return maskWord(t.trim()) + (t.match(/^\s+$/) ? t : '');
+      }).join('');
+      node.textContent = revealed + masked;
+    };
+
+    render(0);
+    const interval = setInterval(() => {
+      idx += BATCH_WORDS;
+      if (idx >= total) {
+        render(total);
+        clearInterval(interval);
+      } else {
+        render(idx);
+      }
+    }, STEP_MS);
+
+    const revealAll = () => {
+      render(total);
+      clearInterval(interval);
+      window.removeEventListener('scroll', revealAllOnce);
+      window.removeEventListener('click', revealAllOnce);
+      window.removeEventListener('keydown', revealAllOnce);
+    };
+    const revealAllOnce = () => revealAll();
+
+    window.addEventListener('scroll', revealAllOnce, { once: true });
+    window.addEventListener('click', revealAllOnce, { once: true });
+    window.addEventListener('keydown', revealAllOnce, { once: true });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.diffuse-text').forEach(node => {
+      const text = node.getAttribute('data-text');
+      if (!text) return;
+      const tokens = tokenize(text);
+      revealSequential(node, tokens);
+    });
+  });
+})();
+</script>

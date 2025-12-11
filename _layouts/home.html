@@ -30,24 +30,28 @@ layout: default
 <section class="about-preview">
   <div class="section-header">
     <h2 class="section-title">About</h2>
-    <p class="diffuse-note">Revealed in diffusionstyle (click, scroll, or tap to show instantly).</p>
+    <p class="diffuse-note">Revealed in diffusion style (click, scroll, or tap to show instantly).</p>
   </div>
-  <div class="about-card terminal-panel">
+    <div class="about-card terminal-panel">
     <div class="panel-header">
       <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
       <span class="panel-title">about.txt</span>
     </div>
-    <div class="about-text diffuse-block">
-      <p class="diffuse-text" data-text="I'm a Research Scientist working with Julius Adebayo at Guide Labs, a product-focused AI research company in San Francisco dedicated to building interpretable and reliable AI technology."></p>
-      <p class="diffuse-text" data-text="I earned my PhD in Machine Learning from Auburn University in 2025, working with Anh Nguyen. I was a Presidential Research Fellow. Previously, I completed my M.Sc. in Computer Science at KAIST, South Korea."></p>
-      <p class="diffuse-text" data-text="My research focuses on making AI models interpretable to humans — enabling people to debug, understand, and ultimately trust AI systems. I've published at top venues including NeurIPS, CVPR, and TMLR."></p>
-      <noscript>
-        <p>I'm a Research Scientist working with Julius Adebayo at Guide Labs, a product-focused AI research company in San Francisco dedicated to building interpretable and reliable AI technology.</p>
-        <p>I earned my PhD in Machine Learning from Auburn University in 2025, working with Anh Nguyen. I was a Presidential Research Fellow. Previously, I completed my M.Sc. in Computer Science at KAIST, South Korea.</p>
-        <p>My research focuses on making AI models interpretable to humans — enabling people to debug, understand, and ultimately trust AI systems. I've published at top venues including NeurIPS, CVPR, and TMLR.</p>
-      </noscript>
-    </div>
-    <div class="about-links">
+      <div class="about-text diffuse-block">
+        <p class="diffuse-text" data-html="I'm a Research Scientist working with <a href='https://juliusadebayo.com/' target='_blank' rel='noopener'><strong>Julius Adebayo</strong></a> at <strong><a href='https://www.guidelabs.ai/' target='_blank' rel='noopener'>Guide Labs</a></strong>, a product-focused AI research company in San Francisco dedicated to building interpretable and reliable AI technology."></p>
+        <p class="diffuse-text" data-html="I earned my PhD in Machine Learning from <strong>Auburn University</strong> in 2025, working with <a href='https://anhnguyen.me/lab/' target='_blank' rel='noopener'>Anh Nguyen</a>. I was a <strong>Presidential Research Fellow</strong>. Previously, I completed my M.Sc. in Computer Science at <strong>KAIST</strong>, South Korea."></p>
+        <p class="diffuse-text" data-html="My research focuses on making AI models <strong>interpretable to humans</strong> — enabling people to debug, understand, and ultimately trust AI systems. I've published at top venues including <strong>NeurIPS</strong>, <strong>CVPR</strong>, and <strong>TMLR</strong>."></p>
+        <noscript>
+          <p>I'm a Research Scientist working with Julius Adebayo at Guide Labs, a product-focused AI research company in San Francisco dedicated to building interpretable and reliable AI technology.</p>
+          <p>I earned my PhD in Machine Learning from Auburn University in 2025, working with Anh Nguyen. I was a Presidential Research Fellow. Previously, I completed my M.Sc. in Computer Science at KAIST, South Korea.</p>
+          <p>My research focuses on making AI models interpretable to humans — enabling people to debug, understand, and ultimately trust AI systems. I've published at top venues including NeurIPS, CVPR, and TMLR.</p>
+        </noscript>
+      </div>
+      <div class="diffuse-slider">
+        <label for="reveal-slider">Slide to reveal</label>
+        <input type="range" id="reveal-slider" min="0" max="100" value="0" step="1">
+      </div>
+      <div class="about-links">
       <a href="{{ '/assets/resume/Giang_resume.pdf' | relative_url }}" class="about-link" target="_blank">
         <i class="fas fa-file-alt"></i>
         <span>Resume/CV</span>
@@ -473,6 +477,20 @@ layout: default
   color: var(--text-primary);
 }
 
+.diffuse-slider {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.diffuse-slider input[type="range"] {
+  flex: 1;
+  accent-color: var(--accent-primary);
+}
+
 /* Section Header */
 .section-header {
   text-align: center;
@@ -762,72 +780,97 @@ layout: default
 </style>
 
 <script>
-// Diffusion-style unmasking for About text (random order)
+// Diffusion-style unmasking with slider control (random order, preserves links)
 (function() {
-  const BATCH_WORDS = 3;
-  const TOTAL_DURATION_MS = 7000; // target total reveal time
-  const MASK_CHAR = '▮';
+  const MASK_BLOCKS = ['█','▓','▒','░','▞','▚','▛'];
+  const TOTAL_DURATION_MS = 7000;
 
-  const maskWord = (word) => MASK_CHAR.repeat(Math.max(1, Math.min(6, word.length)));
-  const tokenize = (text) => text.split(/(\s+)/); // keep spaces
-
-  function revealSequential(node, tokens) {
-    const indices = tokens.map((_, i) => i).filter(i => !(tokens[i].match(/^\s+$/) || tokens[i] === ''));
-    // shuffle indices for random diffusion order
-    for (let i = indices.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [indices[i], indices[j]] = [indices[j], indices[i]];
+  const maskWord = (word) => {
+    const len = Math.max(1, Math.min(8, word.length));
+    let out = '';
+    for (let i = 0; i < len; i++) {
+      out += MASK_BLOCKS[(i + Math.floor(Math.random() * MASK_BLOCKS.length)) % MASK_BLOCKS.length];
     }
+    return out;
+  };
 
-    let idx = 0;
-    const total = tokens.length;
-    const steps = Math.max(1, Math.ceil(indices.length / BATCH_WORDS));
-    const STEP_MS = Math.max(40, Math.floor(TOTAL_DURATION_MS / steps));
-
-    const render = (count) => {
-      const revealedMask = new Array(total).fill(false);
-      for (let k = 0; k < count && k < indices.length; k++) {
-        revealedMask[indices[k]] = true;
-      }
-      const out = tokens.map((t, i) => {
-        if (/^\s+$/.test(t) || t === '') return t;
-        return revealedMask[i] ? t : maskWord(t.trim());
-      }).join('');
-      node.textContent = out;
-    };
-
-    render(0);
-    const interval = setInterval(() => {
-      idx += BATCH_WORDS;
-      if (idx >= indices.length) {
-        render(indices.length);
-        clearInterval(interval);
-      } else {
-        render(idx);
-      }
-    }, STEP_MS);
-
-    const revealAll = () => {
-      render(total);
-      clearInterval(interval);
-      window.removeEventListener('scroll', revealAllOnce);
-      window.removeEventListener('click', revealAllOnce);
-      window.removeEventListener('keydown', revealAllOnce);
-    };
-    const revealAllOnce = () => revealAll();
-
-    window.addEventListener('scroll', revealAllOnce, { once: true });
-    window.addEventListener('click', revealAllOnce, { once: true });
-    window.addEventListener('keydown', revealAllOnce, { once: true });
+  function wrapTextNodes(el) {
+    const spans = [];
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    let node;
+    while ((node = walker.nextNode())) {
+      const text = node.nodeValue;
+      if (!text.trim()) continue;
+      const parent = node.parentNode;
+      const frag = document.createDocumentFragment();
+      text.split(/(\s+)/).forEach(part => {
+        if (!part) return;
+        const span = document.createElement('span');
+        span.className = 'mask-token';
+        span.dataset.original = part;
+        span.textContent = /^\s+$/.test(part) ? part : maskWord(part);
+        frag.appendChild(span);
+        spans.push(span);
+      });
+      parent.replaceChild(frag, node);
+    }
+    return spans;
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  function initDiffuseBlocks() {
+    const slider = document.getElementById('reveal-slider');
+    if (!slider) return;
+    const groups = [];
+
     document.querySelectorAll('.diffuse-text').forEach(node => {
-      const text = node.getAttribute('data-text');
-      if (!text) return;
-      const tokens = tokenize(text);
-      revealSequential(node, tokens);
+      const html = node.getAttribute('data-html');
+      if (!html) return;
+      node.innerHTML = html;
+      const spans = wrapTextNodes(node);
+      const revealable = spans.filter(s => s.dataset.original && !/^\s+$/.test(s.dataset.original));
+      // shuffle
+      for (let i = revealable.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [revealable[i], revealable[j]] = [revealable[j], revealable[i]];
+      }
+      groups.push({ spans, revealable });
     });
-  });
+
+    function render(progress) {
+      groups.forEach(group => {
+        const { spans, revealable } = group;
+        const total = revealable.length;
+        const revealCount = Math.min(total, Math.floor(total * progress));
+        const revealedSet = new Set(revealable.slice(0, revealCount));
+        spans.forEach(s => {
+          const orig = s.dataset.original;
+          if (!orig || /^\s+$/.test(orig)) {
+            s.textContent = orig || s.textContent;
+          } else {
+            s.textContent = revealedSet.has(s) ? orig : maskWord(orig);
+          }
+        });
+      });
+    }
+
+    // auto-progress the slider to 100% over TOTAL_DURATION_MS (can still be manually controlled)
+    let start = null;
+    const animate = (ts) => {
+      if (start === null) start = ts;
+      const elapsed = ts - start;
+      const progress = Math.min(1, elapsed / TOTAL_DURATION_MS);
+      slider.value = Math.floor(progress * 100);
+      render(progress);
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+
+    slider.addEventListener('input', (e) => {
+      const p = Math.max(0, Math.min(1, e.target.value / 100));
+      render(p);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initDiffuseBlocks);
 })();
 </script>

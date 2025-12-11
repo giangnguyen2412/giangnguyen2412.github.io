@@ -3,6 +3,7 @@ title: "All Updates"
 layout: single
 permalink: /updates/
 classes: wide
+author_profile: false
 ---
 
 <style>
@@ -161,37 +162,26 @@ classes: wide
   <div class="updates-full-list">
     {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
     {% for post in sorted_posts %}
-      {% comment %} Only show posts with proper date format (YYYY-MM-DD-title) {% endcomment %}
-      {% if post.name contains '-' %}
-        {% assign date_parts = post.name | split: '-' %}
-        {% if date_parts.size >= 3 %}
-          {% assign year = date_parts[0] %}
-          {% assign month = date_parts[1] %}
-          {% assign day = date_parts[2] %}
-          {% if year | size == 4 and month | size == 2 and day | size == 2 %}
-            <article class="update-full-item">
-              <div class="update-full-date">
-                <span class="update-full-month">{{ post.date | date: "%b" }}</span>
-                <span class="update-full-year">{{ post.date | date: "%Y" }}</span>
-              </div>
-              <div class="update-full-content">
-                <h3 class="update-full-title">
-                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                </h3>
-                {% if post.excerpt %}
-                  <p class="update-full-excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</p>
-                {% endif %}
-                <div class="update-full-meta">
-                  <span class="update-full-category">{{ post.date | date: "%B %d, %Y" }}</span>
-                  {% if post.categories.first %}
-                    <span class="update-full-category">{{ post.categories.first }}</span>
-                  {% endif %}
-                </div>
-              </div>
-            </article>
+      <article class="update-full-item">
+        <div class="update-full-date">
+          <span class="update-full-month">{{ post.date | date: "%b" }}</span>
+          <span class="update-full-year">{{ post.date | date: "%Y" }}</span>
+        </div>
+        <div class="update-full-content">
+          <h3 class="update-full-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h3>
+          {% if post.excerpt %}
+            <p class="update-full-excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</p>
           {% endif %}
-        {% endif %}
-      {% endif %}
+          <div class="update-full-meta">
+            <span class="update-full-category">{{ post.date | date: "%B %d, %Y" }}</span>
+            {% if post.categories.first %}
+              <span class="update-full-category">{{ post.categories.first }}</span>
+            {% endif %}
+          </div>
+        </div>
+      </article>
     {% endfor %}
   </div>
 </div>

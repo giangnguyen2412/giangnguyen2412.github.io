@@ -30,36 +30,26 @@ layout: default
 <section class="about-preview">
   <div class="section-header">
     <h2 class="section-title">About</h2>
-    <p class="diffuse-note">Revealed in diffusion style (click, scroll, or tap to show instantly).</p>
   </div>
-    <div class="about-card terminal-panel">
+  <div class="about-card terminal-panel">
     <div class="panel-header">
       <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-      <span class="panel-title">about.txt</span>
+      <span class="panel-title"></span>
     </div>
-      <div class="about-text diffuse-block">
-        <p class="diffuse-text" data-html="I'm a Research Scientist working with <a href='https://juliusadebayo.com/' target='_blank' rel='noopener'><strong>Julius Adebayo</strong></a> at <strong><a href='https://www.guidelabs.ai/' target='_blank' rel='noopener'>Guide Labs</a></strong>, a product-focused AI research company in San Francisco dedicated to building interpretable and reliable AI technology."></p>
-        <p class="diffuse-text" data-html="I earned my PhD in Machine Learning from <strong>Auburn University</strong> in 2025, working with <a href='https://anhnguyen.me/lab/' target='_blank' rel='noopener'>Anh Nguyen</a>. I was a <strong>Presidential Research Fellow</strong>. Previously, I completed my M.Sc. in Computer Science at <strong>KAIST</strong>, South Korea."></p>
-        <p class="diffuse-text" data-html="My research focuses on making AI models <strong>interpretable to humans</strong> — enabling people to debug, understand, and ultimately trust AI systems. I've published at top venues including <strong>NeurIPS</strong>, <strong>CVPR</strong>, and <strong>TMLR</strong>."></p>
-        <noscript>
-          <p>I'm a Research Scientist working with Julius Adebayo at Guide Labs, a product-focused AI research company in San Francisco dedicated to building interpretable and reliable AI technology.</p>
-          <p>I earned my PhD in Machine Learning from Auburn University in 2025, working with Anh Nguyen. I was a Presidential Research Fellow. Previously, I completed my M.Sc. in Computer Science at KAIST, South Korea.</p>
-          <p>My research focuses on making AI models interpretable to humans — enabling people to debug, understand, and ultimately trust AI systems. I've published at top venues including NeurIPS, CVPR, and TMLR.</p>
-        </noscript>
-      </div>
-      <div class="diffuse-slider">
-        <label for="reveal-slider">Slide to reveal</label>
-        <input type="range" id="reveal-slider" min="0" max="100" value="0" step="1">
-      </div>
-      <div class="about-links">
+    <div class="about-text">
+      <p>I'm a Research Scientist working with <a href="https://juliusadebayo.com/" target="_blank" rel="noopener"><strong>Julius Adebayo</strong></a> at <strong><a href="https://www.guidelabs.ai/" target="_blank" rel="noopener">Guide Labs</a></strong>, a product-focused AI research company in San Francisco dedicated to building interpretable and reliable AI technology.</p>
+      <p>I earned my PhD in Machine Learning from <strong>Auburn University</strong> in 2025, working with <a href="https://anhnguyen.me/lab/" target="_blank" rel="noopener">Anh Nguyen</a>. I was a <strong>Presidential Research Fellow</strong>. Previously, I completed my M.Sc. in Computer Science at <strong>KAIST</strong>, South Korea.</p>
+      <p>My research focuses on making AI models <strong>interpretable to humans</strong> — enabling people to debug, understand, and ultimately trust AI systems. I've published at top venues including <strong>NeurIPS</strong>, <strong>CVPR</strong>, and <strong>TMLR</strong>.</p>
+    </div>
+    <div class="about-links">
       <a href="{{ '/assets/resume/Giang_resume.pdf' | relative_url }}" class="about-link" target="_blank">
         <i class="fas fa-file-alt"></i>
         <span>Resume/CV</span>
       </a>
-      <a href="{{ '/assets/resume/rs_highlights.pdf' | relative_url }}" class="about-link" target="_blank">
+      <!-- <a href="{{ '/assets/resume/rs_highlights.pdf' | relative_url }}" class="about-link" target="_blank">
         <i class="fas fa-lightbulb"></i>
         <span>Research Highlights</span>
-      </a>
+      </a> -->
       <a href="https://github.com/giangnguyen2412" class="about-link" target="_blank" rel="noopener">
         <i class="fab fa-github"></i>
         <span>GitHub</span>
@@ -95,7 +85,7 @@ layout: default
     
     <article class="pub-item">
       <div class="pub-left">
-        <span class="pub-venue-badge">TMLR · ICLR 2025</span>
+        <span class="pub-venue-badge">TMLR 2024</span>
       </div>
       <div class="pub-right">
         <h3 class="pub-title">
@@ -371,12 +361,6 @@ layout: default
   border-bottom: 1px solid var(--border-color);
 }
 
-.diffuse-note {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  margin-top: 0.3rem;
-}
-
 .about-card {
   max-width: 800px;
   margin: 0 auto;
@@ -458,37 +442,6 @@ layout: default
 
 .about-link:hover i {
   color: var(--accent-primary);
-}
-
-.diffuse-block {
-  display: grid;
-  gap: 0.9rem;
-}
-
-.diffuse-text {
-  font-family: inherit;
-  color: var(--text-secondary);
-  min-height: 1.2em;
-  line-height: 1.85;
-  word-wrap: break-word;
-}
-
-.diffuse-text strong {
-  color: var(--text-primary);
-}
-
-.diffuse-slider {
-  margin-top: 1.5rem;
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.diffuse-slider input[type="range"] {
-  flex: 1;
-  accent-color: var(--accent-primary);
 }
 
 /* Section Header */
@@ -778,90 +731,3 @@ layout: default
 .stagger-3 { animation-delay: 0.3s; }
 .stagger-4 { animation-delay: 0.4s; }
 </style>
-
-<script>
-// Diffusion-style unmasking with slider control (random order, preserves links)
-(function() {
-  const MASK_BLOCKS = ['█','▓','▒','░','▞','▚','▛'];
-  const TOTAL_DURATION_MS = 7000;
-
-  const maskWord = (word) => {
-    const len = Math.max(1, Math.min(8, word.length));
-    let out = '';
-    for (let i = 0; i < len; i++) {
-      out += MASK_BLOCKS[(i + Math.floor(Math.random() * MASK_BLOCKS.length)) % MASK_BLOCKS.length];
-    }
-    return out;
-  };
-
-  function wrapTextNodes(el) {
-    const spans = [];
-    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
-    let node;
-    while ((node = walker.nextNode())) {
-      const text = node.nodeValue;
-      if (!text.trim()) continue;
-      const parent = node.parentNode;
-      const frag = document.createDocumentFragment();
-      text.split(/(\s+)/).forEach(part => {
-        if (!part) return;
-        const span = document.createElement('span');
-        span.className = 'mask-token';
-        span.dataset.original = part;
-        span.textContent = /^\s+$/.test(part) ? part : maskWord(part);
-        frag.appendChild(span);
-        spans.push(span);
-      });
-      parent.replaceChild(frag, node);
-    }
-    return spans;
-  }
-
-  function initDiffuseBlocks() {
-    const slider = document.getElementById('reveal-slider');
-    if (!slider) return;
-    const groups = [];
-
-    document.querySelectorAll('.diffuse-text').forEach(node => {
-      const html = node.getAttribute('data-html');
-      if (!html) return;
-      node.innerHTML = html;
-      const spans = wrapTextNodes(node);
-      const revealable = spans.filter(s => s.dataset.original && !/^\s+$/.test(s.dataset.original));
-      // shuffle
-      for (let i = revealable.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [revealable[i], revealable[j]] = [revealable[j], revealable[i]];
-      }
-      groups.push({ spans, revealable });
-    });
-
-    function render(progress) {
-      groups.forEach(group => {
-        const { spans, revealable } = group;
-        const total = revealable.length;
-        const revealCount = Math.min(total, Math.floor(total * progress));
-        const revealedSet = new Set(revealable.slice(0, revealCount));
-        spans.forEach(s => {
-          const orig = s.dataset.original;
-          if (!orig || /^\s+$/.test(orig)) {
-            s.textContent = orig || s.textContent;
-          } else {
-            s.textContent = revealedSet.has(s) ? orig : maskWord(orig);
-          }
-        });
-      });
-    }
-
-    // initial state: fully masked
-    render(0);
-
-    slider.addEventListener('input', (e) => {
-      const p = Math.max(0, Math.min(1, e.target.value / 100));
-      render(p);
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', initDiffuseBlocks);
-})();
-</script>

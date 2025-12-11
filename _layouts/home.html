@@ -762,33 +762,45 @@ layout: default
 </style>
 
 <script>
-// Diffusion-style unmasking for About text
+// Diffusion-style unmasking for About text (random order)
 (function() {
   const BATCH_WORDS = 3;
-  const STEP_MS = 140;
+  const TOTAL_DURATION_MS = 7000; // target total reveal time
   const MASK_CHAR = '▮';
 
   const maskWord = (word) => MASK_CHAR.repeat(Math.max(1, Math.min(6, word.length)));
   const tokenize = (text) => text.split(/(\s+)/); // keep spaces
 
   function revealSequential(node, tokens) {
+    const indices = tokens.map((_, i) => i).filter(i => !(tokens[i].match(/^\s+$/) || tokens[i] === ''));
+    // shuffle indices for random diffusion order
+    for (let i = indices.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+
     let idx = 0;
     const total = tokens.length;
+    const steps = Math.max(1, Math.ceil(indices.length / BATCH_WORDS));
+    const STEP_MS = Math.max(40, Math.floor(TOTAL_DURATION_MS / steps));
 
     const render = (count) => {
-      const revealed = tokens.slice(0, count).join('');
-      const masked = tokens.slice(count).map(t => {
+      const revealedMask = new Array(total).fill(false);
+      for (let k = 0; k < count && k < indices.length; k++) {
+        revealedMask[indices[k]] = true;
+      }
+      const out = tokens.map((t, i) => {
         if (/^\s+$/.test(t) || t === '') return t;
-        return maskWord(t.trim()) + (t.match(/^\s+$/) ? t : '');
+        return revealedMask[i] ? t : maskWord(t.trim());
       }).join('');
-      node.textContent = revealed + masked;
+      node.textContent = out;
     };
 
     render(0);
     const interval = setInterval(() => {
       idx += BATCH_WORDS;
-      if (idx >= total) {
-        render(total);
+      if (idx >= indices.length) {
+        render(indices.length);
         clearInterval(interval);
       } else {
         render(idx);

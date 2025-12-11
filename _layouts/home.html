@@ -853,17 +853,8 @@ layout: default
       });
     }
 
-    // auto-progress the slider to 100% over TOTAL_DURATION_MS (can still be manually controlled)
-    let start = null;
-    const animate = (ts) => {
-      if (start === null) start = ts;
-      const elapsed = ts - start;
-      const progress = Math.min(1, elapsed / TOTAL_DURATION_MS);
-      slider.value = Math.floor(progress * 100);
-      render(progress);
-      if (progress < 1) requestAnimationFrame(animate);
-    };
-    requestAnimationFrame(animate);
+    // initial state: fully masked
+    render(0);
 
     slider.addEventListener('input', (e) => {
       const p = Math.max(0, Math.min(1, e.target.value / 100));

@@ -3,7 +3,7 @@ title: About Me
 layout: single
 permalink: /about/
 classes: wide
-author_profile: true
+author_profile: false
 ---
 
 <style>

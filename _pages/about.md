@@ -7,13 +7,15 @@ author_profile: false
 sidebar:
   - title:
     text: |
-      <ul class="social-icons">
-        <li><a href="{{ '/assets/resume/Giang_resume.pdf' | relative_url }}" rel="nofollow noopener noreferrer" target="_blank"><i class="fas fa-fw fa-file-alt" aria-hidden="true"></i> Resume</a></li>
-        <li><a href="https://github.com/giangnguyen2412" rel="nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
-        <li><a href="https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en" rel="nofollow noopener noreferrer" target="_blank"><i class="fas fa-fw fa-graduation-cap" aria-hidden="true"></i> Scholar</a></li>
-        <li><a href="https://www.linkedin.com/in/giang-nguyen-941b44130/" rel="nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
-        <li><a href="mailto:nguyengiangbkhn@gmail.com"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></li>
-      </ul>
+      <div class="about-social-icons">
+        <ul class="social-icons">
+          <li><a href="{{ '/assets/resume/Giang_resume.pdf' | relative_url }}" rel="nofollow noopener noreferrer" target="_blank"><i class="fas fa-fw fa-file-alt" aria-hidden="true"></i> Resume</a></li>
+          <li><a href="https://github.com/giangnguyen2412" rel="nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          <li><a href="https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en" rel="nofollow noopener noreferrer" target="_blank"><i class="fas fa-fw fa-graduation-cap" aria-hidden="true"></i> Scholar</a></li>
+          <li><a href="https://www.linkedin.com/in/giang-nguyen-941b44130/" rel="nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+          <li><a href="mailto:nguyengiangbkhn@gmail.com"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></li>
+        </ul>
+      </div>
 ---
 
 <style>
@@ -89,6 +91,14 @@ sidebar:
 .timeline-org {
   color: var(--text-secondary);
   font-size: 0.95rem;
+}
+
+.about-social-icons .fa-github {
+  color: #4078c0;
+}
+
+.about-social-icons .fa-github:hover {
+  color: #3366a3;
 }
 </style>
 

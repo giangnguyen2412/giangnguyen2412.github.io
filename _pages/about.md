@@ -99,7 +99,7 @@ My research mission is to engineer AI models and agents that are **interpretable
     <div class="timeline-org">Auburn University, Alabama, USA 🇺🇸</div>
     <div class="timeline-org" style="font-size: 0.85rem; margin-top: 0.5rem;">
       Advisor: <a href="https://anhnguyen.me/lab/">Anh Nguyen</a><br>
-      supported by Presidential Graduate Research Fellowship
+      supported by <a href="https://graduate.auburn.edu/admissions/tuition-funding/funding/pgrf.php">Presidential Graduate Research Fellowship</a><br>
     </div>
   </div>
   

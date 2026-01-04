@@ -5,7 +5,7 @@ permalink: /about/
 classes: wide
 author_profile: false
 sidebar:
-  - title: Connect
+  - title:
     text: |
       <ul class="social-icons">
         <li><a href="{{ '/assets/resume/Giang_resume.pdf' | relative_url }}" rel="nofollow noopener noreferrer" target="_blank"><i class="fas fa-fw fa-file-alt" aria-hidden="true"></i> Resume</a></li>

@@ -95,11 +95,11 @@ My research mission is to engineer AI models and agents that are **interpretable
 <div class="timeline">
   <div class="timeline-item">
     <div class="timeline-date">2021 - 2025</div>
-    <div class="timeline-title">Ph.D. in Machine Learning</div>
+    <div class="timeline-title">Ph.D. in Computer Science</div>
     <div class="timeline-org">Auburn University, Alabama, USA 🇺🇸</div>
     <div class="timeline-org" style="font-size: 0.85rem; margin-top: 0.5rem;">
       Advisor: <a href="https://anhnguyen.me/lab/">Anh Nguyen</a><br>
-      Presidential Graduate Research Fellow
+      supported by Presidential Graduate Research Fellowship
     </div>
   </div>
   

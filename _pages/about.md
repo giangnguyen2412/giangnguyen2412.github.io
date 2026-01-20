@@ -9,7 +9,7 @@ sidebar:
     text: |
       <div class="about-social-icons">
         <ul class="social-icons">
-          <li><a href="{{ '/assets/resume/Giang_resume.pdf' | relative_url }}" rel="nofollow noopener noreferrer" target="_blank"><i class="fas fa-fw fa-file-alt" aria-hidden="true"></i> Resume</a></li>
+          <li><a href="https://giangnguyen2412.github.io/assets/resume/Giang_resume.pdf" rel="nofollow noopener noreferrer" target="_blank"><i class="fas fa-fw fa-file-alt" aria-hidden="true"></i> Resume</a></li>
           <li><a href="https://github.com/giangnguyen2412" rel="nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
           <li><a href="https://scholar.google.com/citations?user=l_kfXecAAAAJ&hl=en" rel="nofollow noopener noreferrer" target="_blank"><i class="fas fa-fw fa-graduation-cap" aria-hidden="true"></i> Scholar</a></li>
           <li><a href="https://www.linkedin.com/in/giang-nguyen-941b44130/" rel="nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>

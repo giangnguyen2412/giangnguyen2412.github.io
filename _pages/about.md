@@ -104,10 +104,15 @@ sidebar:
 
 ## 👋 Hello!
 
-I'm a **Research Scientist** at [Guide Labs](https://www.guidelabs.ai/), a product-focused AI research company in San Francisco dedicated to building interpretable and reliable AI technology.
+I'm a **Research Scientist** at [Guide Labs](https://www.guidelabs.ai/), an AI research company in San Francisco dedicated to building interpretable AI technology.
 
-My research mission is to engineer AI models and agents that are **interpretable to human users**, making them easy to debug, understand, and ultimately trust.
+I work in the model-training team where I:
 
+- **train** interpretable language models at scale
+- **explain** model behavior at different levels
+- **control** output generation to get desired behavior or remove unwanted/NSFW outputs
+
+See examples on the Guide Labs [blog](https://www.guidelabs.ai/blog/).
 ---
 
 ## 🎓 Education
@@ -116,7 +121,7 @@ My research mission is to engineer AI models and agents that are **interpretable
   <div class="timeline-item">
     <div class="timeline-date">2021 - 2025</div>
     <div class="timeline-title">Ph.D. in Computer Science</div>
-    <div class="timeline-org">Auburn University, Alabama, USA 🇺🇸</div>
+    <div class="timeline-org">Auburn University, US 🇺🇸</div>
     <div class="timeline-org" style="font-size: 0.85rem; margin-top: 0.5rem;">
       Advisor: <a href="https://anhnguyen.me/lab/">Anh Nguyen</a><br>
       supported by <a href="https://graduate.auburn.edu/admissions/tuition-funding/funding/pgrf.php">Presidential Graduate Research Fellowship</a><br>
@@ -132,7 +137,7 @@ My research mission is to engineer AI models and agents that are **interpretable
   <div class="timeline-item">
     <div class="timeline-date">2011 - 2016</div>
     <div class="timeline-title">B.Eng. in Electronics & Telecommunications</div>
-    <div class="timeline-org">Hanoi University of Science and Technology, Vietnam 🇻🇳</div>
+    <div class="timeline-org">HUST, Vietnam 🇻🇳</div>
   </div>
 </div>
 

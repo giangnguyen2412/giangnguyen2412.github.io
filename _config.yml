@@ -30,7 +30,7 @@ masthead_title           : # overrides the website title displayed in the masthe
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : facebook # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
+  provider               : false # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
     shortname            : bllfpc # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
@@ -65,9 +65,9 @@ reCaptcha:
   secret                 :
 atom_feed:
   path                   : # blank (default) uses feed.xml
-search                   : true
-search_full_content      : true
-search_provider          : algolia
+search                   : false
+search_full_content      : false
+search_provider          : lunr
 algolia:
   application_id         : 3NN3SE81GT
   index_name             : tootouch blog

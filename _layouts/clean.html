@@ -8,6 +8,19 @@
   <link rel="icon" type="image/png" href="{{ '/assets/images/favicon.png' | relative_url }}">
   {% if page.redirect_to %}<meta http-equiv="refresh" content="0; url={{ page.redirect_to }}">{% endif %}
   <style>
+    /* subtle purple gradient wash behind everything */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(ellipse 60% 50% at 5% 10%,  rgba(100, 70, 220, 0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 95% 85%, rgba(120, 60, 210, 0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+  </style>
+  <style>
     *, *::before, *::after { box-sizing: border-box; }
 
     body {
@@ -184,5 +197,191 @@
 <div class="page-wrap">
   {{ content }}
 </div>
+<canvas id="bg-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;"></canvas>
+<script>
+(function () {
+  var canvas = document.getElementById('bg-canvas');
+  var ctx = canvas.getContext('2d');
+  var particles = [], W, H, cLeft, cRight;
+
+  var COLOR     = '90, 65, 220';
+  var MAX_DIST  = 180;
+  var CONTENT_W = 720;
+  var MARGIN_PAD = 24;
+
+  var CONCEPTS = [
+    // local model-agnostic methods
+    'LIME', 'SHAP', 'Shapley values', 'counterfactual', 'anchors',
+    'integrated gradients', 'saliency map', 'DeepLIFT', 'LRP',
+    'occlusion sensitivity', 'GradCAM', 'class activation map',
+    'SmoothGrad', 'input × gradient',
+    // global model-agnostic methods
+    'partial dependence plot', 'feature interaction',
+    'surrogate model', 'RuleFit', 'decision rules',
+    // example-based
+    'influence function', 'nearest neighbors', 'prototype', 'criticisms',
+    'data shapley', 'TracIn', 'adversarial examples', 'ProtoPNet',
+    // concept-based
+    'TCAV', 'concept bottleneck', 'concept vector', 'concept activation',
+    'concept probing',
+    // mechanistic interpretability
+    'sparse autoencoder', 'steering vector', 'linear probe', 'activation patch',
+    'causal tracing', 'logit lens', 'superposition', 'monosemanticity',
+    'polysemanticity', 'circuit', 'attention head', 'residual stream',
+    'feature attribution', 'representation engineering', 'probing classifier',
+    // model editing & control
+    'knowledge neuron', 'model editing',
+    'activation maximization', 'feature visualization',
+    // evaluation & application
+    'faithfulness', 'plausibility', 'simulatability', 'human alignment',
+    'model debugging', 'AI-assisted decision-making',
+  ];
+
+  // activation fade duration in ms
+  var FADE_MS = 1800;
+
+  function margins() {
+    cLeft  = Math.max(0, (W - CONTENT_W) / 2) - MARGIN_PAD;
+    cRight = Math.min(W, (W + CONTENT_W) / 2) + MARGIN_PAD;
+  }
+
+  function randInMargin() {
+    var lw = cLeft, rw = W - cRight;
+    if (lw + rw <= 0) return Math.random() * W;
+    if (Math.random() < lw / (lw + rw)) {
+      return Math.random() * lw;
+    } else {
+      return cRight + Math.random() * rw;
+    }
+  }
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    margins();
+    initParticles();
+  }
+
+  function initParticles() {
+    particles = [];
+    var marginArea = Math.max(0, cLeft) * H + Math.max(0, W - cRight) * H;
+    var n = Math.min(CONCEPTS.length, Math.max(10, Math.floor(marginArea / 9000)));
+    // shuffle concepts so each particle gets a unique one
+    var shuffled = CONCEPTS.slice().sort(function() { return Math.random() - 0.5; });
+    for (var i = 0; i < n; i++) {
+      particles.push({
+        x:       randInMargin(),
+        y:       Math.random() * H,
+        vx:      (Math.random() - 0.5) * 0.28,
+        vy:      (Math.random() - 0.5) * 0.28,
+        r:       Math.random() * 2.0 + 0.8,
+        pulse:   Math.random() * Math.PI * 2,
+        label:   shuffled[i % shuffled.length],
+        // activation state: actAt = timestamp when spark fired, 0 = idle
+        actAt:   0
+      });
+    }
+  }
+
+  function clampToMargin(p) {
+    if (p.x < 0)  { p.x = 0;  p.vx =  Math.abs(p.vx); }
+    if (p.x > W)  { p.x = W;  p.vx = -Math.abs(p.vx); }
+    if (p.y < 0)  { p.y = 0;  p.vy =  Math.abs(p.vy); }
+    if (p.y > H)  { p.y = H;  p.vy = -Math.abs(p.vy); }
+    if (p.x > cLeft && p.x < cRight) {
+      var mid = (cLeft + cRight) / 2;
+      if (p.x < mid) { p.x = cLeft; p.vx = -Math.abs(p.vx); }
+      else           { p.x = cRight; p.vx =  Math.abs(p.vx); }
+    }
+  }
+
+  // fire a random concept every ~1 second
+  function spark() {
+    if (particles.length === 0) return;
+    var idx = Math.floor(Math.random() * particles.length);
+    particles[idx].actAt = Date.now();
+    setTimeout(spark, 900 + Math.random() * 400);
+  }
+
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+    var t   = Date.now() * 0.001;
+    var now = Date.now();
+
+    // draw edges
+    for (var i = 0; i < particles.length; i++) {
+      var a = particles[i];
+      for (var j = i + 1; j < particles.length; j++) {
+        var b = particles[j];
+        var dx = a.x - b.x, dy = a.y - b.y;
+        var d  = Math.sqrt(dx * dx + dy * dy);
+        if (d < MAX_DIST) {
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(' + COLOR + ',' + (0.25 * (1 - d / MAX_DIST)) + ')';
+          ctx.lineWidth   = 0.8;
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // draw nodes + labels
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+
+      var elapsed = (p.actAt > 0) ? (now - p.actAt) : FADE_MS;
+      // t01: 1 at spark, fades to 0 over FADE_MS
+      var t01 = Math.max(0, 1 - elapsed / FADE_MS);
+
+      // base dot
+      var pr = p.r + Math.sin(t * 1.3 + p.pulse) * 0.5;
+      var dotR = pr + t01 * 5;          // swell on activation
+      var dotA = 0.38 + t01 * 0.62;    // base opacity -> full
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, dotR, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + COLOR + ',' + dotA + ')';
+      ctx.fill();
+
+      // glow ring on activation
+      if (t01 > 0.01) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, dotR + 4 + (1 - t01) * 10, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(' + COLOR + ',' + (t01 * 0.5) + ')';
+        ctx.lineWidth   = 1.5;
+        ctx.stroke();
+
+        // concept label
+        ctx.save();
+        ctx.font        = '600 10.5px "SF Mono", "Fira Code", monospace';
+        ctx.fillStyle   = 'rgba(80,50,210,' + (t01 * 0.95) + ')';
+        ctx.textBaseline = 'middle';
+        // place label on the side with more space
+        var onLeft = p.x > W / 2;
+        if (onLeft) {
+          ctx.textAlign = 'right';
+          ctx.fillText(p.label, p.x - dotR - 7, p.y);
+        } else {
+          ctx.textAlign = 'left';
+          ctx.fillText(p.label, p.x + dotR + 7, p.y);
+        }
+        ctx.restore();
+      }
+
+      p.x += p.vx;
+      p.y += p.vy;
+      clampToMargin(p);
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  window.addEventListener('resize', function () { resize(); });
+  resize();
+  spark();
+  frame();
+})();
+</script>
 </body>
 </html>

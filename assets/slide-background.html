@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Interpretability Background</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #fff; overflow: hidden; width: 100vw; height: 100vh; }
+  canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+(function(){
+  var cv = document.getElementById('c');
+  var cx = cv.getContext('2d');
+  var W, H, nodes = [];
+  var MAX_DIST = 200;
+  var COLOR = '40, 100, 220';
+  var FADE_MS = 2200;
+
+  var CONCEPTS = [
+    'LIME','SHAP','Shapley values','counterfactual','anchors',
+    'integrated gradients','saliency map','DeepLIFT','LRP',
+    'occlusion sensitivity','GradCAM','class activation map',
+    'SmoothGrad','input × gradient','partial dependence plot',
+    'feature interaction','surrogate model','RuleFit','decision rules',
+    'influence function','nearest neighbors','prototype','criticisms',
+    'data shapley','TracIn','adversarial examples','ProtoPNet',
+    'TCAV','concept bottleneck','concept vector','concept activation',
+    'concept probing','sparse autoencoder','steering vector',
+    'linear probe','activation patch','causal tracing','logit lens',
+    'superposition','monosemanticity','polysemanticity','circuit',
+    'attention head','residual stream','feature attribution',
+    'representation engineering','probing classifier','knowledge neuron',
+    'model editing','activation maximization','feature visualization',
+    'faithfulness','plausibility','simulatability','human alignment',
+    'model debugging','AI-assisted decision-making'
+  ];
+
+  function resize() {
+    W = cv.width  = window.innerWidth;
+    H = cv.height = window.innerHeight;
+    init();
+  }
+
+  function init() {
+    nodes = [];
+    var shuffled = CONCEPTS.slice().sort(function(){ return Math.random() - 0.5; });
+    var n = Math.min(shuffled.length, Math.floor(W * H / 18000));
+    n = Math.max(n, 20);
+    for (var i = 0; i < n; i++) {
+      nodes.push({
+        x:     Math.random() * W,
+        y:     Math.random() * H,
+        vx:    (Math.random() - 0.5) * 0.35,
+        vy:    (Math.random() - 0.5) * 0.35,
+        r:     Math.random() * 2 + 1,
+        pulse: Math.random() * Math.PI * 2,
+        label: shuffled[i % shuffled.length],
+        // stagger activation so labels don't all appear at identical moment
+        actAt: Date.now() - Math.random() * FADE_MS
+      });
+    }
+  }
+
+  function frame() {
+    cx.clearRect(0, 0, W, H);
+    var t   = Date.now() * 0.001;
+    var now = Date.now();
+
+    // Edges
+    for (var i = 0; i < nodes.length; i++) {
+      var a = nodes[i];
+      for (var j = i + 1; j < nodes.length; j++) {
+        var b  = nodes[j];
+        var dx = a.x - b.x, dy = a.y - b.y;
+        var d  = Math.sqrt(dx*dx + dy*dy);
+        if (d < MAX_DIST) {
+          cx.beginPath();
+          cx.strokeStyle = 'rgba(' + COLOR + ',' + (0.30 * (1 - d / MAX_DIST)) + ')';
+          cx.lineWidth   = 0.9;
+          cx.moveTo(a.x, a.y);
+          cx.lineTo(b.x, b.y);
+          cx.stroke();
+        }
+      }
+    }
+
+    // Nodes + labels
+    for (var i = 0; i < nodes.length; i++) {
+      var p   = nodes[i];
+      var el  = now - p.actAt;
+      var t01 = Math.max(0, Math.min(1, el / FADE_MS));
+
+      var pr   = p.r + Math.sin(t * 1.3 + p.pulse) * 0.5;
+      var dotR = pr + t01 * 4;
+      var dotA = 0.35 + t01 * 0.65;
+
+      // Dot
+      cx.beginPath();
+      cx.arc(p.x, p.y, dotR, 0, Math.PI * 2);
+      cx.fillStyle = 'rgba(' + COLOR + ',' + dotA + ')';
+      cx.fill();
+
+      // Glow ring
+      if (t01 > 0.1) {
+        cx.beginPath();
+        cx.arc(p.x, p.y, dotR + 5 + (1 - t01) * 8, 0, Math.PI * 2);
+        cx.strokeStyle = 'rgba(' + COLOR + ',' + (t01 * 0.45) + ')';
+        cx.lineWidth   = 1.3;
+        cx.stroke();
+      }
+
+      // Label — always visible, opacity driven by t01
+      if (t01 > 0.05) {
+        cx.save();
+        cx.font        = '600 10.5px "SF Mono","Fira Code",monospace';
+        cx.fillStyle   = 'rgba(15,60,200,' + (t01 * 0.92) + ')';
+        cx.textBaseline = 'middle';
+        // place label away from screen edge
+        if (p.x > W / 2) {
+          cx.textAlign = 'right';
+          cx.fillText(p.label, p.x - dotR - 6, p.y);
+        } else {
+          cx.textAlign = 'left';
+          cx.fillText(p.label, p.x + dotR + 6, p.y);
+        }
+        cx.restore();
+      }
+
+      // Move
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0)  { p.x = 0;  p.vx =  Math.abs(p.vx); }
+      if (p.x > W)  { p.x = W;  p.vx = -Math.abs(p.vx); }
+      if (p.y < 0)  { p.y = 0;  p.vy =  Math.abs(p.vy); }
+      if (p.y > H)  { p.y = H;  p.vy = -Math.abs(p.vy); }
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  frame();
+})();
+</script>
+</body>
+</html>

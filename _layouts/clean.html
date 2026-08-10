@@ -210,7 +210,7 @@
   if(!cv) return;
   var cx=cv.getContext('2d');
   var W,H,cL,cR,V,frameNo=0;
-  var CW=720,MP=20,MINM=110,GAP=21,PERIOD=4;
+  var CW=720,MP=20,MINM=110,GAP=21,PERIOD=2;
 
   var TH=[
     {id:'lineage',      pale:'186,178,224', dot:'96,56,222',  lab:'80,50,210',  a:'rgba(100,70,220,0.18)', b:'rgba(120,60,210,0.14)'},
@@ -223,7 +223,10 @@
 
   var EPOCH=Math.floor(Date.UTC(2026,7,8)/86400000);
   var qs=/[?&]bg=(\d+)/.exec(location.search);
-  var slot=Math.floor((Math.floor(Date.now()/86400000)-EPOCH)/PERIOD);
+  // day number in the visitor's own timezone, so themes switch at local midnight
+  var nowD=new Date();
+  var today=Math.floor((nowD.getTime()-nowD.getTimezoneOffset()*60000)/86400000);
+  var slot=Math.floor((today-EPOCH)/PERIOD);
   var VI=qs?(parseInt(qs[1],10)||0)%TH.length:((slot%TH.length)+TH.length)%TH.length;
   var T=TH[VI];
 
@@ -254,12 +257,29 @@
     'partial dependence plot','feature interaction','surrogate model','RuleFit','decision rules',
     'influence function','nearest neighbors','prototype','criticisms','data shapley','TracIn',
     'adversarial examples','ProtoPNet','TCAV','concept bottleneck','concept vector','concept activation',
-    'concept probing','sparse autoencoder','steering vector','linear probe','activation patch',
+    'concept probing','sparse autoencoder','steering vector','linear probe','activation patching',
     'causal tracing','logit lens','superposition','monosemanticity','polysemanticity','circuit',
     'attention head','residual stream','feature attribution','representation engineering',
     'probing classifier','knowledge neuron','model editing','activation maximization',
     'feature visualization','faithfulness','plausibility','simulatability','human alignment',
-    'model debugging','AI-assisted decision-making'];
+    'model debugging','AI-assisted decision-making','gradient \u00d7 input','contrastive explanation',
+    'influential instances','algorithmic recourse','concept discovery','concept intervention',
+    'concept erasure','rule list','decision tree','intrinsic interpretability','ante-hoc explanation',
+    'induction head','name mover head','QK circuit','OV circuit','tuned lens','path patching',
+    'attribution patching','direct logit attribution','ablation','circuit tracing','attribution graph',
+    'replacement model','privileged basis','linear representation','feature geometry','grokking',
+    'causal abstraction','parameter decomposition','self-repair','copy suppression','ACDC',
+    'dictionary learning','transcoder','crosscoder','cross-layer transcoder','feature splitting',
+    'feature absorption','dead latents','TopK SAE','JumpReLU SAE','SAE latent','auto-interp',
+    'feature dashboard','sparse probing','attention probe','interchange intervention','patchscopes',
+    'latent knowledge','model diffing','CKA','DAS','activation steering','activation addition',
+    'feature steering','refusal direction','directional ablation','knowledge editing','task vector',
+    'function vector','machine unlearning','circuit breakers','inference-time intervention','sanity checks',
+    'interpretability illusion','deletion metric','Rashomon effect','thought anchor','monitorability',
+    'CoT monitorability','CoT faithfulness','externalized reasoning','white-box evaluation',
+    'anomaly detection','deception detection','sleeper agents','alignment faking','sandbagging',
+    'scalable oversight','safety case','microscope AI','model organism','datamodels','TRAK','leave-one-out',
+    'memorization','data attribution'];
 
   // [label, era 0-6 (old to new), side 0=left 1=right, position across margin, y offset]
   var ND=[
@@ -274,7 +294,7 @@
     ['Linear Probe',1,1,0.26,-10],['Prototypes',1,1,0.58,8],
     ['Probing Classifier',2,1,0.22,4],['TCAV',2,1,0.54,-12],
     ['Concept Bottleneck',3,1,0.24,-10],['Logit Lens',3,1,0.44,10],['ProtoPNet',3,1,0.62,-2],
-    ['Activation Patch',4,1,0.22,6],['Circuit',4,1,0.56,-10],
+    ['Activation Patching',4,1,0.22,6],['Circuit',4,1,0.56,-10],
     ['Superposition',5,1,0.22,2],['Causal Tracing',5,1,0.38,12],['Sparse Autoencoder',5,1,0.54,-12],
     ['Steering Vector',6,1,0.24,-4],['Steerling-8B \u2605',6,1,0.56,8]
   ];
@@ -293,7 +313,7 @@
     'Probing Classifier':['Logit Lens'],'TCAV':['Concept Bottleneck'],
     'Concept Bottleneck':['Steerling-8B \u2605'],'ProtoPNet':['Steerling-8B \u2605'],
     'Logit Lens':['Circuit'],'Circuit':['Superposition','Sparse Autoencoder'],
-    'Activation Patch':['Causal Tracing'],'Superposition':['Sparse Autoencoder'],
+    'Activation Patching':['Causal Tracing'],'Superposition':['Sparse Autoencoder'],
     'Causal Tracing':['Steering Vector'],
     'Sparse Autoencoder':['Steering Vector','Steerling-8B \u2605']
   };

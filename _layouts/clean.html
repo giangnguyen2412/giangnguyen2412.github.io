@@ -214,7 +214,7 @@
 
   var TH=[
     {id:'lineage',      pale:'186,178,224', dot:'96,56,222',  lab:'80,50,210',  a:'rgba(100,70,220,0.18)', b:'rgba(120,60,210,0.14)'},
-    {id:'erasweep',     pale:'176,212,186', dot:'44,146,86',  lab:'30,118,68',  a:'rgba(60,162,96,0.16)',  b:'rgba(40,142,82,0.12)'},
+    {id:'influence',    pale:'176,212,186', dot:'44,146,86',  lab:'30,118,68',  a:'rgba(60,162,96,0.16)',  b:'rgba(40,142,82,0.12)'},
     {id:'actmap',       pale:'226,186,196', dot:'204,60,96',  lab:'170,52,96',  a:'rgba(214,64,72,0.15)',  b:'rgba(48,96,210,0.13)',
      pos:'208,54,62', neg:'40,88,200'},
     {id:'rain',         pale:'236,214,164', dot:'196,138,28', lab:'166,112,18', a:'rgba(226,166,60,0.15)', b:'rgba(214,140,40,0.11)'},
@@ -342,6 +342,11 @@
       else{cx.restore();return;}
     }
     cx.textAlign=al;cx.textBaseline='middle';
+    if(alpha>0.15){
+      cx.lineJoin='round';cx.lineWidth=3;
+      cx.strokeStyle='rgba(255,255,255,'+Math.min(0.9,alpha+0.3)+')';
+      cx.strokeText(txt,lx,y);
+    }
     cx.fillStyle='rgba('+(col||T.lab)+','+alpha+')';
     cx.fillText(txt,lx,y);
     cx.restore();
@@ -444,40 +449,236 @@
     }
   };
 
-  // Variant 1: chronological era sweep
-  var erasweep={
-    init:function(){buildGraph();},
-    draw:function(now,t){
-      var wf=(now%42000)/42000,i;
-      function reach(era){var th=era/6;return wf<th?0:Math.min(1,(wf-th)/0.04);}
-      function peak(era){
-        var th=era/6,el=wf-th;
-        if(el<0) return 0;
-        return Math.min(1,el/0.04)*Math.max(0.26,1-Math.max(0,el-0.05)/0.09*0.74);
+  // Variant 1: influence-weighted concept graph
+  // Circle area encodes how influential a term has been; edges link terms in the same family.
+  var influence={
+    R:[0,14,10,6.5,4.5],
+    APP:90,APPD:600,EDG:60,EDGD:420,
+    DATA:[
+      ['saliency map',1,0,'grad'],['GradCAM',1,0,'grad'],['integrated gradients',1,0,'grad'],
+      ['LRP',2,0,'grad'],
+      ['LIME',1,0,'pert'],['SHAP',1,0,'pert'],['anchors',2,0,'pert'],
+      ['TCAV',2,0,'concept'],['concept bottleneck',2,0,'concept'],['ProtoPNet',2,0,'concept'],
+      ['counterfactual',2,0,'example'],['influential instances',4,0,'example'],
+      ['influence function',2,0,'tda'],['data Shapley',3,0,'tda'],['TracIn',3,0,'tda'],
+      ['faithfulness',3,0,'eval'],['sanity checks',4,0,'eval'],
+      ['circuit',1,1,'circuits'],['attention head',2,1,'circuits'],['induction head',2,1,'circuits'],
+      ['logit lens',3,1,'circuits'],
+      ['superposition',1,1,'features'],['monosemanticity',2,1,'features'],
+      ['sparse autoencoder',1,1,'sae'],['dictionary learning',3,1,'sae'],['transcoder',4,1,'sae'],
+      ['activation patching',2,1,'causal'],['causal tracing',3,1,'causal'],
+      ['attribution graph',4,1,'causal'],
+      ['linear probe',2,1,'probe'],['feature visualization',2,1,'probe'],['monitorability',4,1,'probe'],
+      ['steering vector',2,1,'steer'],['model editing',3,1,'steer'],['refusal direction',4,1,'steer']
+    ],
+    BR:[
+      ['SHAP','integrated gradients'],['LIME','counterfactual'],['SHAP','data Shapley'],
+      ['saliency map','faithfulness'],['GradCAM','TCAV'],
+      ['ProtoPNet','influential instances'],
+      ['circuit','activation patching'],['attribution graph','circuit'],
+      ['attention head','linear probe'],['feature visualization','monosemanticity'],
+      ['superposition','sparse autoencoder'],['monosemanticity','dictionary learning'],
+      ['sparse autoencoder','steering vector']
+    ],
+    nodes:[],edges:[],adj:[],idx:{},geo:null,t0:0,timer:0,last:0,
+    init:function(){
+      if(!this.nodes.length){this.build();this.t0=Date.now();this.seed();}
+      else this.rescale();
+      this.geo={cL:cL,cR:cR,W:W,H:H};
+      if(!this.timer) this.tick();
+    },
+    build:function(){
+      var self=this,i;
+      this.DATA.forEach(function(d){
+        self.idx[d[0]]=self.nodes.length;
+        self.nodes.push({label:d[0],tier:d[1],side:d[2],fam:d[3],r:self.R[d[1]],
+          x:0,y:0,vx:0,vy:0,ord:0,actAt:0,ph:Math.random()*6.2832});
+      });
+      // biggest circles arrive first
+      this.nodes.slice().sort(function(p,q){return p.tier-q.tier;})
+        .forEach(function(n,k){n.ord=k;});
+      var fams={};
+      for(i=0;i<this.nodes.length;i++){
+        var n=this.nodes[i];(fams[n.fam]=fams[n.fam]||[]).push(i);
       }
-      for(i=0;i<edges.length;i++){
-        var ea=nodes[edges[i][0]],eb=nodes[edges[i][1]];
-        var aa=Math.min(reach(ea.era),reach(eb.era));
-        if(aa<0.05) continue;
-        cx.beginPath();cx.strokeStyle='rgba('+RAMP[ea.era]+','+aa*0.2+')';cx.lineWidth=0.8;
-        cx.moveTo(ea.x,ea.y);cx.lineTo(eb.x,eb.y);cx.stroke();
-        var k=(now/1400+i*0.17)%1,px=ea.x+(eb.x-ea.x)*k,py=ea.y+(eb.y-ea.y)*k;
-        cx.beginPath();cx.arc(px,py,1.8,0,6.2832);
-        cx.fillStyle='rgba('+RAMP[ea.era]+','+aa*0.6+')';cx.fill();
-      }
-      for(i=0;i<nodes.length;i++){
-        var n=nodes[i],C=RAMP[n.era],star=n.label.indexOf('\u2605')>-1;
-        var na=reach(n.era);
-        if(na<0.02) continue;
-        var g=Math.max(peak(n.era),hover(n.x,n.y));
-        var r=((star?5.5:3)+g*(star?5:3.2));
-        if(g>0.3){
-          diamond(n.x,n.y,r+5+(1-g)*13);
-          cx.strokeStyle='rgba('+C+','+g*(star?0.5:0.3)+')';cx.lineWidth=star?2.4:1.2;cx.stroke();
+      Object.keys(fams).forEach(function(k){
+        var g=fams[k].slice().sort(function(p,q){return self.nodes[p].tier-self.nodes[q].tier;});
+        for(var j=1;j<g.length;j++){
+          self.edges.push({a:g[0],b:g[j]});
+          if(j>1) self.edges.push({a:g[j-1],b:g[j]});
         }
-        diamond(n.x,n.y,r);
-        cx.fillStyle='rgba('+C+','+(0.26+g*0.74)+')';cx.fill();
-        label(n.label,n.x,n.y,n.side,g>0.5?g*0.95:na*0.3,star?12:(g>0.5?10.5:9),g>0.5,r+6);
+      });
+      this.BR.forEach(function(p){
+        var x=self.idx[p[0]],y=self.idx[p[1]];
+        if(x!=null&&y!=null&&self.nodes[x].side===self.nodes[y].side)
+          self.edges.push({a:x,b:y,bridge:true});
+      });
+      var fo={0:['eval','grad','concept','example','pert','tda'],
+              1:['causal','circuits','probe','features','sae','steer']};
+      this.nodes.forEach(function(n){
+        if(fo[n.side].indexOf(n.fam)<0) fo[n.side].push(n.fam);
+      });
+      this.nodes.forEach(function(n){
+        var list=fo[n.side],k=list.indexOf(n.fam),band=0.86/list.length;
+        n.afx=0.5;
+        n.afy=(k+0.5)*band+0.07+(Math.random()-0.5)*band*0.55;
+      });
+      for(i=0;i<this.nodes.length;i++) this.adj.push([]);
+      this.edges.forEach(function(e,k){
+        e.ord=k;self.adj[e.a].push(e.b);self.adj[e.b].push(e.a);
+      });
+    },
+    seed:function(){
+      var fam={},i;
+      for(i=0;i<this.nodes.length;i++){
+        var m=this.nodes[i];(fam[m.side+m.fam]=fam[m.side+m.fam]||[]).push(i);
+      }
+      for(i=0;i<this.nodes.length;i++){
+        var n=this.nodes[i],mw=n.side===0?Math.max(1,cL):Math.max(1,W-cR);
+        var g=fam[n.side+n.fam],k=g.indexOf(i);
+        var fx=g.length>1?0.16+(k/(g.length-1))*0.68:0.5;
+        n.x=(n.side===0?0:cR)+mw*(fx+(Math.random()-0.5)*0.1);
+        n.y=n.afy*H+(Math.random()*8-4);
+        n.vx=0;n.vy=0;
+      }
+    },
+    rescale:function(){
+      var g=this.geo;
+      if(!g) return;
+      for(var i=0;i<this.nodes.length;i++){
+        var n=this.nodes[i],fr;
+        if(n.side===0){fr=g.cL>0?n.x/g.cL:0.5;n.x=fr*Math.max(1,cL);}
+        else{fr=(g.W-g.cR)>0?(n.x-g.cR)/(g.W-g.cR):0.5;n.x=cR+fr*Math.max(1,W-cR);}
+        n.y=n.y/(g.H||H)*H;
+      }
+    },
+    tick:function(){
+      var self=this;
+      if(this.nodes.length){
+        var seedIdx=Math.floor(Math.random()*this.nodes.length),now=Date.now();
+        var seen={},level=[seedIdx];
+        seen[seedIdx]=1;this.nodes[seedIdx].actAt=now;
+        for(var d=1;d<=2&&level.length;d++){
+          var next=[];
+          for(var i=0;i<level.length;i++){
+            var nb=this.adj[level[i]]||[];
+            for(var j=0;j<nb.length;j++){
+              if(seen[nb[j]]) continue;
+              seen[nb[j]]=1;next.push(nb[j]);
+              this.nodes[nb[j]].actAt=now+d*400;
+            }
+          }
+          level=next;
+        }
+      }
+      this.timer=setTimeout(function(){self.tick();},1800+Math.random()*900);
+    },
+    nodeIn:function(n,now){
+      return Math.max(0,Math.min(1,(now-(this.t0+n.ord*this.APP))/this.APPD));
+    },
+    edgeIn:function(e,now){
+      var s0=this.t0+this.nodes.length*this.APP+this.APPD+300;
+      return Math.max(0,Math.min(1,(now-(s0+e.ord*this.EDG))/this.EDGD));
+    },
+    act:function(n,now){
+      if(!n.actAt||now<n.actAt) return 0;
+      return Math.max(0,1-(now-n.actAt)/1800);
+    },
+    physics:function(t){
+      var ns=this.nodes,i,j;
+      for(i=0;i<ns.length;i++){
+        var p=ns[i];
+        for(j=i+1;j<ns.length;j++){
+          var q=ns[j];
+          if(p.side!==q.side) continue;
+          var dx=q.x-p.x,dy=q.y-p.y,d2=dx*dx+dy*dy;
+          if(d2<1) d2=1;
+          var d=Math.sqrt(d2),ux=dx/d,uy=dy/d;
+          var sq=p.fam===q.fam?1:0.32;
+          var rep=Math.min(0.5,20*(p.r+q.r)/d2);
+          p.vx-=ux*rep;p.vy-=uy*rep*sq;q.vx+=ux*rep;q.vy+=uy*rep*sq;
+          var min=p.r+q.r+14;
+          if(d<min){
+            var hard=(min-d)/min*0.6;
+            p.vx-=ux*hard;p.vy-=uy*hard*sq;q.vx+=ux*hard;q.vy+=uy*hard*sq;
+          }
+        }
+      }
+      for(i=0;i<this.edges.length;i++){
+        var e=this.edges[i],m=ns[e.a],n2=ns[e.b];
+        var ex=n2.x-m.x,ey=n2.y-m.y,ed=Math.sqrt(ex*ex+ey*ey)||0.01;
+        var L=38+m.r+n2.r,sf=(ed-L)*(e.bridge?0.0008:0.0024);
+        var ux2=ex/ed,uy2=ey/ed;
+        m.vx+=ux2*sf;m.vy+=uy2*sf;n2.vx-=ux2*sf;n2.vy-=uy2*sf;
+      }
+      for(i=0;i<ns.length;i++){
+        var n=ns[i];
+        var mw=n.side===0?Math.max(1,cL):Math.max(1,W-cR);
+        var ax=(n.side===0?0:cR)+n.afx*mw,ay=n.afy*H;
+        n.vx+=(ax-n.x)*0.0022;
+        n.vy+=(ay-n.y)*0.022;
+        n.vx+=Math.sin(t*0.35+n.ph)*0.010;
+        n.vy+=Math.cos(t*0.29+n.ph)*0.010;
+        n.vx*=0.88;n.vy*=0.88;
+        if(n.vx>3)n.vx=3;if(n.vx<-3)n.vx=-3;
+        if(n.vy>3)n.vy=3;if(n.vy<-3)n.vy=-3;
+        n.x+=n.vx;n.y+=n.vy;
+        var lo=n.side===0?n.r+8:cR+n.r+10,hi=n.side===0?cL-n.r-10:W-n.r-8;
+        if(hi>lo){
+          if(n.x<lo){n.x=lo;n.vx=Math.abs(n.vx)*0.4;}
+          if(n.x>hi){n.x=hi;n.vx=-Math.abs(n.vx)*0.4;}
+        }else n.x=(lo+hi)/2;
+        var ty=n.r+12,by=H-n.r-12;
+        if(n.y<ty){n.y=ty;n.vy=Math.abs(n.vy)*0.4;}
+        if(n.y>by){n.y=by;n.vy=-Math.abs(n.vy)*0.4;}
+      }
+    },
+    draw:function(now,t){
+      var ns=this.nodes,i,labs=[[],[]];
+      var el=this.last?now-this.last:16;
+      this.last=now;
+      var steps=Math.max(1,Math.min(12,Math.round(el/16)));
+      for(i=0;i<steps;i++) this.physics(t);
+      for(i=0;i<this.edges.length;i++){
+        var e=this.edges[i],k=this.edgeIn(e,now);
+        if(k<=0) continue;
+        var p=ns[e.a],q=ns[e.b];
+        var vis=this.nodeIn(p,now)*this.nodeIn(q,now);
+        var gl=Math.max(this.act(p,now),this.act(q,now));
+        cx.beginPath();
+        cx.strokeStyle='rgba('+T.dot+','+((e.bridge?0.05:0.16)+gl*0.3)*vis+')';
+        cx.lineWidth=0.7+(4-Math.min(p.tier,q.tier))*0.16+gl*0.5;
+        cx.moveTo(p.x,p.y);cx.lineTo(p.x+(q.x-p.x)*k,p.y+(q.y-p.y)*k);
+        cx.stroke();
+      }
+      for(i=0;i<ns.length;i++){
+        var n=ns[i],ap=this.nodeIn(n,now);
+        if(ap<=0) continue;
+        var al=Math.max(this.act(n,now),hover(n.x,n.y));
+        var r=n.r*(0.55+0.45*ap)+al*2.5;
+        if(al>0.05){
+          cx.beginPath();cx.arc(n.x,n.y,r+5+(1-al)*14,0,6.2832);
+          cx.strokeStyle='rgba('+T.dot+','+al*0.38+')';cx.lineWidth=1.3;cx.stroke();
+        }
+        cx.beginPath();cx.arc(n.x,n.y,r,0,6.2832);
+        cx.fillStyle='rgba('+T.dot+','+(0.05+(4-n.tier)*0.038+al*0.28)*ap+')';cx.fill();
+        cx.strokeStyle='rgba('+T.dot+','+(0.3+al*0.5)*ap+')';cx.lineWidth=1;cx.stroke();
+        var base=n.tier===1?0.52:(n.tier===2?0.2:0);
+        var la=Math.max(base,al*0.95)*ap;
+        if(la>0.04) labs[n.side].push({t:n.label,x:n.x,y:n.y,oy:n.y,a:la,
+          sz:n.tier===1?11:10.5,bold:n.tier<=2||al>0.3,pad:r+7});
+      }
+      for(i=0;i<2;i++){
+        var L2=labs[i].sort(function(p,q){return p.y-q.y;}),k;
+        for(k=1;k<L2.length;k++){
+          if(L2[k].y-L2[k-1].y<18) L2[k].y=L2[k-1].y+18;
+        }
+        for(k=0;k<L2.length;k++){
+          var g=L2[k];
+          if(g.y>g.oy+18) g.y=g.oy+18;
+          if(g.y<g.oy-18) g.y=g.oy-18;
+          label(g.t,g.x,g.y,i,g.a,g.sz,g.bold,g.pad);
+        }
       }
     }
   };
@@ -777,7 +978,7 @@
     }
   };
 
-  var VARIANTS=[lineage,erasweep,actmap,rain,molecules];
+  var VARIANTS=[lineage,influence,actmap,rain,molecules];
   V=VARIANTS[VI];
 
   var mx=-1e4,my=-1e4;

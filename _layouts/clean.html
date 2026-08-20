@@ -227,24 +227,28 @@
   ];
 
   var qs=/[?&]bg=(\d+)/.exec(location.search);
-  // A fresh theme on every visit. Themes are drawn from a shuffled bag held in
-  // session storage, so all of them show up before any one repeats.
+  // Themes in the refresh rotation. The rest stay reachable through ?bg=N.
+  var ACTIVE=[0,1,2,4,8];
+  // A fresh theme on every visit, drawn from a shuffled bag held in session
+  // storage, so all the active ones show up before any one repeats.
   function pickTheme(){
     var bag=[],last=null,i,j,tmp;
     try{
       bag=JSON.parse(sessionStorage.getItem('bgbag')||'[]');
       last=sessionStorage.getItem('bglast');
     }catch(e){}
-    if(!bag||!bag.length){
-      bag=[];
-      for(i=0;i<TH.length;i++) bag.push(i);
+    for(i=bag.length-1;i>=0;i--){
+      if(ACTIVE.indexOf(bag[i])<0) bag.splice(i,1);
+    }
+    if(!bag.length){
+      bag=ACTIVE.slice();
       for(i=bag.length-1;i>0;i--){
         j=Math.floor(Math.random()*(i+1));tmp=bag[i];bag[i]=bag[j];bag[j]=tmp;
       }
       if(last!==null&&bag.length>1&&bag[0]===+last){tmp=bag[0];bag[0]=bag[1];bag[1]=tmp;}
     }
     var pick=bag.shift();
-    if(pick==null||pick<0||pick>=TH.length) pick=Math.floor(Math.random()*TH.length);
+    if(pick==null||pick<0||pick>=TH.length) pick=ACTIVE[Math.floor(Math.random()*ACTIVE.length)];
     try{
       sessionStorage.setItem('bgbag',JSON.stringify(bag));
       sessionStorage.setItem('bglast',pick);

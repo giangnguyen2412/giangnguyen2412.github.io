@@ -228,7 +228,7 @@
 
   var qs=/[?&]bg=(\d+)/.exec(location.search);
   // Themes in the refresh rotation. The rest stay reachable through ?bg=N.
-  var ACTIVE=[0,1,2,4,8];
+  var ACTIVE=[0,1,2,4];
   // A fresh theme on every visit, drawn from a shuffled bag held in session
   // storage, so all the active ones show up before any one repeats.
   function pickTheme(){

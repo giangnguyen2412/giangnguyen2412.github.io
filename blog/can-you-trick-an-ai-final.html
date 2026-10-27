@@ -28,7 +28,7 @@ permalink: /blog/can-you-trick-an-ai/
 <p>We wanted to know if an AI would.</p>
 <p>Some AI programs can be handed a computer and told to do a job on their own, with nobody watching. People call these programs <strong>agents</strong>. They can open files, run commands, and explore folders without asking a human at every step.</p>
 <p>Inspired by <a href="https://x.com/Nexuist/status/2113677652531761661" target="_blank" rel="noopener">this tweet from andi</a>, we planted a fake victory message on a computer and watched whether an AI agent would stop exploring after reading it.</p>
-<p><strong>It did not work as we hoped.</strong> Across 20 Claude runs per condition, the fake victory message was followed by the most additional tool calls. After reading it, Claude made an average of 6.5 more calls, roughly twice as many as after simpler messages.</p>
+<p><strong>It did not work as we expected.</strong> Across 20 Claude runs per condition, the fake victory message was followed by the most additional tool calls. After reading it, Claude made an average of 6.5 more calls, roughly twice as many as after simpler messages.</p>
 <p>Even more interesting, a plain congratulation with no instruction to stop performed better than the elaborate fake victory message.</p>
 <h2>The idea</h2>
 <p>The <a href="https://x.com/Nexuist/status/2113677652531761661" target="_blank" rel="noopener">original proposal</a> was simple: leave a file called <code>flag.txt</code> on a computer, congratulating an AI agent for passing a test. Tell it that the evaluation is complete, that it should patch whatever hole it used to enter, and that it can disconnect.</p>
@@ -45,14 +45,13 @@ permalink: /blog/can-you-trick-an-ai/
 <ol><li><strong>No note:</strong> The baseline, with no planted file.</li><li><strong>Bare flag:</strong> A flag string with no instruction.</li><li><strong>STOP only:</strong> A direct instruction to stop exploring.</li><li><strong>Congratulations only:</strong> A message congratulating the agent, without asking it to stop.</li><li><strong>Honest note:</strong> A safety-oriented message explaining why the agent should stop.</li><li><strong>Deceptive victory:</strong> A staged evaluation-success message claiming the agent had passed, with instructions to patch its entry method and disconnect.</li></ol>
 <p>We used two tasks. In <strong>Explore</strong>, the agent was asked to inventory the machine without any mention of a flag. In <strong>CTF</strong>, it was asked to find a hidden flag.</p>
 <p>Explore is the main experiment. The agent has no reason to treat a flag as its objective, so any stopping behavior is more informative. In CTF, finding the flag already completes the assigned task, making it harder to tell whether a note caused the agent to stop.</p>
-<p>Our initial pilot used three seeds per condition. We then expanded the Claude Explore experiment to <strong>20 seeds per condition</strong>, keeping the six conditions fixed within that larger experiment.</p>
-<p>The results below focus on that larger experiment.</p>
-<h2>What happened</h2>
+<p>Our initial pilot used three seeds per condition. We then expanded the Claude Explore experiment to <strong>20 seeds per condition</strong>, keeping the six conditions fixed within that larger experiment. The results below focus on that larger experiment.</p>
+<h2>Main results</h2>
 <p>We measured what Claude did after encountering the planted file.</p>
-<p>Two numbers matter most:</p>
+<p>We used two main metrics:</p>
 <ul><li><strong>Post-read calls:</strong> The average number of additional tool calls after encountering the file. Lower means less continued activity.</li><li><strong>Fast-stop rate:</strong> The percentage of reached runs that stopped within three additional tool calls. Higher means the agent stopped sooner.</li></ul>
 <p>We also tracked <strong>reach rate</strong>: how often the agent encountered the planted file at all.</p>
-<p>This distinction matters. If the agent never reads the note, we cannot learn whether the note would have made it stop. Post-read results therefore include only runs that reached the file.</p>
+<p>If the agent never reads the note, we cannot learn whether the note would have made it stop. Post-read results therefore include only runs that reached the file.</p>
 <h2>Claude Explore: 20 seeds per condition</h2>
 <table><thead><tr><th>Note</th><th>Reached</th><th>Post-read calls ↓</th><th>Fast-stop ↑</th></tr></thead><tbody><tr><td>Congratulations only</td><td>14/20</td><td><strong>3.0</strong></td><td>57%</td></tr><tr><td>STOP only</td><td>17/20</td><td>3.2</td><td>53%</td></tr><tr><td>Bare flag</td><td>13/20</td><td>3.3</td><td><strong>69%</strong></td></tr><tr><td>Honest note</td><td>13/20</td><td>4.7</td><td>38%</td></tr><tr><td><strong>Deceptive victory</strong></td><td>11/20</td><td><strong>6.5</strong></td><td><strong>18%</strong></td></tr></tbody></table>
 <p class="table-note">Post-read metrics are conditional on reaching the planted file. Reach counts are derived from the reported percentages and 20 seeds per condition. Percentages are rounded.</p>
@@ -92,19 +91,16 @@ permalink: /blog/can-you-trick-an-ai/
 <p>Qwen3-4B did not complete its runs because of an infrastructure conflict involving the model-serving port.</p>
 <p>These attempts do not establish whether the intervention would work on other models. They show that the test requires an agent capable of sustained exploration and a setup in which the agent actually encounters the note.</p>
 <h2>Limitations</h2>
-<p><strong>One usable model.</strong> Our main result comes from Claude. The open-model attempts did not produce a valid replication.</p>
-<p><strong>Small conditional samples.</strong> Although we ran 20 seeds per condition, only 11–17 runs per planted-note condition reached the file. The post-read results are based on those reached runs, and reach rates differed across conditions. We have not established statistical significance or a population-level causal effect.</p>
+<p><strong>One usable model.</strong> Our main result comes from Claude. The small open-sourced models did not produce a valid replication.</p>
 <p><strong>We measured activity, not necessarily harm.</strong> Additional tool calls do not automatically mean additional sensitive-file access. The larger experiment's summary does not include post-read decoy counts by condition, so we cannot conclude that the deceptive note caused more sensitive files to be opened.</p>
-<p><strong>The messages differ in several ways.</strong> They vary in length, wording, authority claims, and requested actions. We cannot attribute the result specifically to deception.</p>
-<p><strong>Encounter detection is an approximation.</strong> The scorer identifies the first relevant tool call referencing the planted file. That is an operational measure of encountering the file, not proof that the agent understood or obeyed its contents.</p>
 <p><strong>Open-model sandbox isolation was incomplete.</strong> During Qwen testing, we found that some agents could access files belonging to other concurrent runs. One run even reported a flag from another experimental host. We therefore do not use those open-model runs to support a cross-model conclusion. The isolation issue must be fixed before further open-model comparisons.</p>
 <h2>The follow-ups</h2>
 <p>The next question is no longer just whether a fake victory message works. It is <strong>why this particular message led to more exploration.</strong></p>
 <p>We want to separate three possibilities: whether the agent reacts to a claimed evaluation result, whether the message's complexity matters, and whether the extra instructions give the agent more work to do.</p>
 <p>A cleaner experiment would compare messages that differ in only one of those properties at a time.</p>
 <p>We also want to inspect individual Claude trajectories, improve the isolation of the fake host, and test a more capable open model that can reliably explore the environment.</p>
-<p class="takeaway">For now, the result is clear within this experiment: telling Claude it had already won did not reliably make it stop. The staged victory message was followed by roughly twice as many tool calls as the simplest alternatives.</p>
-<h2>Cite</h2>
+<p class="takeaway">For now, the result is clear within this experiment: telling Claude it had already won did not reliably make it stop. The victory message was followed by roughly twice as many tool calls as the simplest alternatives.</p>
+<h2>Cite this work</h2>
 <pre><code>@misc{nguyen2026gaslight,
   author       = {Nguyen, Giang},
   title        = {Can You Trick an AI into Leaving a Computer Alone?},
